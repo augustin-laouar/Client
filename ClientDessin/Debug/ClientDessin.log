@@ -1,5 +1,7 @@
-﻿  Communication.cpp
-  Erreur.cpp
-  Source.cpp
+﻿  Cercle.cpp
+  Forme.cpp
+  Point.cpp
+  Polygone.cpp
+  Trait.cpp
   Génération de code en cours...
-  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\projet_dessin\clientDessin\ClientDessin\Debug\ClientDessin.exe
+  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe
