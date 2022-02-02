@@ -13,5 +13,7 @@ public :
 	Polygone* clone()const {
 		return new Polygone(*this);
 	}
+	Forme* accept(const VisitorForme* v)const;
+
 };
 

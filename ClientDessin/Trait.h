@@ -26,6 +26,7 @@ public:
 	Trait* clone()const {
 		return new Trait(*this);
 	}
+	Forme* accept(const VisitorForme* v)const;
 
 };
 

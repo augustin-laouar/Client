@@ -2,7 +2,10 @@
 #include <vector>
 #include "Point.h"
 #include "vecteur2D.h"
+
 using namespace std;
+
+class VisitorForme;
 class Forme
 {
 protected:
@@ -17,8 +20,10 @@ public:
 		return ListePoint.at(i);
 	}
 	Forme* clone()const {
-		return new Forme(*this);
+	//	return new Forme(*this); // plu besoin du clone 
 	}
 	void translation(const Vecteur2D& );
+	
+	virtual Forme * accept(const VisitorForme* v)const = 0;
 };
 

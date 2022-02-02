@@ -1,5 +1,6 @@
 #pragma once
 #include "Forme.h"
+using namespace std;
 class Cercle : public Forme
 {
 private:
@@ -30,5 +31,6 @@ public:
 	Cercle* clone()const {
 		return new Cercle(*this);
 	}
+	Forme* accept(const VisitorForme* v)const;
 };
 
