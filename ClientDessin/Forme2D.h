@@ -10,12 +10,12 @@ protected:
 	virtual void ajouterPoint(const Point2D* p) {
 		ListePoint.push_back(p->clone());
 	}
-public:
-	Forme2D() {}
-	Forme2D(const Forme2D& f);
 	virtual Point2D* getPoint(int i)const {
 		return (Point2D*)ListePoint.at(i);
 	}
+public:
+	Forme2D() {}
+	Forme2D(const Forme2D& f);
 	virtual Forme2D* clone()const = 0;
 	virtual string toString()const;
 	virtual Forme2D * accept(const VisitorForme* v)const = 0;

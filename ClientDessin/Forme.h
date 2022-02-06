@@ -31,7 +31,3 @@ public:
 inline ostream& operator<<(ostream& s, const Forme& f) {
 	return s << f.toString();
 }
-/*
-* Operator ==
-* Operator =
-*/
