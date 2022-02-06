@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 #include "Point.h"
 #include "vecteur2D.h"
 
@@ -8,22 +9,29 @@ using namespace std;
 class VisitorForme;
 class Forme
 {
-protected:
-	vector<Point> ListePoint;
+protected  :
+	vector<Point* > ListePoint; 
+	virtual void ajouterPoint(const Point* p) {
+		ListePoint.push_back(p->clone());
+	}
+	virtual Point* getPoint(int i)const {
+		return ListePoint.at(i)->clone();
+	}
+	virtual void modifierPoint(int i, const Point* p) {
+		ListePoint.at(i) = p->clone();
+	}
 public:
-	Forme() {}
-	Forme(const Forme& f);
-	void AjouterPoint(const Point& p) {
-		ListePoint.push_back(p);
+	virtual int getNbPoint()const {
+		return ListePoint.size();
 	}
-	Point getPoint(int i)const {
-		return ListePoint.at(i);
-	}
-	Forme* clone()const {
-	//	return new Forme(*this); // plu besoin du clone 
-	}
-	void translation(const Vecteur2D& );
-	
-	virtual Forme * accept(const VisitorForme* v)const = 0;
+	virtual Forme * clone()const = 0;
+	virtual Forme* accept(const VisitorForme* v)const = 0;
+	virtual string toString()const =0 ;
 };
-
+inline ostream& operator<<(ostream& s, const Forme& f) {
+	return s << f.toString();
+}
+/*
+* Operator ==
+* Operator =
+*/

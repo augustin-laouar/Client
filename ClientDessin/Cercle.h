@@ -1,24 +1,24 @@
 #pragma once
-#include "Forme.h"
+#include "Forme2D.h"
 using namespace std;
-class Cercle : public Forme
+class Cercle : public Forme2D
 {
 private:
 	double rayon;
 public:
-	Cercle(const Point& centre, double rayon) {
-		this->AjouterPoint(centre);
+	Cercle(const Point2D* centre, double rayon) {
+		this->ajouterPoint(centre);
 		this->rayon = rayon;
 	}
 	Cercle(const Cercle& c) {
-		this->AjouterPoint(c.getCentre());
+		this->ajouterPoint(c.getCentre()->clone());
 		this->rayon = c.rayon;
 	}
-	void setCentre(const Point& c) {
-		this->ListePoint[0] = c;
+	void setCentre(const Point2D* c) {
+		modifierPoint(0,c->clone());
 	}
-	Point getCentre()const {
-		return this->ListePoint[0];
+	Point2D * getCentre()const {
+		return getPoint(0);
 	}
 	void setRayon(double rayon) {
 		if (rayon > 0) {
@@ -31,6 +31,12 @@ public:
 	Cercle* clone()const {
 		return new Cercle(*this);
 	}
-	Forme* accept(const VisitorForme* v)const;
+	string toString()const {
+		return "Cercle : centre : " + getCentre()->toString() + "; Rayon : " + to_string(rayon);
+	}
+	Forme2D* accept(const VisitorForme* v)const;
 };
-
+/*
+* redefinir operator ==
+* redefinir operator =
+*/

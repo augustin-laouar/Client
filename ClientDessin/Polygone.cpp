@@ -1,5 +1,6 @@
 #include "Polygone.h"
+#include "VisitorForme.h"
 
 
 
-Forme* Polygone::accept(const VisitorForme* v)const { return v->visit(this); }
+Forme2D* Polygone::accept(const VisitorForme* v)const { return v->visit(this); }

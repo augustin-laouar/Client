@@ -7,9 +7,9 @@ using namespace std;
 class VisitorForme
 {
 public : 
-	virtual Forme* visit(const Polygone* p) const = 0;
-	virtual Forme* visit(const Cercle* c) const = 0;
-	virtual Forme*  visit(const Trait* t) const = 0;
+	virtual Forme2D* visit(const Polygone* p) const = 0;
+	virtual Forme2D* visit(const Cercle* c) const = 0;
+	virtual Forme2D*  visit(const Trait* t) const = 0;
 	
 
 };

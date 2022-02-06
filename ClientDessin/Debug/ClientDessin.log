@@ -1,10 +1,10 @@
 ﻿  Cercle.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Cercle.cpp(3,61): error C2027: utilisation du type non défini 'VisitorForme'
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Forme.h(8): message : voir la déclaration de 'VisitorForme'
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(9,21): warning C4018: '<' : incompatibilité signed/unsigned
   Polygone.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.cpp(5,63): error C2027: utilisation du type non défini 'VisitorForme'
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Forme.h(8): message : voir la déclaration de 'VisitorForme'
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(9,21): warning C4018: '<' : incompatibilité signed/unsigned
+  Source.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(9,21): warning C4018: '<' : incompatibilité signed/unsigned
   Trait.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Trait.cpp(3,60): error C2027: utilisation du type non défini 'VisitorForme'
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Forme.h(8): message : voir la déclaration de 'VisitorForme'
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(9,21): warning C4018: '<' : incompatibilité signed/unsigned
   Génération de code en cours...
+  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe

@@ -143,7 +143,9 @@
     <ClInclude Include="Communication.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme.h" />
+    <ClInclude Include="Forme2D.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Point2D.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
     <ClInclude Include="Vecteur2D.h" />
@@ -154,7 +156,9 @@
     <ClCompile Include="Communication.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme.cpp" />
+    <ClCompile Include="Forme2D.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trait.cpp" />
