@@ -19,6 +19,12 @@ public:
 	virtual Forme2D* clone()const = 0;
 	virtual string toString()const;
 	virtual Forme2D * accept(const VisitorForme* v)const = 0;
+	void translation(const Vecteur2D& v) {
+		for (size_t i = 0; i < ListePoint.size(); i++) {
+			getPoint(i)->x = getPoint(i)->x + v.x;
+			getPoint(i)->y = getPoint(i)->y + v.y;
+		}
+	}
 };
 
 

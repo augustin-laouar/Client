@@ -6,7 +6,7 @@ class Polygone : public Forme2D
 
 public :
 	Polygone(vector<Point2D*> v) {
-		for (int i = 0; i < v.size(); i++) {
+		for (size_t i = 0; i < v.size(); i++) {
 			ajouterPoint(v[i]->clone());
 		}
 	}
@@ -70,7 +70,7 @@ public :
 	{
 		
 		for (int i=0; i<getNbPoint(); i++) {
-			if (getPoint(i)==&p)
+			if (*getPoint(i)==p)
 			{
 			
 				ListePoint.erase(ListePoint.begin() + i);

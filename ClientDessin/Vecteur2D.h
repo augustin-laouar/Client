@@ -4,26 +4,30 @@ class Vecteur2D
 {
 
 public:
-	Point x;
-	Point y;
-	Vecteur2D(const Point& x1, const Point& y1) : x(x1), y(y1) {
+	double x;
+	double y;
+	Vecteur2D(double x, double y){
+		this->x = x;
+		this->y = y;
 	}
 	const Vecteur2D operator + (const Vecteur2D& u) const {
-		
-		return Vecteur2D(x.x + u.x.x, y.x + u.y.x);
+		return Vecteur2D(x + u.x, y + u.y);
 
 	}
 	const Vecteur2D operator * (const double& a) const {
-		return Vecteur2D(x.x * a, y.x * a);
+		return Vecteur2D(x * a, y * a);
 	}
 	const Vecteur2D operator - () const {
-		return Vecteur2D(-x.x, -y.x);
-
+		return Vecteur2D(-x, -y);
 	}
 	string  toString() const {
 		string s;
-		s = "vecteur2D : x= " + to_string(x.x) + " y= " + to_string(y.x);
+		s = "vecteur2D : x= " + to_string(x) + " y= " + to_string(x);
 		return s;
+	}
+	operator string() const
+	{
+		return this->toString();
 	}
 
 };

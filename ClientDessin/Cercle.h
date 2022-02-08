@@ -45,7 +45,6 @@ public:
 		return *this;
 	}
 	virtual bool operator == (const Cercle &c)const {
-		double x, y;
 		if (this->rayon == c.rayon && c.getCentre() == this->getCentre()) {
 			
 			return true;

@@ -21,6 +21,12 @@ protected  :
 		ListePoint.at(i) = p->clone();
 	}
 public:
+	virtual ~Forme() {
+		for (size_t i = 0; i < ListePoint.size(); i++) {
+			delete(ListePoint[i]);
+		}
+		ListePoint.clear();
+	}
 	virtual int getNbPoint()const {
 		return ListePoint.size();
 	}

@@ -39,7 +39,9 @@ int main() {
     cout << " u2 = " << u2 << endl;
     //cout << " u1 - u2 = " << u1 - u2 << endl;
     cout << " 5*u1 = " <<  u1*5 << endl;
-
+    cout << po1 << endl;
+    po1.translation(u2);
+    cout << po1 << endl;
 
 
 }
