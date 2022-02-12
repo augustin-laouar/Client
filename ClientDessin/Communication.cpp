@@ -10,7 +10,7 @@ Communication::Communication(const char* adresse, short port) {
 
 	if (connexion) throw Erreur("L'initialisation a échoué");
 
-	cout << "client vers le serveur de majuscule" << endl;
+	cout << "client vers le serveur de dessin " << endl;
 	cout << "initialisation effectuée" << endl;
 
 	//---------------------- création socket -------------------------------------------------
