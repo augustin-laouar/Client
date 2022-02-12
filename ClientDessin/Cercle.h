@@ -1,24 +1,24 @@
 #pragma once
 #include "Forme2D.h"
 using namespace std;
-class Cercle : public Forme2D
+class  Cercle : public Forme2D
 {
 private:
 	double rayon;
 public:
-	Cercle(const Point2D* centre, double rayon) {
+	Cercle(const Point2D& centre, double rayon, int couleur) : Forme2D(couleur) {
 		this->ajouterPoint(centre);
 		this->rayon = rayon;
 	}
-	Cercle(const Cercle& c) {
-		this->ajouterPoint(c.getCentre().clone());
+	Cercle(const Cercle& c) : Forme2D(c.couleur) {
+		this->ajouterPoint(c.ListePoint[0]);
 		this->rayon = c.rayon;
 	}
 	void setCentre(const Point2D &c) {
-		modifierPoint(0,c.clone());
+		this->ListePoint[0] = c;
 	}
 	Point2D  getCentre()const {
-		return *(getPoint(0)->clone());
+		return this->ListePoint[0];
 	}
 	void setRayon(double rayon) {
 		if (rayon > 0) {
@@ -32,9 +32,9 @@ public:
 		return new Cercle(*this);
 	}
 	string toString()const {
-		return "Cercle : centre : " + getCentre().toString() + "; Rayon : " + to_string(rayon);
+		return "Cercle : centre : " + ListePoint[0].toString() + "; Rayon : " + to_string(rayon);
 	}
-	Forme2D* accept(const VisitorForme* v)const;
+	//Forme2D* accept(const VisitorForme* v)const;
 
 	virtual const Cercle& operator = (const Cercle& c) {
 		if (this == &c) {
@@ -45,7 +45,7 @@ public:
 		return *this;
 	}
 	virtual bool operator == (const Cercle &c)const {
-		if (this->rayon == c.rayon && c.getCentre() == this->getCentre()) {
+		if (this->rayon == c.rayon && c.ListePoint[0] == this->ListePoint[0]) {
 			
 			return true;
 		}
@@ -54,7 +54,3 @@ public:
 		}
 	}
 };
-/*
-* redefinir operator ==
-* redefinir operator =
-*/
