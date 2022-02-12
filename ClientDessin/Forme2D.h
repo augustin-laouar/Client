@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include "Erreur.h"
+#include "Vecteur2D.h"
+#include "Point2D.h"
 class Forme2D
 {
 protected : 
@@ -18,7 +20,14 @@ public:
 		return couleur;
 	}
 	virtual string toString()const = 0;
+	operator string() const
+	{
+		return this->toString();
+	}
 	virtual Forme2D* clone()const = 0;
+	virtual void translation(const Vecteur2D& v) = 0;
+	virtual void homothetie(const Point2D&, double) = 0;
+
 };
 inline ostream& operator<<(ostream& s, const Forme2D& f) {
 	return s << f.toString();

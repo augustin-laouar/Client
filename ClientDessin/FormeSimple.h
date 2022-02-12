@@ -1,7 +1,5 @@
 #pragma once
 #include <vector>
-#include "vecteur2D.h"
-#include "Point2D.h"
 #include "Forme2D.h"
 using namespace std;
 
@@ -34,10 +32,6 @@ public:
 	}
 	virtual FormeSimple* clone()const = 0;
 	virtual string toString()const;
-	operator string() const
-	{
-		return this->toString();
-	}
 	//virtual Forme2D * accept(const VisitorForme* v)const = 0;
 	void translation(const Vecteur2D& v);
 	void homothetie(const Point2D&, double);

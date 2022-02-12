@@ -40,6 +40,7 @@ public:
 		if (this == &c) {
 			return *this;
 		}
+		this->couleur = c.couleur;
 		this->rayon= c.rayon;
 		this->setCentre(c.getCentre());
 		return *this;

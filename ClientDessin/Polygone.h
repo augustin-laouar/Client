@@ -28,6 +28,7 @@ public :
 		if (this == &p) {
 			return *this;
 		}
+		this->couleur = p.couleur;
 		ListePoint.clear();
 		for (int i = 0; i < p.getNbPoint(); i++)
 		{

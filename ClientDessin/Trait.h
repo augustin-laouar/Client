@@ -39,6 +39,7 @@ public:
 		if (this == &t) {
 			return *this;
 		}
+		this->couleur = t.couleur;
 		this->setP1(t.ListePoint[0]);
 		this->setP2(t.ListePoint[1]);
 		return *this;
