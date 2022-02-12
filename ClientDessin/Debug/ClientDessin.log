@@ -1,2 +1,10 @@
-﻿  Source.cpp
+﻿  Cercle.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Forme2D.h(18,7): warning C4018: '>=' : incompatibilité signed/unsigned
+  Polygone.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Forme2D.h(18,7): warning C4018: '>=' : incompatibilité signed/unsigned
+  Source.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Forme2D.h(18,7): warning C4018: '>=' : incompatibilité signed/unsigned
+  Trait.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Forme2D.h(18,7): warning C4018: '>=' : incompatibilité signed/unsigned
+  Génération de code en cours...
   ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe

@@ -36,6 +36,10 @@ public:
 	virtual string toString()const {
 		return "Point : ( " + to_string(x)+" )";
 	}
+	operator string() const
+	{
+		return this->toString();
+	}
 };
 inline ostream& operator<<(ostream& s, const Point& p) {
 	return s << p.toString();

@@ -1,5 +1,8 @@
 #pragma once
-#include "Point.h"
+#include <string>
+#include <iostream>
+#include <ostream>
+using namespace std;
 class Vecteur2D
 {
 
@@ -22,7 +25,7 @@ public:
 	}
 	string  toString() const {
 		string s;
-		s = "vecteur2D : x= " + to_string(x) + " y= " + to_string(x);
+		s = "vecteur2D : x= " + to_string(x) + " y= " + to_string(y);
 		return s;
 	}
 	operator string() const

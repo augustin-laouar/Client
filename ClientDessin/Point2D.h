@@ -1,14 +1,14 @@
 #pragma once
 #include "Point.h"
-class Point2D : public Point
+#include <string>
+#include <iostream>
+using namespace std;
+class Point2D 
 {
 public : 
+	double x;
 	double y;
-	Point2D() {
-		x = 0;
-		y = 0;
-	}
-	Point2D(double x, double y) {
+	Point2D(double x=0, double y=0) {
 		this->x = x;
 		this->y = y;
 	}
@@ -19,7 +19,7 @@ public :
 	Point2D* clone()const {
 		return new Point2D(*this);
 	}
-	const Point& operator = (const Point2D& p) {
+	const Point2D& operator = (const Point2D& p) {
 		if (this == &p) {
 			return *this;
 		}
@@ -38,5 +38,12 @@ public :
 	 virtual string toString()const {
 		return " Point2D : ( " + to_string(x) + " , " + to_string(y) +" )";
 	}
+	 operator string() const
+	 {
+		 return this->toString();
+	 }
 };
+inline ostream& operator<<(ostream& s, const Point2D& p) {
+	return s << p.toString();
+}
 
