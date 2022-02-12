@@ -32,6 +32,15 @@ public:
 	{
 		return this->toString();
 	}
+	virtual const Vecteur2D& operator = (const Vecteur2D& v) {
+		if (this == &v) {
+			return *this;
+		}
+		this->x=v.x;
+		this->y=v.y;
+		return *this;
+	}
+	
 
 };
 

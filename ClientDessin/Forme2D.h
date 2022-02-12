@@ -10,17 +10,18 @@ class Forme2D
 protected:
 	vector<Point2D> ListePoint;
 	int couleur;
-
 	virtual void ajouterPoint(const Point2D& p) {
 		ListePoint.push_back(p);
 	}
 	virtual void modifierPoint(int i, const Point2D& p) {
-		if(i>=ListePoint.size()){
+		if (i >= ListePoint.size()) {
 			throw new Erreur("i sort des bornes de la liste");
 		}
 		ListePoint.at(i) = p;
 	}
+
 public:
+	
 	Forme2D(int couleur) {
 		this->couleur = couleur;
 	}
