@@ -25,6 +25,7 @@ public:
 			getPoint(i)->y = getPoint(i)->y + v.y;
 		}
 	}
+	
 };
 
 
