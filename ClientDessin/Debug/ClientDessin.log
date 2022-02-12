@@ -1,3 +1,5 @@
-﻿  Source.cpp
+﻿  Communication.cpp
+  Source.cpp
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Forme2D.h(17,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Génération de code en cours...
   ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe

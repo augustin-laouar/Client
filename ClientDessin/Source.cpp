@@ -3,6 +3,7 @@
 #include "Cercle.h"
 #include "Polygone.h"
 #include "Vecteur2D.h"
+#include "Communication.h"
 
 int main() {
 	//TEST CLASSE POINT2D
@@ -195,6 +196,16 @@ int main() {
 	po1.homothetie(p1, 10);
 	cout << "    po1 apres homothetie : " << po1 << endl;
 	cout << endl;
+
+	// test de communication 
+	cout << "TEST DE COMMUNICATION" << endl;
+	char trait []= "1;2;410,450;480,525"; // dessin d un trait 
+	char polygone[] = "3;6;410,460;460,415;500,425;480,435;550,445;410,460"; //dessin polygone
+
+	char adresse[] = "127.0.0.1";
+	Communication comm(adresse,9111);
+	comm.Envoyer(polygone);
+	comm.FermerConnexion();
 
 
 }
