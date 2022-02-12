@@ -142,9 +142,9 @@
     <ClInclude Include="Cercle.h" />
     <ClInclude Include="Communication.h" />
     <ClInclude Include="Erreur.h" />
-    <ClInclude Include="Forme.h" />
     <ClInclude Include="Forme2D.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="FormeSimple.h" />
+    <ClInclude Include="GroupeForme.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
@@ -155,9 +155,9 @@
     <ClCompile Include="Cercle.cpp" />
     <ClCompile Include="Communication.cpp" />
     <ClCompile Include="Erreur.cpp" />
-    <ClCompile Include="Forme.cpp" />
     <ClCompile Include="Forme2D.cpp" />
-    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="FormeSimple.cpp" />
+    <ClCompile Include="GroupeForme.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />

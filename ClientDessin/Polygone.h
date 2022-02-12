@@ -1,16 +1,16 @@
 #pragma once
-#include "Forme2D.h"
+#include "FormeSimple.h"
 using namespace std;
-class Polygone : public Forme2D
+class Polygone : public FormeSimple
 {
 
 public :
-	Polygone(vector<Point2D> v, int couleur) : Forme2D(couleur) {
+	Polygone(vector<Point2D> v, int couleur) : FormeSimple(couleur) {
 		for (size_t i = 0; i < v.size(); i++) {
 			ListePoint.push_back(v[i]);
 		}
 	}
-	Polygone(const Polygone & p): Forme2D(p.couleur) {
+	Polygone(const Polygone & p): FormeSimple(p.couleur) {
 		for (int i = 0; i < p.getNbPoint(); i++) {
 			ListePoint.push_back(p.ListePoint[i]);
 		}

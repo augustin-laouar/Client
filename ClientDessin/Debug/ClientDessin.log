@@ -1,3 +1,3 @@
-﻿  Source.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Forme2D.h(17,9): warning C4018: '>=' : incompatibilité signed/unsigned
-  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe
+﻿  GroupeForme.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(16,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe

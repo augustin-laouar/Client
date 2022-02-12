@@ -1,16 +1,16 @@
 #pragma once
-#include "Forme2D.h"
+#include "FormeSimple.h"
 using namespace std;
-class  Cercle : public Forme2D
+class  Cercle : public FormeSimple
 {
 private:
 	double rayon;
 public:
-	Cercle(const Point2D& centre, double rayon, int couleur) : Forme2D(couleur) {
+	Cercle(const Point2D& centre, double rayon, int couleur) : FormeSimple(couleur) {
 		this->ajouterPoint(centre);
 		this->rayon = rayon;
 	}
-	Cercle(const Cercle& c) : Forme2D(c.couleur) {
+	Cercle(const Cercle& c) : FormeSimple(c.couleur) {
 		this->ajouterPoint(c.ListePoint[0]);
 		this->rayon = c.rayon;
 	}

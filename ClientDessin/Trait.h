@@ -1,13 +1,13 @@
 #pragma once
-#include "Forme2D.h"
-class Trait : public Forme2D
+#include "FormeSimple.h"
+class Trait : public FormeSimple
 {
 public:
-	Trait(const Point2D& p1, const Point2D& p2, int couleur): Forme2D(couleur) {
+	Trait(const Point2D& p1, const Point2D& p2, int couleur): FormeSimple(couleur) {
 		this->ajouterPoint(p1);
 		this->ajouterPoint(p2);
 	}
-	Trait(const Trait& t ) : Forme2D(t.couleur) {
+	Trait(const Trait& t ) : FormeSimple(t.couleur) {
 		this->ajouterPoint(t.ListePoint[0]);
 		this->ajouterPoint(t.ListePoint[1]);
 	}
