@@ -204,7 +204,7 @@ int main() {
 
 	char adresse[] = "127.0.0.1";
 	Communication comm(adresse,9111);
-	comm.Envoyer(polygone);
+	comm.Envoyer(trait);
 	comm.FermerConnexion();
 
 
