@@ -36,8 +36,8 @@ public:
 		return new Vecteur2D(*this);
 	}
 	string  toString() const {
-		string s;
-		s = "vecteur2D : x= " + to_string(x) + " y= " + to_string(y);
+		string s = "VECTEUR 2D : \n";
+		s += "( " + to_string(x) + " ) \n( " + to_string(y) + " )";
 		return s;
 	}
 	const Vecteur2D operator + (const Vecteur2D& u) const {
@@ -62,7 +62,7 @@ public:
 		this->y=v.y;
 		return *this;
 	}
-	virtual bool operator ==(const Vecteur2D& v) {
+	virtual bool operator ==(const Vecteur2D& v)const {
 		if (x == v.x && y == v.y) {
 			return true;
 		}
