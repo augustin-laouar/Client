@@ -17,6 +17,9 @@ public :
 		ListeForme[ListeForme.size()]->setCouleur(this->couleur); // met la forme ajoutée de la meme couleur que le groupe
 	}
 	void retirer(int i) {
+		if (i >= ListeForme.size()) {
+			return;
+		}
 		ListeForme.erase(ListeForme.begin()+i);
 	}
 	void retirer(const Forme2D* f);

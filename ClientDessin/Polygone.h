@@ -50,16 +50,17 @@ public :
 		return true;
 	}
 
-	Polygone operator+(const Point2D& p) {
+	Polygone operator+(const Point2D& p)const {
 		Polygone res(*this);
 		res.ajouterPoint(p);
 		return res;
 
 	}
-	Polygone retirer (int i) {
+	void retirer (int i) {
+		if (i >= ListePoint.size()) {
+			return;
+		}
 		ListePoint.erase(ListePoint.begin() + i);
-		return *this;
-			
 	}
 	
 	void retirer(const Point2D& p)
