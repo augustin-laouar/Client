@@ -9,7 +9,9 @@ class Forme2D
 protected : 
 	int couleur;
 public:
-	enum { black = 1, blue = 2, red = 3 ,green =4,yellow = 5,cyan = 6};
+	#define cyan 0,0,255,255
+	
+	enum { black = 1, blue = 2, red = 3, green = 4, yellow = 5};
 	Forme2D(int couleur) {
 		this->couleur = couleur;
 	}
