@@ -5,6 +5,18 @@
 #include "Vecteur2D.h"
 #include "Communication.h"
 
+/* NOTES
+Methode obligatoires dans une classe :
+-constructeur et constructeur par copie
+-destructeur ( uniquement si besoin )
+-getter setter si données membres sont private
+-methode ajouté et retiré si contient un vector
+-getNb... si contient un vector ( doit renvoyé le nombre d'élément )
+- toString et clone
+-Operator string , == , = et + - dans le cas d'une classe avec vector
+- operator <<
+
+*/ 
 int main() {
 	//TEST CLASSE POINT2D
 
