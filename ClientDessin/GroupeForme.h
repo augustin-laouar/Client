@@ -51,5 +51,10 @@ public :
 		res.retirer(f);
 		return res;
 	}
+	double xMAX()const;
+	double yMAX()const;
+	double xMIN()const;
+	double yMIN()const;
+	
 };
 

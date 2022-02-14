@@ -35,5 +35,9 @@ public:
 	//virtual Forme2D * accept(const VisitorForme* v)const = 0;
 	void translation(const Vecteur2D& v);
 	void homothetie(const Point2D&, double);
+	double xMAX()const; // permet de connaitre le point de la forme le plus avancé sur l'axe X
+	double yMAX()const;
+	double xMIN()const;
+	double yMIN()const;
 };
 

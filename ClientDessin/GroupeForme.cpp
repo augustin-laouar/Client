@@ -71,3 +71,39 @@ bool GroupeForme::operator == (const GroupeForme& g)const {
 	}
 	return true;
 }
+double GroupeForme::xMAX()const {
+	double x = DBL_MIN;
+	for (size_t i = 0; i < ListeForme.size(); i++) {
+		if (ListeForme[i]->xMAX() > x) {
+			x = ListeForme[i]->xMAX();
+		}
+	}
+	return x;
+}
+double GroupeForme::yMAX()const {
+	double y = DBL_MIN;
+	for (size_t i = 0; i < ListeForme.size(); i++) {
+		if (ListeForme[i]->yMAX() > y) {
+			y = ListeForme[i]->yMAX();
+		}
+	}
+	return y;
+}
+double GroupeForme::xMIN()const {
+	double x = DBL_MAX;
+	for (size_t i = 0; i < ListeForme.size(); i++) {
+		if (ListeForme[i]->xMIN() < x) {
+			x = ListeForme[i]->xMIN();
+		}
+	}
+	return x;
+}
+double GroupeForme::yMIN()const {
+	double y = DBL_MAX;
+	for (size_t i = 0; i < ListeForme.size(); i++) {
+		if (ListeForme[i]->yMIN() < y) {
+			y = ListeForme[i]->yMIN();
+		}
+	}
+	return y;
+}
