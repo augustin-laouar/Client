@@ -56,3 +56,39 @@ void FormeSimple::rotation(const Point2D& centre , double angle )
 
 
 }
+double FormeSimple::xMAX()const {
+	double x = DBL_MIN;
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		if (ListePoint[i].x > x) {
+			x = ListePoint[i].x;
+		}
+	}
+	return x;
+}
+double FormeSimple::yMAX()const {
+	double y = DBL_MIN;
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		if (ListePoint[i].y > y) {
+			y = ListePoint[i].y;
+		}
+	}
+	return y;
+}
+double FormeSimple::xMIN()const {
+	double x = DBL_MAX;
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		if (ListePoint[i].x < x) {
+			x = ListePoint[i].x;
+		}
+	}
+	return x;
+}
+double FormeSimple::yMIN()const {
+	double y = DBL_MAX;
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		if (ListePoint[i].y < y) {
+			y = ListePoint[i].y;
+		}
+	}
+	return y;
+}

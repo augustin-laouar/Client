@@ -36,5 +36,9 @@ public:
 	void translation(const Vecteur2D& v);
 	void homothetie(const Point2D&, double);
 	void rotation(const Point2D&, double);
+	double xMAX()const; // permet de connaitre le point de la forme le plus avance sur l'axe X
+	double yMAX()const;
+	double xMIN()const;
+	double yMIN()const;
 };
 
