@@ -35,5 +35,6 @@ public:
 	//virtual Forme2D * accept(const VisitorForme* v)const = 0;
 	void translation(const Vecteur2D& v);
 	void homothetie(const Point2D&, double);
+	void rotation(const Point2D&, double);
 };
 
