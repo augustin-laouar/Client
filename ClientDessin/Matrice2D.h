@@ -1,4 +1,5 @@
 #pragma once
+#include "Erreur.h"
 #include "Vecteur2D.h"
 #include <vector>
 class Matrice2D
@@ -58,7 +59,10 @@ public:
 	{
 		return this->toString();
 	}
-
+	Matrice2D operator +(const Matrice2D&)const;
+	Matrice2D operator -(const Matrice2D&)const;
+	Matrice2D operator *(const Matrice2D&)const;
+	Matrice2D operator *(double)const;
 
 };
 inline ostream& operator<<(ostream& s, const Matrice2D& m) {

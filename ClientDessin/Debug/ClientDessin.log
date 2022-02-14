@@ -1,5 +1,9 @@
-﻿  Source.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
-  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe
+﻿  Matrice2D.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Matrice2D.cpp(8,20): warning C4018: '<' : incompatibilité signed/unsigned
+  Source.cpp
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Génération de code en cours...
+  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe

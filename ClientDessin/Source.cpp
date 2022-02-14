@@ -241,6 +241,13 @@ int main() {
 	m.retirerVecteur(1);
 	cout << " m après retirer le vecteur à l'indice 1 " << m << endl;
 	cout << " taille de m  : " << m.taille() << endl;
-
+	m.ajouterVecteur(v3);
+	cout << " m après ajout de v3" << m << endl;
+	Matrice2D m2;
+	m2.ajouterVecteur(v2);
+	m2.ajouterVecteur(v5);
+	cout << " m2 : " << m2 << endl;
+	cout << "m2*m : " << m2 * m << endl;
+	cout << "m*5 : " << m*5 << endl;
 }
 
