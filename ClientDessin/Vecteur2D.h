@@ -31,6 +31,12 @@ public:
 	double determinant(const Vecteur2D& v) const {
 		return x * v.y - y * v.x;
 	}
+	double norme()const {
+		return sqrt(x*x + y*y);
+	}
+	double produitScalaire(const Vecteur2D& v)const {
+		return x * v.y + y * v.x;
+	}
 	//toString clone et operator
 	Vecteur2D* clone()const {
 		return new Vecteur2D(*this);
