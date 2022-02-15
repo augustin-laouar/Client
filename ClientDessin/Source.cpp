@@ -47,7 +47,7 @@ int main() {
 
 	//TEST CLASSE Vecteur2D
 
-	Vecteur2D v1(15, 20);
+	Vecteur2D v1(150, 200);
 	Vecteur2D v2(25, 10);
 	
 	cout << "TEST CLASSE VECTEUR2D " << endl;
@@ -241,10 +241,10 @@ int main() {
 	// test de communication 
 	cout << "TEST DE COMMUNICATION" << endl;
 
-	char trait[] = "1;2;410,450;480,525;0,255,255"; // dessin d un trait
-	char trait2[] = "1;2;385,427;480,525;240,0,32";
-	char polygone[] = "3;6;410,460;460,415;500,425;480,435;550,445;410,460;0,255,255"; //dessin polygone
-	char cercle[] = "2;1;50;410,460;0,255,255";
+	char trait[] = "1;2;410,450;480,525;0,255,255\n"; // dessin d un trait
+	char trait2[] = "1;2;560,650;555,795;0,0,0\n";
+	char polygone[] = "3;6;410,460;460,415;500,425;480,435;550,445;410,460;0,255,255\n"; //dessin polygone
+	char cercle[] = "2;1;50;410,460;0,255,255\n";
 	char adresse[] = "127.0.0.1";
 	Communication comm(adresse, 9111);
 	Point2D p56;
@@ -260,16 +260,22 @@ int main() {
 	p58.y = 442;
 
 	Trait t(p56,p57,2);
+	cout << "Avant rotation" << endl;
+	cout << "p1:" << t.getP1();
+	cout << "p2:" << t.getP2() << endl;
+	Trait tPrime(t);
+	tPrime.translation(v1);
+	tPrime.rotation(tPrime.getP1(), 1.57);
 
-	t.rotation(p57,25);
-
-	cout << "p1:"<< t.getP1();
-	cout << "p2:" <<t.getP2();
+	cout << "p1:"<< tPrime.getP1();
+	cout << "p2:" <<tPrime.getP2();
 
 
-	//comm.Envoyer(trait);
+	comm.Envoyer(trait);
+	Sleep(500);
 	comm.Envoyer(trait2);
 	//comm.Envoyer(cercle);
+	//comm.Envoyer(polygone);
 	comm.FermerConnexion();
 	
 
