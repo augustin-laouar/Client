@@ -46,5 +46,8 @@ public:
 		}
 		FormesDuPlan.push_back(f->clone());
 	}
+	Forme2D* getForme(int i)const {
+		return FormesDuPlan[i]->clone();
+	}
 };
 

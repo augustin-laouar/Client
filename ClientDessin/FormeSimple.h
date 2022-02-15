@@ -1,10 +1,8 @@
 #pragma once
 #include <vector>
 #include "Forme2D.h"
-
-
 using namespace std;
-class VisitorFormeSimple;
+
 class FormeSimple : public Forme2D
 {
 protected:
@@ -42,9 +40,10 @@ public:
 	double yMAX()const;
 	double xMIN()const;
 	double yMIN()const;
-	
-	virtual FormeSimple* accept(const VisitorFormeSimple* v)const = 0;
-	virtual Forme2D* accept(const VisitorForme2D* v)const;
+	virtual int whoAmI()const {
+		return 1;
+	}
+	virtual void accept(const VisitorForme2D* v);
 	
 };
 

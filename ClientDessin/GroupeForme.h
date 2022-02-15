@@ -56,7 +56,10 @@ public :
 	double yMAX()const;
 	double xMIN()const;
 	double yMIN()const;
-	Forme2D* accept(const VisitorForme2D* v) const;
+	virtual int whoAmI()const {
+		return 0;
+	}
+	void accept(const VisitorForme2D* v);
 
 	
 };

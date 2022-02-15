@@ -54,6 +54,8 @@ public:
 			return false;
 		}
 	}
-
-	virtual FormeSimple* accept(const VisitorFormeSimple* v)const;
+	virtual int whoAmI()const {
+		return 10;
+	}
+	virtual void accept(const VisitorForme2D* v);
 };

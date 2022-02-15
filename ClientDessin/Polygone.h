@@ -83,10 +83,12 @@ public :
 		res.retirer(p);
 		return res;
 	}
-	
+	virtual int whoAmI()const {
+		return 11;
+	}
 
 
-	virtual FormeSimple* accept(const VisitorFormeSimple* v)const;
+	virtual void accept(const VisitorForme2D* v);
 
 
 };

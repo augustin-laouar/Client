@@ -152,9 +152,7 @@
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
     <ClInclude Include="Vecteur2D.h" />
-    <ClInclude Include="VisitorForme.h" />
     <ClInclude Include="VisitorForme2D.h" />
-    <ClInclude Include="VisitorFormeSimple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cercle.cpp" />
@@ -172,7 +170,6 @@
     <ClCompile Include="Trait.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
     <ClCompile Include="VisitorForme2D.cpp" />
-    <ClCompile Include="VisitorFormeSimple.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

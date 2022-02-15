@@ -1,5 +1,5 @@
 #include "Cercle.h"
-#include "VisitorFormeSimple.h"
+#include "VisitorForme2D.h"
 
-FormeSimple* Cercle::accept(const VisitorFormeSimple* v)const { return v->visit(this); }
+void Cercle::accept(const VisitorForme2D* v) { v->visit(this); }
 

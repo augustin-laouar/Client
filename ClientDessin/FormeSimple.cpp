@@ -100,7 +100,7 @@ double FormeSimple::yMIN()const {
 	}
 	return y;
 }
-Forme2D* FormeSimple::accept(const VisitorForme2D* v)const {
-	return v->visit(this);
+void FormeSimple::accept(const VisitorForme2D* v) {
+	v->visit(this);
 }
 

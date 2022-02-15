@@ -110,4 +110,4 @@ double GroupeForme::yMIN()const {
 }
 
 
-Forme2D* GroupeForme ::accept(const VisitorForme2D* v) const { return v->visit(this); }
+void GroupeForme ::accept(const VisitorForme2D* v) { v->visit(this); }

@@ -5,6 +5,8 @@
 #include "Vecteur2D.h"
 #include "Communication.h"
 #include "Matrice2D.h"
+#include "Plan2D.h"
+#include "Dessin.h"
 
 /* NOTES
 Methode obligatoires dans une classe :
