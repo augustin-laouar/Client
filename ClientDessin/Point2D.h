@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+class Vecteur2D;
 class Point2D 
 {
 public : 
@@ -15,6 +16,9 @@ public :
 		this->x = p.x;
 		this->y = p.y;
 	}
+	//methodes
+	void translation(const Vecteur2D&);
+	// clone to string operator
 	Point2D* clone()const {
 		return new Point2D(*this);
 	}
