@@ -1,6 +1,7 @@
 #pragma once
 #include "Forme2D.h"
 #include "FormeSimple.h"
+
 class GroupeForme : public Forme2D
 {
 protected:
@@ -55,6 +56,8 @@ public :
 	double yMAX()const;
 	double xMIN()const;
 	double yMIN()const;
+	Forme2D* accept(const VisitorForme2D* v) const;
+
 	
 };
 

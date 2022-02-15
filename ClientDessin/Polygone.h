@@ -21,7 +21,7 @@ public :
 	Polygone* clone()const {
 		return new Polygone(*this);
 	}
-	//Forme2D* accept(const VisitorForme* v)const;
+	
 
 
 	virtual const Polygone& operator = (const Polygone& p) {

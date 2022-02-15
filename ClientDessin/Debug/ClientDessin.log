@@ -1,1 +1,40 @@
-﻿  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe
+﻿  Cercle.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Communication.cpp
+  Dessin.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Erreur.cpp
+  Forme2D.cpp
+  FormeSimple.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.cpp(47,20): warning C4018: '<' : incompatibilité signed/unsigned
+  GroupeForme.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.cpp(66,20): warning C4018: '<' : incompatibilité signed/unsigned
+  Matrice2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.cpp(8,20): warning C4018: '<' : incompatibilité signed/unsigned
+  Plan2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Point2D.cpp
+  Polygone.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Source.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Trait.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Vecteur2D.cpp
+  VisitorForme2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Génération de code en cours...
+  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe

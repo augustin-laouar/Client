@@ -40,5 +40,7 @@ public:
 	double yMAX()const;
 	double xMIN()const;
 	double yMIN()const;
+	Forme2D* accept(const VisitorForme2D* v) const;
+	
 };
 

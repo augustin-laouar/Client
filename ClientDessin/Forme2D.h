@@ -4,6 +4,8 @@
 #include "Erreur.h"
 #include "Vecteur2D.h"
 #include "Point2D.h"
+
+class VisitorForme2D;
 class Forme2D
 {
 protected : 
@@ -33,6 +35,8 @@ public:
 	virtual double yMAX()const=0;
 	virtual double xMIN()const=0;
 	virtual double yMIN()const=0;
+
+	virtual Forme2D* accept(const VisitorForme2D* v)const = 0;
 };
 inline ostream& operator<<(ostream& s, const Forme2D& f) {
 	return s << f.toString();

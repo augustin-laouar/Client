@@ -34,7 +34,7 @@ public:
 	string toString()const {
 		return "Cercle : centre : " + ListePoint[0].toString() + "; Rayon : " + to_string(rayon);
 	}
-	//Forme2D* accept(const VisitorForme* v)const;
+
 
 	virtual const Cercle& operator = (const Cercle& c) {
 		if (this == &c) {

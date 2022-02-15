@@ -26,7 +26,7 @@ public:
 	Trait* clone()const {
 		return new Trait(*this);
 	}
-	//Forme2D* accept(const VisitorForme* v)const;
+	
 	
 	string toString()const {
 		string retour;

@@ -1,4 +1,5 @@
 #include "GroupeForme.h"
+#include "VisitorForme2D.h"
 
 GroupeForme::GroupeForme(const GroupeForme& g) : Forme2D(g.couleur) {
 	for (size_t i = 0; i < g.ListeForme.size(); i++) {
@@ -107,3 +108,6 @@ double GroupeForme::yMIN()const {
 	}
 	return y;
 }
+
+
+Forme2D* GroupeForme ::accept(const VisitorForme2D* v) const { return v->visit(this); }
