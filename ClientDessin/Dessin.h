@@ -4,13 +4,44 @@
 class Dessin :public VisitorForme2D
 {
 	virtual void visit(const Polygone* f) {
-		//envoyer la requete
+		//format  d une requete  : numForme;nbpoint;x,y;couleur
+		int nbp = f->getNbPoint();
+		string p;
+		string requete = "3;";
+
+
+		for (int i = 0; i < nbp; i++)
+		{
+			p = to_string(f->getPoint(i).x) + "," + to_string(f->getPoint(i).y) +";";
+		}
+		requete = requete + to_string(nbp) + p + to_string(f->getCouleur())+"\n";
+		
 	}
 	virtual void visit(const Trait* f) {
 		//envoyer la requete
+
+		int nbp = f->getNbPoint();
+		string p;
+		string requete = "1;";
+
+
+		for (int i = 0; i < nbp; i++)
+		{
+			p = to_string(f->getPoint(i).x) + "," + to_string(f->getPoint(i).y) + ";";
+		}
+		requete = requete + to_string(nbp) + p + to_string(f->getCouleur()) + "\n";
 	}
 	virtual void visit(const Cercle* f) {
-		//envoyer la requete
+		int nbp = f->getNbPoint();
+		string p;
+		string requete = "2;";
+
+
+		for (int i = 0; i < nbp; i++)
+		{
+			p = to_string(f->getPoint(i).x) + "," + to_string(f->getPoint(i).y) + ";";
+		}
+		requete = requete + to_string(nbp) + p + to_string(f->getCouleur()) + "\n";
 	}
 	virtual void visit(const FormeSimple* f) {
 		switch (f->whoAmI()) {
