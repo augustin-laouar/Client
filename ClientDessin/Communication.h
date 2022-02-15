@@ -12,8 +12,15 @@ private:
     SOCKET sock;
     SOCKADDR_IN sockaddr;
     int connexion;
-public:
+    static Communication comm;
+    
     Communication(const char*, short);
+    
+public:
+    static Communication getInstance() {
+        return comm;
+    }
+    
     void Envoyer(const char* message) {
         connexion = send(sock, message, strlen(message), 0);
     }
