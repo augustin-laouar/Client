@@ -83,12 +83,11 @@ public :
 		res.retirer(p);
 		return res;
 	}
+	
 
+
+	virtual FormeSimple* accept(const VisitorFormeSimple* v)const;
 
 
 };
 
-/*
-* Operator + avec un point2D
-* Operator - avec un point2D
-*/

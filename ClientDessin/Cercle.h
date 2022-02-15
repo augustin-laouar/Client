@@ -54,4 +54,6 @@ public:
 			return false;
 		}
 	}
+
+	virtual FormeSimple* accept(const VisitorFormeSimple* v)const;
 };

@@ -2,6 +2,8 @@
 #include "Matrice2D.h"
 #include "VisitorForme2D.h"
 #include <cmath>
+
+
 FormeSimple::FormeSimple(const FormeSimple& f) : Forme2D(couleur) {
 	for (size_t i = 0; i < f.ListePoint.size(); i++) {
 		ajouterPoint(f.ListePoint[i]);
@@ -98,4 +100,7 @@ double FormeSimple::yMIN()const {
 	}
 	return y;
 }
-Forme2D* FormeSimple:: accept(const VisitorForme2D* v) const { return v->visit(this); }
+Forme2D* FormeSimple::accept(const VisitorForme2D* v)const {
+	return v->visit(this);
+}
+

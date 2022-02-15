@@ -6,6 +6,7 @@
 #include "Point2D.h"
 
 class VisitorForme2D;
+
 class Forme2D
 {
 protected : 

@@ -1,4 +1,4 @@
-#pragma once
+pragma once
 #include "FormeSimple.h"
 #include "Polygone.h"
 #include "Trait.h"
