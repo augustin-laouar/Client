@@ -248,7 +248,9 @@ int main() {
 	char polygone[] = "3;6;410,460;460,415;500,425;480,435;550,445;410,460;0,255,255\n"; //dessin polygone
 	char cercle[] = "2;1;50;410,460;0,255,255\n";
 	char adresse[] = "127.0.0.1";
-	Communication comm(adresse, 9111);
+	//Communication comm(adresse, 9111);
+	Communication* comm = comm->getInstance(adresse,9111);
+
 	Point2D p56;
 	Point2D p57;
 	Point2D p58;
@@ -272,13 +274,13 @@ int main() {
 	cout << "p1:"<< tPrime.getP1();
 	cout << "p2:" <<tPrime.getP2();
 
-
-	comm.Envoyer(trait);
+	
+	comm->Envoyer(trait);
 	Sleep(500);
-	comm.Envoyer(trait2);
+	comm->Envoyer(trait2);
 	//comm.Envoyer(cercle);
 	//comm.Envoyer(polygone);
-	comm.FermerConnexion();
+	comm->FermerConnexion();
 	
 
 }

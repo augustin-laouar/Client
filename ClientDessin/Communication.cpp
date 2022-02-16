@@ -45,3 +45,5 @@ Communication::Communication(const char* adresse, short port) {
 		throw Erreur("La connexion a échoué");
 
 }
+
+Communication* Communication::comm = nullptr;;
