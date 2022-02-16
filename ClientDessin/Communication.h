@@ -18,7 +18,7 @@ private:
     
 public:
 
-    static Communication* getInstance(const char* c,short i) {
+    static Communication* getInstance(const char* c = "127.0.0.1", short i=9111) {
       
             if (comm == nullptr) {
                comm = new Communication(c,i);

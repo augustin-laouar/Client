@@ -42,7 +42,7 @@ Communication::Communication(const char* adresse, short port) {
 	// Le code d'erreur peut être obtenu par un appel à WSAGetLastError()
 
 	if (connexion == SOCKET_ERROR)
-		throw Erreur("La connexion a échoué");
+		throw Erreur("La connexion a echoue");
 
 }
 

@@ -1,1 +1,8 @@
-﻿  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe
+﻿  Source.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(60,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Matrice2D.h(22,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(151,24): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(30): warning C4715: 'Dessin::associerCouleur' : les chemins de contrôle ne retournent pas tous une valeur
+  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe
