@@ -248,8 +248,8 @@ int main() {
 	char polygone[] = "3;6;410,460;460,415;500,425;480,435;550,445;410,460;0,255,255\n"; //dessin polygone
 	char cercle[] = "2;1;50;410,460;0,255,255\n";
 	char adresse[] = "127.0.0.1";
-	//Communication comm(adresse, 9111);
-	Communication* comm = comm->getInstance(adresse,9111);
+
+	
 
 	Point2D p56;
 	Point2D p57;
@@ -274,13 +274,53 @@ int main() {
 	cout << "p1:"<< tPrime.getP1();
 	cout << "p2:" <<tPrime.getP2();
 
-	
-	comm->Envoyer(trait);
-	Sleep(500);
-	comm->Envoyer(trait2);
-	//comm.Envoyer(cercle);
+/*	try
+	{
+		Communication* comm = comm->getInstance(adresse, 9111);
+		comm->Envoyer(trait);
+		Sleep(500);
+		comm->Envoyer(trait2);
+		//comm.Envoyer(cercle);
 	//comm.Envoyer(polygone);
-	comm->FermerConnexion();
+		comm->FermerConnexion();
+
+	}
+	catch (Erreur e)
+	{
+		cout << e.what();
+
+	}
+	*/
+
+	Trait* t85 = new Trait(p56, p57, 2);
+	vector<Point2D>Points;
+	Point2D p100(415, 550);
+	Point2D p101(400, 700);
+	Point2D p102(450, 650);
+	Points.push_back(p100);
+	Points.push_back(p101);
+	Points.push_back(p102);
+	Polygone* po85 = new Polygone(Points, 4);
+	Plan2D plan;
+	plan.ajouterForme(t85);
+	plan.ajouterForme(&c1);
+	plan.ajouterForme(&c2);
+	plan.ajouterForme(po85);
+	Trait* t86 = new Trait(*t85);
+	t86->translation(v1);
+	t86->setCouleur(Forme2D::cyan);
+	Polygone* po86 = new Polygone(*po85);
+	Point2D p103(390, 400);
+	po86->rotation(p103, 1.57);
+	po86->setCouleur(Forme2D::red);
+	plan.ajouterForme(po86);
+	plan.ajouterForme(t86);
+	Dessin d;
+	d.Dessiner(plan);
+	Communication* com = com->getInstance();
+	com->FermerConnexion();
+	
+	
 	
 
 }
