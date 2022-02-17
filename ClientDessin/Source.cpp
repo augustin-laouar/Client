@@ -272,7 +272,7 @@ int main() {
 	tPrime.rotation(tPrime.getP1(), 1.57);
 
 	cout << "p1:"<< tPrime.getP1();
-	cout << "p2:" <<tPrime.getP2();
+	cout << "p2:" <<tPrime.getP2()<<endl;
 
 /*	try
 	{

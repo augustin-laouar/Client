@@ -52,6 +52,7 @@ public:
 
 			const char* R = requete.c_str();
 			comm->Envoyer(R);
+			cout << "Requete dessin de polygone envoyé : " << requete << endl;
 
 		}
 		catch (Erreur e)
@@ -86,8 +87,7 @@ public:
 
 			const char* R = requete.c_str();
 			comm->Envoyer(R);
-			cout << endl;
-			cout << R << endl;
+			cout << "Requete dessin de trait envoyé : " << requete << endl;
 
 		}
 
@@ -118,6 +118,7 @@ public:
 
 			const char* R = requete.c_str();
 			comm->Envoyer(R);
+			cout << "Requete dessin de cercle envoyé : " << requete << endl;
 
 		}
 		catch (Erreur e)
@@ -164,9 +165,11 @@ public:
 	}
 
 	void Dessiner(const Plan2D& p)const {
+		cout << "Dessin des formes du plan..." << endl;
 		for (int i = 0; i < p.nbFormes(); i++) {
 			p.getForme(i)->accept(this);
 		}
+		cout << "Dessin des formes du plan terminé." << endl;
 	}
 };
 

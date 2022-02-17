@@ -24,6 +24,7 @@ public:
 		setAxeI(y); // on réinitialise les vecteurs I et J afin qu'ils soit adaptés à la nouvelle origine
 		setAxeJ(x);
 		// à faire : déplacé toute les formes du plan
+		cout << "Point d'origine du repère MAJ" << endl << "Nouvelle origine : " << Origine << endl << "Nouveau axe I : " << I << endl << "Nouveau axe J : " << J << endl;
 	}
 	void setAxeI(double y);
 	void setAxeJ(double x);
