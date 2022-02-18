@@ -4,9 +4,13 @@
 #include <iostream>
 #include <ostream>
 using namespace std;
-//                                                                                   -->
-// Representation mathématique d'un vecteur                                         | x |
-// on représente un vecteur non pas avec ses 2 points, mais avec la notation :      | y |
+/** 
+*@class Représentation mathématique d'un vecteur en 2D
+*                                                                                   -->
+*                                                                                  | x |
+* on représente un vecteur non pas avec ses 2 points, mais avec la notation :      | y |
+*/
+
 class Vecteur2D
 {
 
