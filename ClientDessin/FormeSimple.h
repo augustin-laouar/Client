@@ -6,11 +6,11 @@ using namespace std;
 class FormeSimple : public Forme2D //la classe ne contient pas de partie dynamique donc destructeur inutile constructeur apr copie inutile et affectation inutile
 {
 protected:
-	vector<Point2D> ListePoint;
-	virtual void ajouterPoint(const Point2D& p) {
+	vector<Vecteur2D> ListePoint; // un point est un vecteur allant de l'origine du repere au point du plan
+	virtual void ajouterPoint(const Vecteur2D& p) {
 		ListePoint.push_back(p);
 	}
-	virtual void modifierPoint(int i, const Point2D& p) {
+	virtual void modifierPoint(int i, const Vecteur2D& p) {
 		if (i >= ListePoint.size()) {
 			throw new Erreur("i sort des bornes de la liste");
 		}
@@ -24,7 +24,7 @@ public:
 	virtual ~FormeSimple() { // en a t on besoin ?
 		ListePoint.clear();
 	}
-	virtual Point2D getPoint(int i)const {
+	virtual Vecteur2D getPoint(int i)const {
 		return ListePoint.at(i);
 	}
 	virtual int getNbPoint()const {
@@ -34,8 +34,11 @@ public:
 	virtual string toString()const;
 
 	void translation(const Vecteur2D& v);
-	void homothetie(const Point2D&, double);
-	void rotation(const Point2D&, double);
+	void homothetie(const Vecteur2D&, double);
+	void rotation(const Vecteur2D&, double);
+	virtual Forme2D* translation(const Vecteur2D& v)const = 0;
+	virtual Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const = 0;
+	virtual Forme2D* rotation(const Vecteur2D& centre, double angle)const = 0;
 	double xMAX()const; // permet de connaitre le point de la forme le plus avance sur l'axe X
 	double yMAX()const;
 	double xMIN()const;

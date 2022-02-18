@@ -10,7 +10,7 @@ public :
 	* @param v vector de points2d
 	* @param couleur 
 	*/
-	Polygone(vector<Point2D> v, int couleur) : FormeSimple(couleur) {
+	Polygone(vector<Vecteur2D> v, int couleur) : FormeSimple(couleur) {
 		for (size_t i = 0; i < v.size(); i++) {
 			ListePoint.push_back(v[i]);
 		}
@@ -30,7 +30,7 @@ public :
 	/**
 	* @brief recuperer un point du polygone grace a son index 
 	*/
-	Point2D getPointI(int i)const {
+	Vecteur2D getPointI(int i)const {
 		return ListePoint.at(i);
 	}
 	/**
@@ -45,18 +45,6 @@ public :
 	* 
 	*/
 
-	virtual const Polygone& operator = (const Polygone& p) {
-		if (this == &p) {
-			return *this;
-		}
-		this->couleur = p.couleur;
-		ListePoint.clear();
-		for (int i = 0; i < p.getNbPoint(); i++)
-		{
-			ListePoint.push_back(p.ListePoint[i]);
-		}
-		return *this;
-	}
 	/**
 	* @brief egalite entre deux polygones
 	* @return bool
@@ -81,7 +69,7 @@ public :
 	* 
 	*/
 
-	Polygone operator+(const Point2D& p)const {
+	Polygone operator+(const Vecteur2D& p)const {
 		Polygone res(*this);
 		res.ajouterPoint(p);
 		return res;
@@ -101,7 +89,7 @@ public :
 	* @brief retirer un point du polygone en le recherchant grace a ses coordonnes dans la liste des points
 	*
 	*/
-	void retirer(const Point2D& p)
+	void retirer(const Vecteur2D& p)
 	{
 		
 		for (int i=0; i<getNbPoint(); i++) {
@@ -119,7 +107,7 @@ public :
 	* @brief retirer un point du polygone en le passant en parametre
 	* @param p point a retirer
 	*/
-	Polygone operator -(const Point2D& p)const {
+	Polygone operator -(const Vecteur2D& p)const {
 		Polygone res(*this);
 		res.retirer(p);
 		return res;

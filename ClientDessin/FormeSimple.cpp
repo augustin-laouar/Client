@@ -22,47 +22,13 @@ void FormeSimple::translation(const Vecteur2D& v) {
 		ListePoint[i].translation(v);
 	}
 }
-void FormeSimple::homothetie(const Point2D& p, double z) {
-	//
-	for (size_t i = 0; i < ListePoint.size(); i++) {//ListePoint[i] = z * ( ListePoint[i] - p ) + p
-		if (ListePoint[i].x < p.x) {
-			ListePoint[i].x = ListePoint[i].x - z;
-		}
-		if (ListePoint[i].x > p.x) {
-			ListePoint[i].x = ListePoint[i].x + z;
-		}
-		if (ListePoint[i].y < p.y) {
-			ListePoint[i].y = ListePoint[i].y - z;
-		}
-		if (ListePoint[i].y > p.y) {
-			ListePoint[i].y = ListePoint[i].y + z;
-		}
-		//rien a faire dans le cas ou ils sont égaux
-	}
-
+void FormeSimple::homothetie(const Vecteur2D& p, double z) {
+	//ListePoint[i] = z * ( ListePoint[i] - p ) + p
 }
 
-void FormeSimple::rotation(const Point2D& centre , double angle )
+void FormeSimple::rotation(const Vecteur2D& centre , double angle )
 {
-	//double x, y;
-	//angle *=  3.141592653589793/180;
-	//for (int i = 0; i < ListePoint.size(); i++)
-	//{
-	//	//calcul des cooordonnes dans le nouveau repere
-	//	x=ListePoint.at(i).x - centre.x;
-	//	y=ListePoint.at(i).y - centre.y;
-
-	//	//calcul des nouvelles coordoonnees apres la rotation 
-	//	ListePoint.at(i).x = x * cos(angle) + y * sin(angle) + centre.x;
-	//	ListePoint.at(i).y = x * sin(angle) + y * cos(angle) + centre.y;
-	//}
-	for (int i = 0; i < ListePoint.size(); i++) { //ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
-		Vecteur2D v(centre, ListePoint[i]); //vecteur entre l'axe de rotation et le point a faire tourné
-		double x2 = v.x * cos(angle) - v.y * sin(angle);
-		double y2 = v.x * sin(angle) + v.y * cos(angle);
-		Vecteur2D v2(x2, y2); // nouveau vecteur après la rotation du vecteur v
-		ListePoint[i].translation(v2); //application de la rotation au point
-	}
+	//} //ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
 
 }
 double FormeSimple::xMAX()const {

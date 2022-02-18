@@ -2,7 +2,7 @@
 void Plan2D::setAxeI(double y) {
 	cout << "Reset : " << y << endl;
 	if (FormesDuPlan.size() == 0) {
-		Vecteur2D v(Origine, Point2D(Origine.x, Origine.y + y));
+		Vecteur2D v(Origine.x,Origine.y + y);
 		I = v;
 	}
 	else {
@@ -12,7 +12,7 @@ void Plan2D::setAxeI(double y) {
 				ymax = FormesDuPlan[i]->yMAX();
 			}
 		}
-		Vecteur2D v(Origine, Point2D(Origine.x, Origine.y + y));
+		Vecteur2D v(Origine.x, Origine.y + y);
 		if (ymax > v.y) {
 			throw new Erreur("Impossible de changer l'axe I car une le nouveau repere est trop petit, certaine formes déjà sur le plan ne serraient pas dedans.");
 		}
@@ -24,7 +24,7 @@ void Plan2D::setAxeI(double y) {
 void Plan2D::setAxeJ(double x) {
 	cout << "Reset : " << x << endl;
 	if (FormesDuPlan.size() == 0) {
-		Vecteur2D v(Origine, Point2D(Origine.x + x, Origine.y));
+		Vecteur2D v(Origine.x + x, Origine.y);
 		J = v;
 	}
 	else {
@@ -34,7 +34,7 @@ void Plan2D::setAxeJ(double x) {
 				xmax = FormesDuPlan[i]->xMAX();
 			}
 		}
-		Vecteur2D v(Origine, Point2D(Origine.x + x, Origine.y));
+		Vecteur2D v(Origine.x + x, Origine.y);
 		if (xmax > v.y) {
 			throw new Erreur("Impossible de changer l'axe J car une le nouveau repere est trop petit, certaine formes déjà sur le plan ne serraient pas dedans.");
 		}

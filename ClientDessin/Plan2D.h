@@ -10,14 +10,14 @@ class Plan2D
 	//-|------> AXE J
 	// O      
 private:
-	Point2D Origine;
+	Vecteur2D Origine;
 	Vecteur2D I;
 	Vecteur2D J;
 	vector<Forme2D*>FormesDuPlan;
 public:
-	Plan2D() : Origine(Point2D(0,0)), I(Vecteur2D(0,1000)), J(Vecteur2D(1000,0)) {}
-	Plan2D(const Point2D& O, double x, double y) : Origine(O), I(Vecteur2D(O, Point2D(O.x,O.y + y))), J(Vecteur2D(O, Point2D(O.x + x, O.y))) {}
-	void setOrigine(const Point2D& O = Point2D(0, 0)) { //par defaut réinitialise a 0,0
+	Plan2D() : Origine(Vecteur2D(0,0)), I(Vecteur2D(0,1000)), J(Vecteur2D(1000,0)) {}
+	Plan2D(const Vecteur2D& O, double x, double y) : Origine(O), I(O.x,O.y + y), J(O.x + x,O.y) {}
+	void setOrigine(const Vecteur2D& O = Vecteur2D(0, 0)) { //par defaut réinitialise a 0,0
 		double x = J.x - O.x; // taille du repere par rapport au point Origine
 		double y = I.y - O.y;
 		Origine = O;

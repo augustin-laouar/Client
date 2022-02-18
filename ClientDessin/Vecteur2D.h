@@ -18,7 +18,7 @@ public:
 	double x;
 	double y;
 	//construction directement avec les coordonnées s
-	Vecteur2D(double x, double y){ 
+	Vecteur2D(double x = 0, double y = 0){ 
 		this->x = x;
 		this->y = y;
 	}
@@ -27,10 +27,6 @@ public:
 		this->y = v.y;
 	}
 	//construction directement avec les 2 points du vecteur
-	Vecteur2D(const Point2D& p1,const  Point2D& p2) { // p1---->p2 ( et pas p2---->p1) à enlever ? 
-		x = p2.x - p1.x;
-		y = p2.y - p1.y;
-	}
 	//methodes
 	double determinant(const Vecteur2D& v) const {
 		return x * v.y - y * v.x;
@@ -41,6 +37,9 @@ public:
 	double produitScalaire(const Vecteur2D& v)const {
 		return x * v.y + y * v.x;
 	}
+	void translation(const Vecteur2D&);
+	Vecteur2D translation(const Vecteur2D&)const;
+
 	//toString clone et operator
 	Vecteur2D* clone()const {
 		return new Vecteur2D(*this);
@@ -67,14 +66,6 @@ public:
 	operator string() const
 	{
 		return this->toString();
-	}
-	virtual const Vecteur2D& operator = (const Vecteur2D& v) {
-		if (this == &v) {
-			return *this;
-		}
-		this->x=v.x;
-		this->y=v.y;
-		return *this;
 	}
 	virtual bool operator ==(const Vecteur2D& v)const {
 		if (x == v.x && y == v.y) {
