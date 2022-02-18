@@ -23,13 +23,35 @@ void FormeSimple::translation(const Vecteur2D& v) {
 	}
 }
 void FormeSimple::homothetie(const Vecteur2D& p, double z) {
-	//ListePoint[i] = z * ( ListePoint[i] - p ) + p
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		ListePoint[i] =  ((ListePoint[i] - p) * z)+ p;
+	}
+	
 }
 
 void FormeSimple::rotation(const Vecteur2D& centre , double angle )
 {
-	//} //ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
+	Matrice2D R(cos(angle), sin(angle), -sin(angle), cos(angle));
+	for (size_t i = 0; i < ListePoint.size(); i++) {
+		//ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
+		ListePoint[i] = (R * (ListePoint[i] - centre)) + centre;
+ 	}
 
+}
+FormeSimple* FormeSimple::translation(const Vecteur2D& v)const {
+	FormeSimple* res = new FormeSimple(*this);
+	res->translation(v);
+	return res;
+}
+FormeSimple* FormeSimple::homothetie(const Vecteur2D& centre, const double zoom)const {
+	FormeSimple* res = new FormeSimple(*this);
+	res->homothetie(centre,zoom);
+	return res;
+}
+FormeSimple* FormeSimple::rotation(const Vecteur2D& centre, double angle)const {
+	FormeSimple* res = new FormeSimple(*this);
+	res->rotation(centre,angle);
+	return res;
 }
 double FormeSimple::xMAX()const {
 	double x = DBL_MIN;
@@ -67,7 +89,7 @@ double FormeSimple::yMIN()const {
 	}
 	return y;
 }
-void FormeSimple::accept(const VisitorForme2D* v) {
+void FormeSimple::accept(const VisitorForme2D* v)const {
 	v->visit(this);
 }
 

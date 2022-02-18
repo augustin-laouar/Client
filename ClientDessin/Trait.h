@@ -11,7 +11,7 @@ public:
 	* @param couleur couleur du trait 
 	* 
 	*/
-	Trait(const Point2D& p1, const Point2D& p2, int couleur): FormeSimple(couleur) {
+	Trait(const Vecteur2D& p1, const Vecteur2D& p2, int couleur): FormeSimple(couleur) {
 		this->ajouterPoint(p1);
 		this->ajouterPoint(p2);
 	}
@@ -24,16 +24,16 @@ public:
 		this->ajouterPoint(t.ListePoint[0]);
 		this->ajouterPoint(t.ListePoint[1]);
 	}
-	void setP1(const Point2D& p) {
+	void setP1(const Vecteur2D& p) {
 		this->ListePoint[0] = p;
 	}
-	Point2D getP1()const {
+	Vecteur2D getP1()const {
 		return ListePoint[0];
 	}
-	void setP2(const Point2D&p) {
+	void setP2(const Vecteur2D&p) {
 		this->ListePoint[1] = p;
 	}
-	Point2D  getP2()const {
+	Vecteur2D  getP2()const {
 		return ListePoint[1];
 	}
 	/**
@@ -51,22 +51,6 @@ public:
 		string retour;
 		retour = "Trait : P1 = " + ListePoint[0].toString() + "; P2 = " + ListePoint[1].toString();
 		return retour;
-	}
-	/**
-	* @brief affectation d'un trait a un autre 
-	* @param t une reference sur un trait
-	* @return const trait& on retourne une reference sur le trait
-	*/
-
-
-	virtual const Trait& operator = (const Trait& t) {
-		if (this == &t) {
-			return *this;
-		}
-		this->couleur = t.couleur;
-		this->setP1(t.ListePoint[0]);
-		this->setP2(t.ListePoint[1]);
-		return *this;
 	}
 
 	/**
