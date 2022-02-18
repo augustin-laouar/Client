@@ -63,6 +63,7 @@ public:
 	Matrice2D operator -(const Matrice2D&)const;
 	Matrice2D operator *(const Matrice2D&)const;
 	Matrice2D operator *(double)const;
+	
 
 };
 inline ostream& operator<<(ostream& s, const Matrice2D& m) {

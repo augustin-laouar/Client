@@ -23,7 +23,7 @@ public:
 		this->y = v.y;
 	}
 	//construction directement avec les 2 points du vecteur
-	Vecteur2D(const Point2D& p1,const  Point2D& p2) { // p1---->p2 ( et pas p2---->p1)
+	Vecteur2D(const Point2D& p1,const  Point2D& p2) { // p1---->p2 ( et pas p2---->p1) à enlever ? 
 		x = p2.x - p1.x;
 		y = p2.y - p1.y;
 	}
@@ -48,6 +48,10 @@ public:
 	}
 	const Vecteur2D operator + (const Vecteur2D& u) const {
 		return Vecteur2D(x + u.x, y + u.y);
+
+	}
+	const Vecteur2D operator - (const Vecteur2D& u) const {
+		return (*this) + - u;
 
 	}
 	const Vecteur2D operator * (const double& a) const {
