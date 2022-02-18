@@ -57,6 +57,9 @@
     <ClInclude Include="Dessin.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Couleur.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Communication.cpp">
@@ -102,6 +105,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Dessin.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Couleur.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
