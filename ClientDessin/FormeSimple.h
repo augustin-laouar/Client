@@ -3,7 +3,7 @@
 #include "Forme2D.h"
 using namespace std;
 
-class FormeSimple : public Forme2D
+class FormeSimple : public Forme2D //la classe ne contient pas de partie dynamique donc destructeur inutile constructeur apr copie inutile et affectation inutile
 {
 protected:
 	vector<Point2D> ListePoint;

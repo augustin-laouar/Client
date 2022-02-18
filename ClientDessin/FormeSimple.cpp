@@ -23,7 +23,8 @@ void FormeSimple::translation(const Vecteur2D& v) {
 	}
 }
 void FormeSimple::homothetie(const Point2D& p, double z) {
-	for (size_t i = 0; i < ListePoint.size(); i++) {
+	//
+	for (size_t i = 0; i < ListePoint.size(); i++) {//ListePoint[i] = z * ( ListePoint[i] - p ) + p
 		if (ListePoint[i].x < p.x) {
 			ListePoint[i].x = ListePoint[i].x - z;
 		}
@@ -55,7 +56,7 @@ void FormeSimple::rotation(const Point2D& centre , double angle )
 	//	ListePoint.at(i).x = x * cos(angle) + y * sin(angle) + centre.x;
 	//	ListePoint.at(i).y = x * sin(angle) + y * cos(angle) + centre.y;
 	//}
-	for (int i = 0; i < ListePoint.size(); i++) {
+	for (int i = 0; i < ListePoint.size(); i++) { //ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
 		Vecteur2D v(centre, ListePoint[i]); //vecteur entre l'axe de rotation et le point a faire tourné
 		double x2 = v.x * cos(angle) - v.y * sin(angle);
 		double y2 = v.x * sin(angle) + v.y * cos(angle);
