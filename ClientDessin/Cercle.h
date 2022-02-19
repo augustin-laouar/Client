@@ -18,7 +18,7 @@ public:
 	* @param couleur couleur du cercle
 	* 
 	*/
-	Cercle(const Point2D& centre, double rayon, int couleur) : FormeSimple(couleur) {
+	Cercle(const Vecteur2D& centre, double rayon, int couleur) : FormeSimple(couleur) {
 		this->ajouterPoint(centre);
 		this->rayon = rayon;
 	}
@@ -36,14 +36,14 @@ public:
 	* @brief setter du centre
 	* @param c passage par reference du Point2D avec x,y comme coordonnees 
 	*/
-	void setCentre(const Point2D &c) {
+	void setCentre(const Vecteur2D &c) {
 		this->ListePoint[0] = c;
 	}
 	/**
 	* @brief recuperer la valeur du centre
 	* @return Point2D 
 	*/
-	Point2D  getCentre()const {
+	Vecteur2D  getCentre()const {
 		return this->ListePoint[0];
 	}
 	/**
@@ -77,21 +77,6 @@ public:
 	*/
 	string toString()const {
 		return "Cercle : centre : " + ListePoint[0].toString() + "; Rayon : " + to_string(rayon);
-	}
-
-	/**
-	* @brief operator = qui permet d'affecter un cercle a un autre 
-	* @return const Cercle& 
-	*/
-
-	virtual const Cercle& operator = (const Cercle& c) {
-		if (this == &c) {
-			return *this;
-		}
-		this->couleur = c.couleur;
-		this->rayon= c.rayon;
-		this->setCentre(c.getCentre());
-		return *this;
 	}
 
 	/**
