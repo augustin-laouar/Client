@@ -152,6 +152,7 @@
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vecteur2D.h" />
     <ClInclude Include="VisitorForme2D.h" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trait.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
     <ClCompile Include="VisitorForme2D.cpp" />
   </ItemGroup>

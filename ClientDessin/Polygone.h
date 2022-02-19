@@ -15,6 +15,7 @@ public :
 			ListePoint.push_back(v[i]);
 		}
 	}
+	Polygone();
 	/**
 	* @brief constructeur par copie 
 	* @param p Polygone 
