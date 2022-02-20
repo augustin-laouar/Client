@@ -79,4 +79,7 @@ public:
 	* @param v VisitorForme2d*
 	*/
 	virtual void accept(const VisitorForme2D* v);
+	virtual double Aire()const {
+		return 0;
+	}
 };

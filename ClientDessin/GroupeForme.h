@@ -37,9 +37,9 @@ public :
 	void translation(const Vecteur2D& v);
 	void homothetie(const Vecteur2D&, double);
 	void rotation(const Vecteur2D&, double);
-	virtual GroupeForme* translation(const Vecteur2D& v)const;
+	/*virtual GroupeForme* translation(const Vecteur2D& v)const;
 	virtual GroupeForme* homothetie(const Vecteur2D& centre, const double zoom)const;
-	virtual GroupeForme* rotation(const Vecteur2D& centre, double angle)const;
+	virtual GroupeForme* rotation(const Vecteur2D& centre, double angle)const;*/
 
 	virtual const GroupeForme& operator = (const GroupeForme& g);
 	virtual bool operator == (const GroupeForme& g)const;
@@ -65,6 +65,6 @@ public :
 	}
 	void accept(const VisitorForme2D* v)const;
 
-	
+	virtual double Aire()const;
 };
 

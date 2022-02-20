@@ -301,8 +301,8 @@ int main() {
 	
 	
 
+	Vecteur2D p1(45, 58);
 	
-	//	Cercle c2(p1, 110, 2);
 	
 	p56.x = 410;
 	p56.y = 450;
@@ -313,7 +313,8 @@ int main() {
 	p58.y = 442;
 
 	Couleur c = c.Red();
-	//Cercle c1(&p1, 120, c);
+	Cercle c1(p1, 120, c);
+	Cercle c2(p1, 110,Couleur::Green());
 
 	Trait* t85 = new Trait(p56, p57,c);
 	vector<Vecteur2D>Points;
@@ -323,26 +324,26 @@ int main() {
 	Points.push_back(p100);
 	Points.push_back(p101);
 	Points.push_back(p102);
-	//Polygone* po85 = new Polygone(Points, 4,c);
+	Polygone* po85 = new Polygone(Points,c);
 	Plan2D plan;
 	plan.ajouterForme(t85);
-	//plan.ajouterForme(&c1);
-	//plan.ajouterForme(&c2);
-	//plan.ajouterForme(po85);
+	plan.ajouterForme(&c1);
+	plan.ajouterForme(&c2);
+	plan.ajouterForme(po85);
 	Trait* t86 = new Trait(*t85);
 	t86->translation(v1);
 	t86->setCouleur(Couleur::Cyan());
-	//Polygone* po86 = new Polygone(*po85);
-	Point2D p103(390, 400);
-	//po86->rotation(p103, 1.57);
-//	po86->setCouleur(Couleur::Red());
-//	plan.ajouterForme(po86);
+	Polygone* po86 = new Polygone(*po85);
+	Vecteur2D p103(390, 400);
+	po86->rotation(p103, 1.57);
+	po86->setCouleur(Couleur::Red());
+	plan.ajouterForme(po86);
 	plan.ajouterForme(t86);
 	Dessin d;
 	d.Dessiner(plan);
 	Communication* com = com->getInstance();
 	com->FermerConnexion();
-//	
+
 	
 	
 

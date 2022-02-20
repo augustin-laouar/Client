@@ -1,5 +1,6 @@
 #pragma once
 #include "FormeSimple.h"
+# define PI           3.14159265358979323846
 using namespace std;
 
 /** 
@@ -105,4 +106,7 @@ public:
 	* @brief methode necessaire pour le design pattern visitor
 	*/
 	virtual void accept(const VisitorForme2D* v);
+	virtual double Aire()const {
+		return rayon* rayon * PI;
+	}
 };

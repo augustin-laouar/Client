@@ -38,21 +38,21 @@ void FormeSimple::rotation(const Vecteur2D& centre , double angle )
  	}
 
 }
-FormeSimple* FormeSimple::translation(const Vecteur2D& v)const {
-	FormeSimple* res = new FormeSimple(*this);
-	res->translation(v);
-	return res;
-}
-FormeSimple* FormeSimple::homothetie(const Vecteur2D& centre, const double zoom)const {
-	FormeSimple* res = new FormeSimple(*this);
-	res->homothetie(centre,zoom);
-	return res;
-}
-FormeSimple* FormeSimple::rotation(const Vecteur2D& centre, double angle)const {
-	FormeSimple* res = new FormeSimple(*this);
-	res->rotation(centre,angle);
-	return res;
-}
+//FormeSimple* FormeSimple::translation(const Vecteur2D& v)const {
+//	FormeSimple* res = new FormeSimple(*this);
+//	res->translation(v);
+//	return res;
+//}
+//FormeSimple* FormeSimple::homothetie(const Vecteur2D& centre, const double zoom)const {
+//	FormeSimple* res = new FormeSimple(*this);
+//	res->homothetie(centre,zoom);
+//	return res;
+//}
+//FormeSimple* FormeSimple::rotation(const Vecteur2D& centre, double angle)const {
+//	FormeSimple* res = new FormeSimple(*this);
+//	res->rotation(centre,angle);
+//	return res;
+//}
 double FormeSimple::xMAX()const {
 	double x = DBL_MIN;
 	for (size_t i = 0; i < ListePoint.size(); i++) {

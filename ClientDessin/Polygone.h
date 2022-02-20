@@ -1,6 +1,7 @@
 #pragma once
 #include "FormeSimple.h"
 using namespace std;
+class Triangle;
 class Polygone : public FormeSimple
 {
 
@@ -34,6 +35,7 @@ public :
 	Vecteur2D getPointI(int i)const {
 		return ListePoint.at(i);
 	}
+	
 	/**
 	* @brief renvoi une pointeur sur une copie du polygone
 	*/
@@ -125,6 +127,6 @@ public :
 
 	virtual void accept(const VisitorForme2D* v);
 
-
+	virtual double Aire()const;
 };
 

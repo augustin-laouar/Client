@@ -30,17 +30,15 @@ public:
 	virtual int getNbPoint()const {
 		return ListePoint.size();
 	}
-	virtual FormeSimple* clone()const {
-		return new FormeSimple(*this);
-	}
+	virtual FormeSimple* clone()const = 0;
 	virtual string toString()const;
 
 	void translation(const Vecteur2D& v);
 	void homothetie(const Vecteur2D&, double);
 	void rotation(const Vecteur2D&, double);
-	virtual FormeSimple* translation(const Vecteur2D& v)const;
+	/*virtual FormeSimple* translation(const Vecteur2D& v)const;
 	virtual FormeSimple* homothetie(const Vecteur2D& centre, const double zoom)const;
-	virtual FormeSimple* rotation(const Vecteur2D& centre, double angle)const;
+	virtual FormeSimple* rotation(const Vecteur2D& centre, double angle)const;*/
 	double xMAX()const; // permet de connaitre le point de la forme le plus avance sur l'axe X
 	double yMAX()const;
 	double xMIN()const;
@@ -49,6 +47,6 @@ public:
 		return 1;
 	}
 	virtual void accept(const VisitorForme2D* v)const;
-	
+	virtual double Aire()const = 0;
 };
 

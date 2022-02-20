@@ -52,21 +52,21 @@ void GroupeForme::rotation(const Vecteur2D& p, double angle) {
 		ListeForme[i]->rotation(p, angle);
 	}
 }
-GroupeForme* GroupeForme::translation(const Vecteur2D& v)const {
-	GroupeForme* res = new GroupeForme(*this);
-	res->translation(v);
-	return res;
-}
-GroupeForme* GroupeForme::homothetie(const Vecteur2D& centre, const double zoom)const {
-	GroupeForme* res = new GroupeForme(*this);
-	res->homothetie(centre,zoom);
-	return res;
-}
-GroupeForme* GroupeForme::rotation(const Vecteur2D& centre, double angle)const {
-	GroupeForme* res = new GroupeForme(*this);
-	res->rotation(centre,angle);
-	return res;
-}
+//GroupeForme* GroupeForme::translation(const Vecteur2D& v)const {
+//	GroupeForme* res = new GroupeForme(*this);
+//	res->translation(v);
+//	return res;
+//}
+//GroupeForme* GroupeForme::homothetie(const Vecteur2D& centre, const double zoom)const {
+//	GroupeForme* res = new GroupeForme(*this);
+//	res->homothetie(centre,zoom);
+//	return res;
+//}
+//GroupeForme* GroupeForme::rotation(const Vecteur2D& centre, double angle)const {
+//	GroupeForme* res = new GroupeForme(*this);
+//	res->rotation(centre,angle);
+//	return res;
+//}
 const GroupeForme& GroupeForme::operator = (const GroupeForme& g) {
 	if (this == &g) {
 		return *this;
@@ -131,3 +131,10 @@ double GroupeForme::yMIN()const {
 
 
 void GroupeForme::accept(const VisitorForme2D* v)const { v->visit(this); }
+double GroupeForme::Aire()const {
+	double res = 0;
+	for (size_t i = 0; i < ListeForme.size(); i++) {
+		res += ListeForme[i]->Aire();
+	}
+	return res;
+}

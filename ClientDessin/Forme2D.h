@@ -39,11 +39,12 @@ public:
 	}
 	virtual Forme2D* clone()const = 0;
 	virtual void translation(const Vecteur2D& v) = 0;
-	virtual Forme2D* translation(const Vecteur2D& v)const = 0;
+	//virtual Forme2D* translation(const Vecteur2D& v)const = 0;
 	virtual void homothetie(const Vecteur2D& centre, const double zoom) = 0;
-	virtual Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const = 0;
+	//virtual Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const = 0;
 	virtual void rotation(const Vecteur2D& centre, double angle) = 0;
-	virtual Forme2D* rotation(const Vecteur2D& centre, double angle)const = 0;
+	//virtual Forme2D* rotation(const Vecteur2D& centre, double angle)const = 0;
+	virtual double Aire()const = 0;
 	//magnifique
 	virtual double xMAX()const=0;
 	virtual double yMAX()const=0;

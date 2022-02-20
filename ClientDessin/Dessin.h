@@ -114,23 +114,25 @@ public:
 
 
 	virtual void visit(const FormeSimple* f)const {
+
+
 		switch (f->whoAmI()) {
-			case 10: {
-				Cercle* c = (Cercle*)f;
-				visit(c);
-			}
-				   break;
-			case 11: {
-				Polygone* p = (Polygone*)f;
-				visit(p);
-			}
-				   break;
-			case 12: {
-				Trait* t = (Trait*)f;
-				visit(t);
-			}
-			
+		case 10: {
+			Cercle* c = (Cercle*)f;
+			visit(c);
 		}
+			   break;
+		case 11: {
+			Polygone* p = (Polygone*)f;
+			visit(p);
+		}
+			   break;
+		case 12: {
+			Trait* t = (Trait*)f;
+			visit(t);
+		}
+		}
+	
 	}
 	virtual void visit(const GroupeForme* f)const {
 		for (size_t i = 0; i < f->getNbForme(); i++) {
