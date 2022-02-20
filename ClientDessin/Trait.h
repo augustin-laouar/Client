@@ -11,7 +11,7 @@ public:
 	* @param couleur couleur du trait 
 	* 
 	*/
-	Trait(const Vecteur2D& p1, const Vecteur2D& p2, int couleur): FormeSimple(couleur) {
+	Trait(const Vecteur2D& p1, const Vecteur2D& p2, Couleur couleur): FormeSimple(couleur) {
 		this->ajouterPoint(p1);
 		this->ajouterPoint(p2);
 	}

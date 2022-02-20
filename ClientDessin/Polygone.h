@@ -10,7 +10,7 @@ public :
 	* @param v vector de points2d
 	* @param couleur 
 	*/
-	Polygone(vector<Vecteur2D> v, int couleur) : FormeSimple(couleur) {
+	Polygone(vector<Vecteur2D> v, Couleur couleur) : FormeSimple(couleur) {
 		for (size_t i = 0; i < v.size(); i++) {
 			ListePoint.push_back(v[i]);
 		}

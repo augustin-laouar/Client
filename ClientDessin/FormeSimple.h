@@ -19,7 +19,7 @@ protected:
 
 public:
 	
-	FormeSimple(int couleur) : Forme2D(couleur) {}
+	FormeSimple(Couleur couleur) : Forme2D(couleur) {}
 	FormeSimple(const FormeSimple& f);
 	virtual ~FormeSimple() { // en a t on besoin ?
 		ListePoint.clear();

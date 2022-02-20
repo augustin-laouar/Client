@@ -4,31 +4,32 @@
 #include "Erreur.h"
 #include "Vecteur2D.h"
 #include "Point2D.h"
+#include "Couleur.h"
 
 class VisitorForme2D;
 
 class Forme2D
 {
 protected : 
-	int couleur;
+	Couleur couleur;
 public:
 	
 	
-	enum { black = 1, blue = 2, red = 3, green = 4, yellow = 5,cyan = 6}; // deplacer dans une autre classe
+	//enum { black = 1, blue = 2, red = 3, green = 4, yellow = 5,cyan = 6}; // deplacer dans une autre classe
 
 	/**
 	* @brief construction d'une forme a partir d'une couleur 
 	*/
-	Forme2D(int couleur) {
+	Forme2D(Couleur couleur) {
 		this->couleur = couleur;
 	}
 
 	/**
 	*/
-	void setCouleur(int couleur) {
+	void setCouleur(Couleur couleur) {
 		this->couleur = couleur;
 	}
-	int getCouleur()const {
+	Couleur getCouleur()const {
 		return couleur;
 	}
 	virtual string toString()const = 0;

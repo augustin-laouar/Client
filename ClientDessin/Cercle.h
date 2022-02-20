@@ -18,7 +18,7 @@ public:
 	* @param couleur couleur du cercle
 	* 
 	*/
-	Cercle(const Vecteur2D& centre, double rayon, int couleur) : FormeSimple(couleur) {
+	Cercle(const Vecteur2D& centre, double rayon,Couleur couleur) : FormeSimple(couleur) {
 		this->ajouterPoint(centre);
 		this->rayon = rayon;
 	}

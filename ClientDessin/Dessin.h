@@ -6,27 +6,11 @@ class Dessin :public VisitorForme2D
 {
 public:
 	/*
-	* fonction qui associe une couleur en int au format qui lui correspond en rgb
+	* fonction qui associe une couleur a son format necessaire pour une requete
 	*/
-	string associerCouleur(int c)const {
+	string associerCouleur(Couleur c)const {
 
-
-		switch (c)
-		{
-		case 1: return "0,0,0"; // black
-			break;
-		case 2: return "0,0,255"; //blue 
-			break;
-		case 3: return "255,0,0"; //red
-			break;
-		case 4: return "0,255,0"; //green
-			break;
-		case 5: return "255,255,0"; //yellow
-			break;
-		case 6: return "0,255,255"; //cyan
-			break;
-		}
-
+		return c.toString();
 	}
 
 	/*

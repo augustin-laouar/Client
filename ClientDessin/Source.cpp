@@ -291,37 +291,64 @@ int main() {
 //
 //	}
 //	*/
-//
-//	Trait* t85 = new Trait(p56, p57, 2);
-//	vector<Point2D>Points;
-//	Point2D p100(415, 550);
-//	Point2D p101(400, 700);
-//	Point2D p102(450, 650);
-//	Points.push_back(p100);
-//	Points.push_back(p101);
-//	Points.push_back(p102);
-//	Polygone* po85 = new Polygone(Points, 4);
-//	Plan2D plan;
-//	plan.ajouterForme(t85);
-//	plan.ajouterForme(&c1);
-//	plan.ajouterForme(&c2);
-//	plan.ajouterForme(po85);
-//	Trait* t86 = new Trait(*t85);
-//	t86->translation(v1);
-//	t86->setCouleur(Forme2D::cyan);
-//	Polygone* po86 = new Polygone(*po85);
-//	Point2D p103(390, 400);
-//	po86->rotation(p103, 1.57);
-//	po86->setCouleur(Forme2D::red);
+
+    Vecteur2D v1(150, 200);
+	Vecteur2D v2(25, 10);
+
+	Vecteur2D p56;
+	Vecteur2D p57;
+	Vecteur2D p58;
+	
+	
+
+	
+	//	Cercle c2(p1, 110, 2);
+	
+	p56.x = 410;
+	p56.y = 450;
+	
+	p57.x = 480;
+	p57.y = 525;
+	p58.x = 430;
+	p58.y = 442;
+
+	Couleur c = c.Red();
+	//Cercle c1(&p1, 120, c);
+
+	Trait* t85 = new Trait(p56, p57,c);
+	vector<Vecteur2D>Points;
+	Vecteur2D p100(415, 550);
+	Vecteur2D p101(400, 700);
+	Vecteur2D p102(450, 650);
+	Points.push_back(p100);
+	Points.push_back(p101);
+	Points.push_back(p102);
+	//Polygone* po85 = new Polygone(Points, 4,c);
+	Plan2D plan;
+	plan.ajouterForme(t85);
+	//plan.ajouterForme(&c1);
+	//plan.ajouterForme(&c2);
+	//plan.ajouterForme(po85);
+	Trait* t86 = new Trait(*t85);
+	t86->translation(v1);
+	t86->setCouleur(Couleur::Cyan());
+	//Polygone* po86 = new Polygone(*po85);
+	Point2D p103(390, 400);
+	//po86->rotation(p103, 1.57);
+//	po86->setCouleur(Couleur::Red());
 //	plan.ajouterForme(po86);
-//	plan.ajouterForme(t86);
-//	Dessin d;
-//	d.Dessiner(plan);
-//	Communication* com = com->getInstance();
-//	com->FermerConnexion();
+	plan.ajouterForme(t86);
+	Dessin d;
+	d.Dessiner(plan);
+	Communication* com = com->getInstance();
+	com->FermerConnexion();
 //	
 	
 	
+
+
+
+
 
 }
 

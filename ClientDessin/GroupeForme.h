@@ -7,7 +7,7 @@ class GroupeForme : public Forme2D
 protected:
 	vector<Forme2D*>ListeForme;
 public :
-	GroupeForme(int couleur) : Forme2D(couleur) {}
+	GroupeForme(Couleur couleur) : Forme2D(couleur) {}
 	GroupeForme(const GroupeForme& g);
 	void Destruction();
 	virtual ~GroupeForme();
