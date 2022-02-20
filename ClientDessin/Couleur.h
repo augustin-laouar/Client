@@ -6,13 +6,21 @@ using namespace std;
 
 class Couleur
 {
+private:
 	int R;
 	int G;
 	int B;
+public:
 	Couleur(int r, int g, int b) {
 		R = r;
 		G = g;
 		B = b;
+	}
+	Couleur()
+	{
+		R = 0;
+		G = 0;
+		B = 0;
 	}
 	
 	int getR()const {
@@ -36,27 +44,28 @@ class Couleur
 		B = b;
 	}
 
-	Couleur Cyan() {
+	static Couleur Cyan() {
 		return Couleur(0,255,255);
 	}
-	Couleur Black() {
+	static Couleur Black() {
 		return Couleur(0, 0, 0);
 	}
-	Couleur Blue() {
+	static Couleur Blue() {
 		return Couleur(0, 0, 255);
 	}
-	Couleur Red() {
+	static Couleur Red() {
 		return Couleur(255,0,0);
 	}
-	Couleur Green() {
+	static Couleur Green() {
 		return Couleur(0,255,0);
 	}
-	Couleur Yellow() {
+	static Couleur Yellow() {
 		return Couleur(255, 255, 0);
 	}
 	string toString() const {
 		string s;
 		s = to_string(R) + "," + to_string(G)+","+ to_string(B);
+		return s;
 	}
 
 
