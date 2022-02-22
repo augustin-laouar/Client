@@ -8,6 +8,7 @@
 class VisitorForme2D
 {
 	public :
+	virtual ~VisitorForme2D(){}
 	virtual void visit(const FormeSimple* f)const = 0;
 	virtual	void visit(const GroupeForme* f)const = 0;
 	virtual void visit(const Polygone* f)const = 0;

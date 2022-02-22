@@ -67,7 +67,10 @@ public:
 		s = to_string(R) + "," + to_string(G)+","+ to_string(B);
 		return s;
 	}
-
+	operator string() const
+	{
+		return this->toString();
+	}
 
 };
 

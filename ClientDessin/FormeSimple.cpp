@@ -10,7 +10,7 @@ FormeSimple::FormeSimple(const FormeSimple& f) : Forme2D(couleur) {
 	}
 }
 string FormeSimple::toString()const {
-	string retour = "Forme : [";
+	string retour = "Forme : couleur : " + this->getCouleur().toString() + "Points : [ ";
 	for (int i = 0; i < getNbPoint(); i++) {
 		retour += ListePoint[i].toString() + " ; ";
 	}
@@ -33,7 +33,6 @@ void FormeSimple::rotation(const Vecteur2D& centre , double angle )
 {
 	Matrice2D R(cos(angle), sin(angle), -sin(angle), cos(angle));
 	for (size_t i = 0; i < ListePoint.size(); i++) {
-		//ListePoint[i] = R * ( ListePoint[i] - p ) + p où R est une matrice 2*2
 		ListePoint[i] = (R * (ListePoint[i] - centre)) + centre;
  	}
 

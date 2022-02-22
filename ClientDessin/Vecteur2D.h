@@ -1,5 +1,4 @@
 #pragma once
-#include "Point2D.h"
 #include <string>
 #include <iostream>
 #include <ostream>
@@ -26,6 +25,8 @@ public:
 		this->x = v.x;
 		this->y = v.y;
 	}
+	virtual ~Vecteur2D(){}
+
 	//construction directement avec les 2 points du vecteur
 	//methodes
 	double determinant(const Vecteur2D& v) const {

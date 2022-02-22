@@ -16,7 +16,7 @@ public :
 			ListePoint.push_back(v[i]);
 		}
 	}
-	Polygone();
+	Polygone(Couleur couleur) : FormeSimple(couleur) {}
 	/**
 	* @brief constructeur par copie 
 	* @param p Polygone 
@@ -27,13 +27,6 @@ public :
 		for (int i = 0; i < p.getNbPoint(); i++) {
 			ListePoint.push_back(p.ListePoint[i]);
 		}
-	}
-
-	/**
-	* @brief recuperer un point du polygone grace a son index 
-	*/
-	Vecteur2D getPointI(int i)const {
-		return ListePoint.at(i);
 	}
 	
 	/**
@@ -126,7 +119,9 @@ public :
 	*/
 
 	virtual void accept(const VisitorForme2D* v);
-
+	virtual vector<Triangle> Triangulation()const;
 	virtual double Aire()const;
+	virtual double Perimetre()const;
+	
 };
 

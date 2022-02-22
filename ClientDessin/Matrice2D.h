@@ -22,7 +22,7 @@ public:
 		this->x2 = m.x2;
 		this->y2 = m.y2;
 	}
-
+	virtual ~Matrice2D(){}
 	//getters setters
 
 	//Methodes

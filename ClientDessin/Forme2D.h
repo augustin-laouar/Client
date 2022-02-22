@@ -3,7 +3,6 @@
 #include <iostream>
 #include "Erreur.h"
 #include "Vecteur2D.h"
-#include "Point2D.h"
 #include "Couleur.h"
 
 class VisitorForme2D;
@@ -23,7 +22,7 @@ public:
 	Forme2D(Couleur couleur) {
 		this->couleur = couleur;
 	}
-
+	virtual ~Forme2D(){}
 	/**
 	*/
 	void setCouleur(Couleur couleur) {
@@ -55,6 +54,6 @@ public:
 	virtual void accept(const VisitorForme2D* v)const = 0;
 };
 inline ostream& operator<<(ostream& s, const Forme2D& f) {
-	return s << f << endl;
+	return s << f.toString() << endl;
 }
 

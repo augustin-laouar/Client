@@ -149,7 +149,6 @@
     <ClInclude Include="GroupeForme.h" />
     <ClInclude Include="Matrice2D.h" />
     <ClInclude Include="Plan2D.h" />
-    <ClInclude Include="Point2D.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
     <ClInclude Include="Triangle.h" />
@@ -167,7 +166,6 @@
     <ClCompile Include="GroupeForme.cpp" />
     <ClCompile Include="Matrice2D.cpp" />
     <ClCompile Include="Plan2D.cpp" />
-    <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trait.cpp" />

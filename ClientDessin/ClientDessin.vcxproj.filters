@@ -36,9 +36,6 @@
     <ClInclude Include="Vecteur2D.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Point2D.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="GroupeForme.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -87,9 +84,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Vecteur2D.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Point2D.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="GroupeForme.cpp">

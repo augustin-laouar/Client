@@ -17,7 +17,7 @@ private:
     Communication(const char*, short);
     
 public:
-
+    virtual ~Communication(){}
     static Communication* getInstance(const char* c = "127.0.0.1", short i=9111) {
       
             if (comm == nullptr) {
