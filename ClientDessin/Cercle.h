@@ -21,7 +21,7 @@ public:
 	*/
 	Cercle(const Vecteur2D& centre, double rayon,Couleur couleur) : FormeSimple(couleur) {
 		this->ajouterPoint(centre);
-		this->rayon = rayon;// appeler setter
+		setRayon(rayon);
 	}
 
 	/**
@@ -110,12 +110,22 @@ public:
 		return rayon* rayon * PI;
 	}
 	virtual void homothetie(const Vecteur2D& centre, const double zoom) {
+		if (zoom < 0) {
+			throw Erreur("Le zoom ne doit pas être negatif");
+		}
 		ListePoint[0] = ((ListePoint[0] - centre) * zoom) + centre;
 		rayon *= zoom;
 	}
-	virtual Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const { // a mettre dans forme2D
-		Forme2D* res = this->clone();
-		res->homothetie(centre,zoom);
-		return res;
+	double xMIN()const {
+		return ListePoint[0].x - rayon;
+	}
+	double yMIN()const {
+		return ListePoint[0].y - rayon;
+	}
+	double xMAX()const {
+		return ListePoint[0].x + rayon;
+	}
+	double yMAX()const {
+		return ListePoint[0].y + rayon;
 	}
 };
