@@ -168,6 +168,7 @@
     <ClCompile Include="Plan2D.cpp" />
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TestVecteur2D.cpp" />
     <ClCompile Include="Trait.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />

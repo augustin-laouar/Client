@@ -22,12 +22,18 @@ public:
 		}
 		return aux.norme();
 	}
-	virtual double Aire()const {
+	virtual double AireHeron()const {
 		double a = LongueurCote(1);
 		double b = LongueurCote(2);
 		double c = LongueurCote(3);
 		double p = this->Perimetre() * 0.5;
 		return sqrt(p * (p - a) * (p - b) * (p - c)); //formule de Héron
+	}
+	virtual double Aire()const {
+		Vecteur2D u1 = ListePoint[1] - ListePoint[0];
+		Vecteur2D u2 = ListePoint[2] - ListePoint[0];
+		double res = u1.determinant(u2);
+		return abs(res) * 0.5;
 	}
 
 };
