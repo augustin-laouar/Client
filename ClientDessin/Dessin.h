@@ -4,7 +4,30 @@
 #include "Communication.h"
 class Dessin :public VisitorForme2D
 {
+private : 
+	int x;
+	int y;
 public:
+	Dessin(int x = 200, int y = 200) {
+		this->x = x;
+		this->y = y;
+	}
+	int getX()const {
+		return x;
+	}
+	int getY()const {
+		return y;
+	}
+	void setX(int x) {
+		if (x >= 50) {
+			this->x = x;
+		}
+	}
+	void setY(int y) {
+		if (y >= 50) {
+			this->y = y;
+		}
+	}
 	/*
 	* fonction qui associe une couleur a son format necessaire pour une requete
 	*/
@@ -149,13 +172,39 @@ public:
 			visit(f2);
 		}
 	}
+	//Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
+//rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
+	string PassageMonde(FormeSimple *f,Plan2D& p) {
+		double p1 = p.getAxeI().x;
+		int p1bis, p2bis;
+		double lambda;
+		int e1, e2, a, b;
+		for (int i = 0; i < f->getNbPoint(); i++) {
 
-	void Dessiner(const Plan2D& p)const {
-		cout << "Dessin des formes du plan..." << endl;
-		for (int i = 0; i < p.nbFormes(); i++) {
-			p.getForme(i)->accept(this);
 		}
-		cout << "Dessin des formes du plan terminé." << endl;
+
+	}
+	void Dessiner(const Plan2D& p)const {
+		try {
+			Communication* comm = comm->getInstance();
+			string RDim = "0;" + x; //requete pour envoi des dimentions de la fenetre java
+			RDim += ";" + y;
+			const char* R = RDim.c_str();
+			comm->Envoyer(R);
+			cout << "Dessin des formes du plan..." << endl;
+			for (int i = 0; i < p.nbFormes(); i++) {
+				p.getForme(i)->accept(this);
+			}
+			const char* R2 = "-1"; // marque la fin des envois
+			comm->Envoyer(R2);
+			cout << "Dessin des formes du plan terminé." << endl;
+		}
+		catch (Erreur e)
+		{
+			cout << e.what(); // on affiche echec de connexion si celle ci echoue
+
+		}
+		
 	}
 };
 

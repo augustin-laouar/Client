@@ -38,11 +38,24 @@ public:
 	}
 	virtual Forme2D* clone()const = 0;
 	virtual void translation(const Vecteur2D& v) = 0;
-	virtual Forme2D* translation(const Vecteur2D& v)const = 0;
 	virtual void homothetie(const Vecteur2D& centre, const double zoom) = 0;
-	//virtual Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const = 0;
 	virtual void rotation(const Vecteur2D& centre, double angle) = 0;
-	//virtual Forme2D* rotation(const Vecteur2D& centre, double angle)const = 0;
+	Forme2D* translation(const Vecteur2D& v)const {
+		Forme2D* res = this->clone();
+		res->translation(v);
+		return res;
+	}
+
+	Forme2D* homothetie(const Vecteur2D& centre, const double zoom)const {
+		Forme2D* res = this->clone();
+		res->homothetie(centre,zoom);
+		return res;
+	}
+	Forme2D* rotation(const Vecteur2D& centre, double angle)const {
+		Forme2D* res = this->clone();
+		res->rotation(centre,angle);
+		return res;
+	}
 	virtual double Aire()const = 0;
 	//magnifique
 	virtual double xMAX()const=0;
@@ -52,6 +65,7 @@ public:
 	//typeid
 	virtual int whoAmI()const = 0;
 	virtual void accept(const VisitorForme2D* v)const = 0;
+
 };
 inline ostream& operator<<(ostream& s, const Forme2D& f) {
 	return s << f.toString() << endl;
