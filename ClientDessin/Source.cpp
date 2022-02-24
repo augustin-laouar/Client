@@ -294,7 +294,7 @@ int main() {
 //	}
 //	*/
 
-   /* Vecteur2D v1(150, 200);
+    Vecteur2D v1(150, 200);
 	Vecteur2D v2(25, 10);
 
 	Vecteur2D p56;
@@ -344,24 +344,24 @@ int main() {
 	Dessin d;
 	d.Dessiner(plan);
 	Communication* com = com->getInstance();
-	com->FermerConnexion();*/
+	com->FermerConnexion();
 
-Vecteur2D p1(0, 3);
-Vecteur2D p2(2, 5);
-Vecteur2D p3(4, 3);
-Vecteur2D p4(4, 1);
-Vecteur2D p5(0, 1);
-
-vector<Vecteur2D> points;
-points.push_back(p1);
-points.push_back(p2);
-points.push_back(p3);
-points.push_back(p4);
-points.push_back(p5);
-
-Polygone carre(points,Couleur::Black());
-cout << carre << endl;
-cout << carre.Aire() << endl;
+//Vecteur2D p1(0, 3);
+//Vecteur2D p2(2, 5);
+//Vecteur2D p3(4, 3);
+//Vecteur2D p4(4, 1);
+//Vecteur2D p5(0, 1);
+//
+//vector<Vecteur2D> points;
+//points.push_back(p1);
+//points.push_back(p2);
+//points.push_back(p3);
+//points.push_back(p4);
+//points.push_back(p5);
+//
+//Polygone carre(points,Couleur::Black());
+//cout << carre << endl;
+//cout << carre.Aire() << endl;
 
 	
 	
