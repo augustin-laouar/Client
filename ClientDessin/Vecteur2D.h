@@ -38,6 +38,9 @@ public:
 	double produitScalaire(const Vecteur2D& v)const {
 		return x * v.y + y * v.x;
 	}
+	double operator * (const Vecteur2D& v)const {
+		return produitScalaire(v);
+	}
 	void translation(const Vecteur2D&);
 	Vecteur2D translation(const Vecteur2D&)const;
 
@@ -78,4 +81,7 @@ public:
 
 inline ostream& operator<<(ostream& s, const Vecteur2D& v) {
 	return s << v.toString();
+}
+inline Vecteur2D operator * (const double s, const Vecteur2D& v) {
+	return v * s;
 }

@@ -346,11 +346,11 @@ int main() {
 	Communication* com = com->getInstance();
 	com->FermerConnexion();*/
 
-Vecteur2D p1(0, 3);
-Vecteur2D p2(2, 5);
-Vecteur2D p3(4, 3);
-Vecteur2D p4(4, 1);
-Vecteur2D p5(0, 1);
+Vecteur2D p1(-0.3, 1.7);
+Vecteur2D p2(2.8, -2.5);
+Vecteur2D p3(4.3, 5.2);
+Vecteur2D p4(5.8, -3.5);
+Vecteur2D p5(-5, -5);
 
 vector<Vecteur2D> points;
 points.push_back(p1);
@@ -363,7 +363,14 @@ Polygone carre(points,Couleur::Black());
 cout << carre << endl;
 cout << carre.Aire() << endl;
 
-	
+Triangle t(p1,p2,p3,Couleur::Cyan());
+Cercle c(p4, 1.2, Couleur::Black());
+GroupeForme g;
+g.ajouterForme(c);
+g.ajouterForme(t);
+Dessin d;
+Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
+//rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
 	
 
 
