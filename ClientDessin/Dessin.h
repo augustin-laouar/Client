@@ -2,13 +2,16 @@
 #include "VisitorForme2D.h"
 #include "Plan2D.h"
 #include "Communication.h"
+#include "Matrice2D.h"
 class Dessin :public VisitorForme2D
 {
 private : 
 	int x;
 	int y;
+	Plan2D Monde;
 public:
-	Dessin(int x = 200, int y = 200) {
+	Dessin(const Plan2D& Monde,int x = 200, int y = 200) {
+		this->Monde = Monde;
 		this->x = x;
 		this->y = y;
 	}
@@ -46,13 +49,8 @@ public:
 	virtual void visit(const Polygone* f) const{
 		
 		int nbp = f->getNbPoint();
-		string p;
 		string requete = "3;";
-		for (int i = 0; i < nbp; i++)
-		{
-			p = p + to_string((int)(f->getPoint(i).x)) + "," + to_string((int)(f->getPoint(i).y)) + ";";
-		}
-		requete = requete + to_string(nbp) + ";"+ p + associerCouleur(f->getCouleur()) + "\n";
+		requete = requete + to_string(nbp) + ";"+ MondeEcran(f) + associerCouleur(f->getCouleur()) + "\n";
 
 		try {
 			Communication* comm = comm->getInstance();
@@ -75,16 +73,9 @@ public:
 
 	virtual void visit(const Trait* f) const{
 		
-		int nbp = f->getNbPoint();
-		string p;
+		int nbp = 2;
 		string requete = "1;";
-
-
-		for (int i = 0; i < nbp; i++) //construction de la chaine nbp conteant les coordonnes des points
-		{
-			p = p+ to_string((int)(f->getPoint(i).x)) + "," + to_string((int)(f->getPoint(i).y) )+ ";";
-		}
-		requete = requete + to_string(nbp) + ";" +p + associerCouleur(f->getCouleur()) + "\n";
+		requete = requete + to_string(nbp) + ";" + MondeEcran(f) + associerCouleur(f->getCouleur()) + "\n";
 
 		
 
@@ -114,7 +105,7 @@ public:
 		
 		string requete;
 
-		requete = "2;1;" + to_string((int)f->getRayon())+ ";" + to_string((int)(f->getPoint(0).x)) + "," + to_string((int)(f->getPoint(0).y)) + ";";
+		requete = "2;1;" + to_string((int)f->getRayon())+ ";" + MondeEcran(f);
 		
 		requete = requete +  associerCouleur(f->getCouleur()) + "\n";
 
@@ -174,26 +165,51 @@ public:
 	}
 	//Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
 //rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
-	string PassageMonde(FormeSimple *f,Plan2D& p) {
-		double p1 = p.getAxeI().x;
-		int p1bis, p2bis;
-		double lambda;
-		int e1, e2, a, b;
-		for (int i = 0; i < f->getNbPoint(); i++) {
-
+	string MondeEcran(const FormeSimple *f)const {
+		string res;
+		Vecteur2D p1 = Monde.getAxeI();
+		Vecteur2D p2 = Monde.getAxeJ();
+		Vecteur2D p1bis(0, y);
+		Vecteur2D p2bis(x, 0);
+		double lambda = min((p2bis.x - p1bis.x) / (p2.x - p1.x), (p2bis.y - p1bis.y) / (p2.y - p1.y));
+		int e1, e2;
+		double a, b;
+		if ((p2.x - p1.x) * (p2bis.x - p1bis.x) > 0) {
+			e1 = 1;
 		}
-
+		else {
+			e1 = 0;
+		}
+		if ((p2.y - p1.y) * (p2bis.y - p1bis.y) > 0) {
+			e2 = 1;
+		}
+		else {
+			e2 = -1;
+		}
+		Vecteur2D C((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
+		Vecteur2D Cbis((p1bis.x + p2bis.x) * 0.5, (p1bis.y + p2bis.y) * 0.5);
+		a = Cbis.x - lambda * C.x;
+		b = Cbis.y - lambda * C.y;
+		Vecteur2D AB(a, b);
+		Matrice2D Mat(lambda * e1, 0, 0, lambda * e2);
+		Vecteur2D New;
+		for (int i = 0; i < f->getNbPoint(); i++) {
+			New = Mat * f->getPoint(i) * AB;
+			res += (int)New.x + ",";
+			res += (int)New.y + ";";
+		}
+		return res;
 	}
-	void Dessiner(const Plan2D& p)const {
+	void Dessiner()const {
 		try {
 			Communication* comm = comm->getInstance();
 			string RDim = "0;" + x; //requete pour envoi des dimentions de la fenetre java
-			RDim += ";" + y;
+			RDim += "," + y+(string)";\n";
 			const char* R = RDim.c_str();
 			comm->Envoyer(R);
 			cout << "Dessin des formes du plan..." << endl;
-			for (int i = 0; i < p.nbFormes(); i++) {
-				p.getForme(i)->accept(this);
+			for (int i = 0; i < Monde.nbFormes(); i++) {
+				Monde.getForme(i)->accept(this);
 			}
 			const char* R2 = "-1"; // marque la fin des envois
 			comm->Envoyer(R2);
