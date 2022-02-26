@@ -341,8 +341,8 @@ int main() {
 	po86->setCouleur(Couleur::Red());
 	plan.ajouterForme(po86);
 	plan.ajouterForme(t86);
-	Dessin d;
-	d.Dessiner(plan);
+	Dessin d(plan);
+	d.Dessiner();
 	Communication* com = com->getInstance();
 	com->FermerConnexion();
 
