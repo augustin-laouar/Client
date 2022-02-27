@@ -49,8 +49,8 @@ public:
 		return new Vecteur2D(*this);
 	}
 	string  toString() const {
-		string s = "VECTEUR 2D : \n";
-		s += "( " + to_string(x) + " ) \n( " + to_string(y) + " )";
+		string s = "VECTEUR 2D : ";
+		s += " (" + to_string(x) + " , " + to_string(y) + " )";
 		return s;
 	}
 	const Vecteur2D operator + (const Vecteur2D& u) const {

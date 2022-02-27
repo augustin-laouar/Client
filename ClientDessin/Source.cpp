@@ -320,9 +320,9 @@ int main() {
 
 	Trait* t85 = new Trait(p56, p57,c);
 	vector<Vecteur2D>Points;
-	Vecteur2D p100(415, 550);
-	Vecteur2D p101(400, 700);
-	Vecteur2D p102(450, 650);
+	Vecteur2D p100(312, 400);
+	Vecteur2D p101(512, 145);
+	Vecteur2D p102(412, 320);
 	Points.push_back(p100);
 	Points.push_back(p101);
 	Points.push_back(p102);
@@ -337,12 +337,17 @@ int main() {
 	t86->setCouleur(Couleur::Cyan());
 	Polygone* po86 = new Polygone(*po85);
 	Vecteur2D p103(390, 400);
-	po86->rotation(p103, 1.57);
 	po86->setCouleur(Couleur::Red());
 	plan.ajouterForme(po86);
 	plan.ajouterForme(t86);
-	Dessin d(plan);
-	d.Dessiner();
+	Vecteur2D p12(-1.5, -1.5);
+	Vecteur2D p22(400, 400);
+	Trait t1(p12, p22, Couleur::Black());
+	plan.ajouterForme(&t1);
+	Dessin d2(plan, 800, 500);
+	d2.Dessiner();
+	//Dessin d(plan,300,300);
+	//d.Dessiner();
 	Communication* com = com->getInstance();
 	com->FermerConnexion();
 

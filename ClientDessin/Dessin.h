@@ -163,15 +163,21 @@ public:
 			visit(f2);
 		}
 	}
-	//Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
+//Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
 //rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
 	string MondeEcran(const FormeSimple *f)const {
 		string res;
-		Vecteur2D p1 = Monde.getAxeI();
-		Vecteur2D p2 = Monde.getAxeJ();
+		double xMAX = Monde.xMAX();
+		double xMIN = Monde.xMIN();
+		double yMAX = Monde.yMAX();
+		double yMIN = Monde.yMIN();
+		Vecteur2D p1(xMIN,yMIN);
+		Vecteur2D p2(xMAX,yMAX);
 		Vecteur2D p1bis(0, y);
 		Vecteur2D p2bis(x, 0);
-		double lambda = min((p2bis.x - p1bis.x) / (p2.x - p1.x), (p2bis.y - p1bis.y) / (p2.y - p1.y));
+		cout << "p1 :" << p1 << " p2 :" << p2 << " p1' : " << p1bis << " p2' " << p2bis << endl;
+		double lambda = min(abs(p2bis.x - p1bis.x) / abs(p2.x - p1.x), abs(p2bis.y - p1bis.y) / abs(p2.y - p1.y));
+		cout << "lambda : " << lambda << endl;
 		int e1, e2;
 		double a, b;
 		if ((p2.x - p1.x) * (p2bis.x - p1bis.x) > 0) {
@@ -186,27 +192,36 @@ public:
 		else {
 			e2 = -1;
 		}
+		cout << "e1 e2 : " << e1 << " " << e2 << endl;
 		Vecteur2D C((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
 		Vecteur2D Cbis((p1bis.x + p2bis.x) * 0.5, (p1bis.y + p2bis.y) * 0.5);
-		a = Cbis.x - lambda * C.x;
-		b = Cbis.y - lambda * C.y;
+		a = Cbis.x - (lambda * e1) * C.x;
+		b = Cbis.y - (lambda * e2) * C.y;
+		cout << " a : " << a << " b : " << b << endl;
 		Vecteur2D AB(a, b);
+		cout << "AB : " << AB << endl;
 		Matrice2D Mat(lambda * e1, 0, 0, lambda * e2);
+		cout << "MAT : " << Mat << endl;
 		Vecteur2D New;
+		int resX;
+		int resY;
 		for (int i = 0; i < f->getNbPoint(); i++) {
-			New = Mat * f->getPoint(i) * AB;
-			res += (int)New.x + ",";
-			res += (int)New.y + ";";
-		}
+			New = (Mat * f->getPoint(i)) + AB;
+			cout << " New : " << New << endl;
+			resX = New.x;
+			resY = New.y;
+			res += to_string(resX) + (string)",";
+			res += to_string(resY) + (string)";";		}
 		return res;
 	}
 	void Dessiner()const {
 		try {
 			Communication* comm = comm->getInstance();
-			string RDim = "0;" + x; //requete pour envoi des dimentions de la fenetre java
-			RDim += "," + y+(string)";\n";
+			string RDim = "0;" + to_string(x); //requete pour envoi des dimentions de la fenetre java
+			RDim += ";" + to_string(y)+(string)";\n";
 			const char* R = RDim.c_str();
 			comm->Envoyer(R);
+			cout << "Taille de la fenetre envoye : " << R << endl;
 			cout << "Dessin des formes du plan..." << endl;
 			for (int i = 0; i < Monde.nbFormes(); i++) {
 				Monde.getForme(i)->accept(this);
