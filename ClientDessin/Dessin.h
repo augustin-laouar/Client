@@ -104,8 +104,15 @@ public:
 		//pour un cercle on envoi sous forme  : 2;nbPoints;rayon;centre;color
 		
 		string requete;
-
-		requete = "2;1;" + to_string((int)f->getRayon())+ ";" + MondeEcran(f);
+		Vecteur2D bordMonde(f->getCentre().x + f->getRayon(), f->getCentre().y);
+		cout << " rayon : " << f->getRayon() << endl;
+		Vecteur2D bordEcran(MondeEcranVecteur(bordMonde));
+		Vecteur2D centreEcran(MondeEcranVecteur(f->getCentre()));
+		Vecteur2D rayonEcran(bordEcran - centreEcran);
+		cout << "rayon ecran : " << rayonEcran << endl;
+		int newRayon = rayonEcran.norme();
+		cout << " rayon apres : " << newRayon<< endl;
+		requete = "2;1;" + to_string(newRayon)+ ";" + MondeEcran(f);
 		
 		requete = requete +  associerCouleur(f->getCouleur()) + "\n";
 
@@ -175,9 +182,7 @@ public:
 		Vecteur2D p2(xMAX,yMAX);
 		Vecteur2D p1bis(0, y);
 		Vecteur2D p2bis(x, 0);
-		cout << "p1 :" << p1 << " p2 :" << p2 << " p1' : " << p1bis << " p2' " << p2bis << endl;
 		double lambda = min(abs(p2bis.x - p1bis.x) / abs(p2.x - p1.x), abs(p2bis.y - p1bis.y) / abs(p2.y - p1.y));
-		cout << "lambda : " << lambda << endl;
 		int e1, e2;
 		double a, b;
 		if ((p2.x - p1.x) * (p2bis.x - p1bis.x) > 0) {
@@ -192,27 +197,60 @@ public:
 		else {
 			e2 = -1;
 		}
-		cout << "e1 e2 : " << e1 << " " << e2 << endl;
 		Vecteur2D C((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
 		Vecteur2D Cbis((p1bis.x + p2bis.x) * 0.5, (p1bis.y + p2bis.y) * 0.5);
 		a = Cbis.x - (lambda * e1) * C.x;
 		b = Cbis.y - (lambda * e2) * C.y;
-		cout << " a : " << a << " b : " << b << endl;
 		Vecteur2D AB(a, b);
-		cout << "AB : " << AB << endl;
 		Matrice2D Mat(lambda * e1, 0, 0, lambda * e2);
-		cout << "MAT : " << Mat << endl;
 		Vecteur2D New;
 		int resX;
 		int resY;
 		for (int i = 0; i < f->getNbPoint(); i++) {
 			New = (Mat * f->getPoint(i)) + AB;
-			cout << " New : " << New << endl;
 			resX = New.x;
 			resY = New.y;
 			res += to_string(resX) + (string)",";
 			res += to_string(resY) + (string)";";		}
 		return res;
+	}
+	Vecteur2D MondeEcranVecteur(const Vecteur2D v)const {
+		double xMAX = Monde.xMAX();
+		xMAX += xMAX * 0.1;
+		double xMIN = Monde.xMIN();
+		xMIN -= xMIN * 0.1;
+		double yMAX = Monde.yMAX();
+		yMAX += yMAX * 0.1;
+		double yMIN = Monde.yMIN();
+		yMIN -= yMIN * 0.1;
+		Vecteur2D p1(xMIN, yMIN);
+		Vecteur2D p2(xMAX, yMAX);
+		Vecteur2D p1bis(0, y);
+		Vecteur2D p2bis(x, 0);
+		double lambda = min(abs(p2bis.x - p1bis.x) / abs(p2.x - p1.x), abs(p2bis.y - p1bis.y) / abs(p2.y - p1.y));
+		int e1, e2;
+		double a, b;
+		if ((p2.x - p1.x) * (p2bis.x - p1bis.x) > 0) {
+			e1 = 1;
+		}
+		else {
+			e1 = 0;
+		}
+		if ((p2.y - p1.y) * (p2bis.y - p1bis.y) > 0) {
+			e2 = 1;
+		}
+		else {
+			e2 = -1;
+		}
+		Vecteur2D C((p1.x + p2.x) * 0.5, (p1.y + p2.y) * 0.5);
+		Vecteur2D Cbis((p1bis.x + p2bis.x) * 0.5, (p1bis.y + p2bis.y) * 0.5);
+		a = Cbis.x - (lambda * e1) * C.x;
+		b = Cbis.y - (lambda * e2) * C.y;
+		Vecteur2D AB(a, b);
+		Matrice2D Mat(lambda * e1, 0, 0, lambda * e2);
+		Vecteur2D New;
+		New = (Mat * v) + AB;
+		return New;
 	}
 	void Dessiner()const {
 		try {
