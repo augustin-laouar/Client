@@ -344,6 +344,8 @@ int main() {
 	Vecteur2D p22(400, 400);
 	Trait t1(p12, p22, Couleur::Black());
 	plan.ajouterForme(&t1);
+	Plan2D plan2;
+	plan2.ajouterForme(&c1);
 	Dessin d2(plan, 800, 500);
 	d2.Dessiner();
 	//Dessin d(plan,300,300);

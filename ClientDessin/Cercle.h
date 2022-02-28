@@ -106,9 +106,16 @@ public:
 	* @brief methode necessaire pour le design pattern visitor
 	*/
 	virtual void accept(const VisitorForme2D* v);
+	/**
+	* @brief methode pour calculer l'air d'un cercle 
+	* @return double
+	*/
 	virtual double Aire()const {
 		return rayon* rayon * PI;
 	}
+	/**
+	* @brief 
+	*/
 	virtual void homothetie(const Vecteur2D& centre, const double zoom) {
 		if (zoom < 0) {
 			throw Erreur("Le zoom ne doit pas être negatif");
