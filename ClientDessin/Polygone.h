@@ -36,14 +36,9 @@ public :
 		return new Polygone(*this);
 	}
 	
-	/** 
-	* @brief affecter un polygone a un autre 
-	* 
-	*/
 
 	/**
 	* @brief egalite entre deux polygones
-	* @return bool
 	*/
 
 
@@ -119,6 +114,9 @@ public :
 	*/
 
 	virtual void accept(const VisitorForme2D* v);
+	/**
+	* @brief permet de diviser le polygone en plusieurs triangles
+	*/
 	virtual vector<Triangle> Triangulation()const;
 	virtual double Aire()const;
 	virtual double Perimetre()const;

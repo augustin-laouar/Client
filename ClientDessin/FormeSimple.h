@@ -24,19 +24,31 @@ public:
 	virtual ~FormeSimple() { // en a t on besoin ?
 		ListePoint.clear();
 	}
+	/**
+	 * @return un vecteur2d correspondant au point se trouvant a la position i
+	 */
 	virtual Vecteur2D getPoint(int i)const {
 		return ListePoint.at(i);
 	}
+	/**
+	* @return retourne le nombre de points 
+	*/
 	virtual int getNbPoint()const {
 		return ListePoint.size();
 	}
+	/**
+	* @brief renvoi un pointeur sur une formeSimple
+	*/
 	virtual FormeSimple* clone()const = 0;
+	/**
+	* @brief toString
+	*/
 	virtual string toString()const;
-
+	
 	void translation(const Vecteur2D& v);
 	void homothetie(const Vecteur2D&, double);
 	void rotation(const Vecteur2D&, double);
-	double xMAX()const; // permet de connaitre le point de la forme le plus avance sur l'axe X
+	double xMAX()const; 
 	double yMAX()const;
 	double xMIN()const;
 	double yMIN()const;

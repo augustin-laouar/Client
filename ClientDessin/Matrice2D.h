@@ -9,7 +9,10 @@ public:
 	double y1;
 	double x2;
 	double y2;
-	//constructeurs
+
+	/**
+	* @brief construction de matrice a 2 dimensions
+	*/
 	Matrice2D(double x1 = 0, double y1 = 0, double x2 = 0, double y2 = 0) {
 		this->x1 = x1;
 		this->y1 = y1;
@@ -23,24 +26,39 @@ public:
 		this->y2 = m.y2;
 	}
 	virtual ~Matrice2D(){}
-	//getters setters
 
-	//Methodes
-
-	//toString clone et operator
+	
 	string toString()const;
 	Matrice2D* clone()const {
 		return new Matrice2D(*this);
 	}
+	/**
+	* @brief egalite entre deux matrices
+	*/
 	virtual bool operator == (const Matrice2D& m)const;
 	operator string() const
 	{
 		return this->toString();
 	}
+	/**
+	* @brief addition entre deux matrices
+	*/
 	Matrice2D operator +(const Matrice2D&)const;
+	/**
+	* @brief soustraction de deux matrices
+	*/
 	Matrice2D operator -(const Matrice2D&)const;
+	/**
+	* @brief multiplication de deux matrices
+	*/
 	Matrice2D operator *(const Matrice2D&)const;
+	/**
+	* @brief multiplication d'une matrice et un reel 
+	*/
 	Matrice2D operator *(double)const;
+	/**
+	* @brief multiplication de deux vecteurs
+	*/
 	Vecteur2D operator *(Vecteur2D)const;
 	
 

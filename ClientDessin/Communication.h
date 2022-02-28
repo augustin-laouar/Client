@@ -18,6 +18,8 @@ private:
     
 public:
     virtual ~Communication(){}
+    /** @brief methode permettant d'avoir une seule instance de communication pour pouvoir ouvrir une seule communication
+    */
     static Communication* getInstance(const char* c = "127.0.0.1", short i=9111) {
       
             if (comm == nullptr) {
@@ -25,13 +27,21 @@ public:
             }
         return comm;
     } 
+    /**
+    * e@brief methode pour envoyer un message 
+    */
     
     void Envoyer(const char* message) {
         connexion = send(sock, message, strlen(message), 0);
     }
+    /**
+    * @brief se preparer a la reception d'une chaine de caractere 
+    */
     void Recevoir(char* buff, int len) {
         connexion = recv(sock, buff, len, 0);
     }
+    /** @brief fermeture d'une connexion 
+    */
     void FermerConnexion() {
         connexion = shutdown(sock, SD_BOTH);                            // on coupe la connexion pour l'envoi et la réception
         // renvoie une valeur non nulle en cas d'échec. Le code d'erreur peut être obtenu par un appel à WSAGetLastError()

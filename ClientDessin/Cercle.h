@@ -114,7 +114,7 @@ public:
 		return rayon* rayon * PI;
 	}
 	/**
-	* @brief 
+	* @brief calculer l homothetie 
 	*/
 	virtual void homothetie(const Vecteur2D& centre, const double zoom) {
 		if (zoom < 0) {
@@ -123,15 +123,24 @@ public:
 		ListePoint[0] = ((ListePoint[0] - centre) * zoom) + centre;
 		rayon *= zoom;
 	}
+	/**
+	* @brief calculer le x minimum que peut prendre un point du cercle (utile pour le dessin)
+	*/
 	double xMIN()const {
 		return ListePoint[0].x - rayon;
 	}
+	/** @brief calculer le y minimum que peut prendre un point du cercle (utile pour le dessin)
+	*/
 	double yMIN()const {
 		return ListePoint[0].y - rayon;
 	}
+	/** @brief calculer le x maximul  que peut prendre un point du cercle (utile pour le dessin)
+	*/
 	double xMAX()const {
 		return ListePoint[0].x + rayon;
 	}
+	/** @bried calculer le y maximum que peut prendre un point du cercle (utile pour le dessin)
+	*/
 	double yMAX()const {
 		return ListePoint[0].y + rayon;
 	}

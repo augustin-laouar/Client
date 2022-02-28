@@ -1,16 +1,57 @@
-﻿  Dessin.cpp
+﻿  Cercle.cpp
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(79,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(152,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(211,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(212,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Communication.cpp
+  Couleur.cpp
+  Dessin.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(130,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(182,24): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(243,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(244,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Erreur.cpp
+  Forme2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  FormeSimple.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  GroupeForme.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.cpp(86,20): warning C4018: '<' : incompatibilité signed/unsigned
+  Matrice2D.cpp
+  Plan2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Polygone.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
   Source.cpp
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(79,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(21,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(152,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(211,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(212,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(130,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(182,24): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(243,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(244,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Trait.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Triangle.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
+  Vecteur2D.cpp
+  VisitorForme2D.cpp
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
+C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
   Génération de code en cours...
   ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe

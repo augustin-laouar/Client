@@ -19,12 +19,21 @@ public:
 			FormesDuPlan.push_back(p.getForme(i));
 		}
 	}
+	/**
+	* @brief retourne nombre de formes du plan
+	*/
 	int nbFormes()const {
 		return FormesDuPlan.size();
 	}
+	/**
+	* @brief ajout d une forme au plan
+	*/
 	void ajouterForme(const Forme2D* f) {
 		FormesDuPlan.push_back(f->clone());
 	}
+	/**
+	* @brief retourne la forme se trouvant a l indice i
+	*/
 	Forme2D* getForme(int i)const {
 		return FormesDuPlan[i]->clone();
 	}

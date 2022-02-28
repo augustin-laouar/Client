@@ -36,9 +36,7 @@ public:
 	Vecteur2D  getP2()const {
 		return ListePoint[1];
 	}
-	/**
-	* @brief methode qui permet de retourner un pointeur sur une copie du trait
-	*/
+	
 	Trait* clone()const {
 		return new Trait(*this);
 	}

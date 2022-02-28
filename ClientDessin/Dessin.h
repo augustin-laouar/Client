@@ -10,53 +10,68 @@ private :
 	int y;
 	Plan2D Monde;
 public:
+	/**
+	* @brief Construction d'un dessin 
+	* @param Monde le plan a dessiner avec les coordonnees monde reel 
+	* @param x la largeur de la fenetre voulu (200 par defaut)
+	* @param y la hauteur de la fenetre voulu (200 par defaut)
+	*
+	*/
 	Dessin(const Plan2D& Monde,int x = 200, int y = 200) {
 		this->Monde = Monde;
 		this->x = x;
 		this->y = y;
 	}
+	/**
+	* @return Largeur de la fenetre a dessiner
+	*/
 	int getX()const {
 		return x;
 	}
+	/**
+	* @return hauteur de la fenetre a dessiner
+	*/
 	int getY()const {
 		return y;
 	}
+	/**
+	* @brief setter de largeur
+	*/
 	void setX(int x) {
 		if (x >= 50) {
 			this->x = x;
 		}
 	}
+	/**
+	* @brief setter de Hauteur
+	*/
 	void setY(int y) {
 		if (y >= 50) {
 			this->y = y;
 		}
 	}
 	/*
-	* fonction qui associe une couleur a son format necessaire pour une requete
+	* @brief methode qui associe une couleur au format necessaire pour une requete
 	*/
 	string associerCouleur(Couleur c)const {
 
-		return c.toString();
+		return c.toString(); 
 	}
-
-	/*
-	* cette methode va envoyer une requete au serveur pour dessiner la forme voulu 
-	* format  d une requete  : numForme;nbpoint;x,y;couleur
-	* la couleur est en format "r,g,b"
+	/**
+	* @brief methode pour le design pattern visitor pour le dessin d'un polygone format requete : 3;nombreDePoints;coordonnees;couleur
 	*/
-	
-	
+
 	virtual void visit(const Polygone* f) const{
 		
 		int nbp = f->getNbPoint();
 		string requete = "3;";
-		requete = requete + to_string(nbp) + ";"+ MondeEcran(f) + associerCouleur(f->getCouleur()) + "\n";
+		requete = requete + to_string(nbp) + ";"+ MondeEcran(f) + associerCouleur(f->getCouleur()) + "\n"; //requete avec les coordonnes recalcule (passage monde->ecran
 
 		try {
 			Communication* comm = comm->getInstance();
 
 			const char* R = requete.c_str();
-			comm->Envoyer(R);
+			comm->Envoyer(R); //envoi de la requete 
 			cout << "Requete dessin de polygone envoyé : " << requete << endl;
 
 		}
@@ -66,10 +81,10 @@ public:
 
 		}
 
-		
-		
 	}
-
+	/**
+	* @brief methode pour le design pattern visitor pour le dessin d'un Trait format requete :1;nombreDePoints;coordonneesSepareeParDesVirgules;couleur
+	*/
 
 	virtual void visit(const Trait* f) const{
 		
@@ -79,7 +94,7 @@ public:
 
 		
 
-		//envoi de la requet pour dessin 
+		//envoi de la requete pour dessin 
 		try {
 			Communication* comm = comm->getInstance();
 
@@ -98,7 +113,9 @@ public:
 		
 	}
 
-
+	/**
+	* @brief methode pour le design pattern visitor pour le dessin d'un Cercle format requete :2;nombreDePoints;rayon;centre(x,y);couleur
+	*/
 	virtual void visit(const Cercle* f)const {
 		
 		//pour un cercle on envoi sous forme  : 2;nbPoints;rayon;centre;color
@@ -133,6 +150,9 @@ public:
 		}
 	}
 
+	/**
+	* @brief methode pour le dessin d'une forme simple
+	*/
 
 	virtual void visit(const FormeSimple* f)const {
 
@@ -155,11 +175,17 @@ public:
 		}
 	
 	}
+	/**
+	* @brief methode pour le dessin d'un groupe de formes
+	*/
 	virtual void visit(const GroupeForme* f)const {
 		for (size_t i = 0; i < f->getNbForme(); i++) {
 			visit(f->getForme(i));
 		}
 	}
+	/**
+	* @brief methode pour le dessin d'une forme2D en fonction du type de la forme 
+	*/
 	virtual void visit(const Forme2D* f)const {
 		if (f->whoAmI() > 0) {
 			FormeSimple* f2 = (FormeSimple*)f;
@@ -172,6 +198,12 @@ public:
 	}
 //Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
 //rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
+	
+	/**
+	 * @brief methode pour le passage des coordonnes du monde reel a l ecran d'une forme simple 
+	 * @return une chaine de caractere avec les nouvelles coordonnes au format voulu x1,y1;x2,y2 ...
+	*/
+	
 	string MondeEcran(const FormeSimple *f)const {
 		string res;
 		double xMAX = Monde.xMAX();
@@ -214,6 +246,9 @@ public:
 			res += to_string(resY) + (string)";";		}
 		return res;
 	}
+	/**
+	* @brief 
+	*/
 	Vecteur2D MondeEcranVecteur(const Vecteur2D v)const {
 		double xMAX = Monde.xMAX();
 		xMAX += xMAX * 0.1;
@@ -252,15 +287,24 @@ public:
 		New = (Mat * v) + AB;
 		return New;
 	}
+
+	/*
+	* @brief cette methode va envoyer une requete au serveur pour dessiner la forme voulu
+	* format  d une requete  : numeroForme;nbpoint;x1,y1;x2,y2;....;couleur
+	* la couleur est en format "r,g,b"
+	*/
+
 	void Dessiner()const {
 		try {
 			Communication* comm = comm->getInstance();
 			string RDim = "0;" + to_string(x); //requete pour envoi des dimentions de la fenetre java
 			RDim += ";" + to_string(y)+(string)";\n";
 			const char* R = RDim.c_str();
-			comm->Envoyer(R);
+			comm->Envoyer(R); // envoi de la premiere requete pour initialiser la hauteur et largeur de la fenetre cote java
+			
 			cout << "Taille de la fenetre envoye : " << R << endl;
 			cout << "Dessin des formes du plan..." << endl;
+			
 			for (int i = 0; i < Monde.nbFormes(); i++) {
 				Monde.getForme(i)->accept(this);
 			}
