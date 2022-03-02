@@ -81,7 +81,6 @@ public:
 		}
 		string requete = ident + ":1;";
 		requete += to_string(f->getNbPoint()) + ";";
-		requete += "2;";
 		requete += to_string(f->getP1().x) + "," + to_string(f->getP1().y) +";";
 		requete += to_string(f->getP2().x) + "," + to_string(f->getP2().y)+";";
 		requete += f->getCouleur().toString() + "\n";
@@ -100,9 +99,8 @@ public:
 		if (outfile == NULL) {
 			throw Erreur("Ouverture du ficher");
 		}
-		string requete =  ident + ":1;";
+		string requete =  ident + ":2;";
 		requete += to_string(f->getNbPoint()) + ";";
-		requete += "2;";
 		requete += to_string(f->getRayon()) +";";
 		requete += to_string(f->getCentre().x) + "," + to_string(f->getCentre().y) + ";";
 		requete += f->getCouleur().toString() + "\n";

@@ -1,0 +1,1 @@
+#include "ChargeurTrait.h"

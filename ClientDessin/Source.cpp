@@ -10,6 +10,10 @@
 #include "Dessin.h"
 #include "Triangle.h"
 #include "Enregistreur.h"
+#include "ChargeurCercle.h"
+#include "ChargeurTrait.h"
+#include "ChargeurGroupe.h"
+#include "ChargeurPolygone.h"
 
 /* NOTES
 Methode obligatoires dans une classe :
@@ -348,7 +352,14 @@ int main() {
 		plan.ajouterForme(&t1);
 		Plan2D plan2;
 		plan2.ajouterForme(&c1);
-		Enregistreur* e = new Enregistreur("test.txt", "test");
+		ChargeurPolygone* cp = new ChargeurPolygone;
+		ChargeurTrait* ct = new ChargeurTrait(cp);
+		ChargeurCercle* cc = new ChargeurCercle(ct);
+		ChargeurGroupe* cg = new ChargeurGroupe(cc);
+		string s = "3;3;312.000000,400.000000;512.000000,145.000000;412.000000,320.000000;255,0,0";
+		Polygone* p = dynamic_cast<Polygone*>(cp->charger(s));
+		cout << *p << endl;
+		/*Enregistreur* e = new Enregistreur("test.txt", "test");
 		t1.accept(e);
 		GroupeForme g1(Couleur::Blue());
 		e->setIdent("Groupe");
@@ -359,7 +370,7 @@ int main() {
 		e->Enregistrer(plan2);
 		e->setIdent("Plan");
 		plan.ajouterForme(&g1);
-		e->Enregistrer(plan);
+		e->Enregistrer(plan);*/
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
