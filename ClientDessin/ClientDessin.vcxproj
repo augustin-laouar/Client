@@ -140,9 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
+    <ClInclude Include="ChargeurForme.h" />
+    <ClInclude Include="ChargeurFormeCOR.h" />
     <ClInclude Include="Communication.h" />
     <ClInclude Include="Couleur.h" />
     <ClInclude Include="Dessin.h" />
+    <ClInclude Include="Enregistreur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme2D.h" />
     <ClInclude Include="FormeSimple.h" />
@@ -157,9 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cercle.cpp" />
+    <ClCompile Include="ChargeurForme.cpp" />
+    <ClCompile Include="ChargeurFormeCOR.cpp" />
     <ClCompile Include="Communication.cpp" />
     <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="Dessin.cpp" />
+    <ClCompile Include="Enregistreur.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme2D.cpp" />
     <ClCompile Include="FormeSimple.cpp" />

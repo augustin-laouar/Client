@@ -7,7 +7,7 @@ private:
     const char* msg;
 public:
     Erreur(const char* m) { msg = m; }
-    const char* what() {
+    const char* what()const {
         return msg;
     }
 };

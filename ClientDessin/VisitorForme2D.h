@@ -1,4 +1,4 @@
-
+#pragma once
 #include "FormeSimple.h"
 #include "Forme2D.h"
 #include "GroupeForme.h"

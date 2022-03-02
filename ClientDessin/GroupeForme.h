@@ -19,7 +19,7 @@ public :
 	void ajouterForme(const Forme2D* f) {
 		//test si la forme n'entre pas en collision avec une autre forme du groupe, si oui throw error
 		ListeForme.push_back(f->clone());
-		ListeForme[ListeForme.size()]->setCouleur(this->couleur); // met la forme ajoutée de la meme couleur que le groupe
+		ListeForme[ListeForme.size()-1]->setCouleur(this->couleur); // met la forme ajoutée de la meme couleur que le groupe
 	}
 	/**
 	* @brief retirer une forme en fonction de son indice 

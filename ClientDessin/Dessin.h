@@ -121,14 +121,12 @@ public:
 		//pour un cercle on envoi sous forme  : 2;nbPoints;rayon;centre;color
 		
 		string requete;
+		//changement du rayon du cercle grace au MondeEcran
 		Vecteur2D bordMonde(f->getCentre().x + f->getRayon(), f->getCentre().y);
-		cout << " rayon : " << f->getRayon() << endl;
 		Vecteur2D bordEcran(MondeEcranVecteur(bordMonde));
 		Vecteur2D centreEcran(MondeEcranVecteur(f->getCentre()));
 		Vecteur2D rayonEcran(bordEcran - centreEcran);
-		cout << "rayon ecran : " << rayonEcran << endl;
 		int newRayon = rayonEcran.norme();
-		cout << " rayon apres : " << newRayon<< endl;
 		requete = "2;1;" + to_string(newRayon)+ ";" + MondeEcran(f);
 		
 		requete = requete +  associerCouleur(f->getCouleur()) + "\n";
