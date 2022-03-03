@@ -9,6 +9,11 @@
 #include "Plan2D.h"
 #include "Dessin.h"
 #include "Triangle.h"
+#include "Enregistreur.h"
+#include "ChargeurCercle.h"
+#include "ChargeurTrait.h"
+#include "ChargeurGroupe.h"
+#include "ChargeurPolygone.h"
 
 /* NOTES
 Methode obligatoires dans une classe :
@@ -293,65 +298,89 @@ int main() {
 //
 //	}
 //	*/
+	try {
 
-    Vecteur2D v1(150, 200);
-	Vecteur2D v2(25, 10);
+		Vecteur2D v1(150, 200);
+		Vecteur2D v2(25, 10);
 
-	Vecteur2D p56;
-	Vecteur2D p57;
-	Vecteur2D p58;
-	
-	
+		Vecteur2D p56;
+		Vecteur2D p57;
+		Vecteur2D p58;
 
-	Vecteur2D p1(45, 58);
-	
-	
-	p56.x = 410;
-	p56.y = 450;
-	
-	p57.x = 480;
-	p57.y = 525;
-	p58.x = 430;
-	p58.y = 442;
 
-	Couleur c = c.Red();
-	Cercle c1(p1, 120, c);
-	Cercle c2(p1, 110,Couleur::Green());
 
-	Trait* t85 = new Trait(p56, p57,c);
-	vector<Vecteur2D>Points;
-	Vecteur2D p100(312, 400);
-	Vecteur2D p101(512, 145);
-	Vecteur2D p102(412, 320);
-	Points.push_back(p100);
-	Points.push_back(p101);
-	Points.push_back(p102);
-	Polygone* po85 = new Polygone(Points,c);
-	Plan2D plan;
-	plan.ajouterForme(t85);
-	plan.ajouterForme(&c1);
-	plan.ajouterForme(&c2);
-	plan.ajouterForme(po85);
-	Trait* t86 = new Trait(*t85);
-	t86->translation(v1);
-	t86->setCouleur(Couleur::Cyan());
-	Polygone* po86 = new Polygone(*po85);
-	Vecteur2D p103(390, 400);
-	po86->setCouleur(Couleur::Red());
-	plan.ajouterForme(po86);
-	plan.ajouterForme(t86);
-	Vecteur2D p12(-1.5, -1.5);
-	Vecteur2D p22(400, 400);
-	Trait t1(p12, p22, Couleur::Black());
-	plan.ajouterForme(&t1);
-	Plan2D plan2;
-	plan2.ajouterForme(&c1);
-	Dessin d2(plan, 800, 500);
-	d2.Dessiner();
+		Vecteur2D p1(45, 58);
+
+
+		p56.x = 410;
+		p56.y = 450;
+
+		p57.x = 480;
+		p57.y = 525;
+		p58.x = 430;
+		p58.y = 442;
+
+		Couleur c = c.Red();
+		Cercle c1(p1, 120, c);
+		Cercle c2(p1, 110, Couleur::Green());
+
+		Trait* t85 = new Trait(p56, p57, c);
+		vector<Vecteur2D>Points;
+		Vecteur2D p100(312, 400);
+		Vecteur2D p101(512, 145);
+		Vecteur2D p102(412, 320);
+		Points.push_back(p100);
+		Points.push_back(p101);
+		Points.push_back(p102);
+		Polygone* po85 = new Polygone(Points, c);
+		Plan2D plan;
+		plan.ajouterForme(t85);
+		plan.ajouterForme(&c1);
+		plan.ajouterForme(&c2);
+		plan.ajouterForme(po85);
+		Trait* t86 = new Trait(*t85);
+		t86->translation(v1);
+		t86->setCouleur(Couleur::Cyan());
+		Polygone* po86 = new Polygone(*po85);
+		Vecteur2D p103(390, 400);
+		po86->setCouleur(Couleur::Red());
+		plan.ajouterForme(po86);
+		plan.ajouterForme(t86);
+		Vecteur2D p12(-1.5, -1.5);
+		Vecteur2D p22(400, 400);
+		Trait t1(p12, p22, Couleur::Black());
+		plan.ajouterForme(&t1);
+		Plan2D plan2;
+		plan2.ajouterForme(&c1);
+		ChargeurPolygone* cp = new ChargeurPolygone;
+		ChargeurTrait* ct = new ChargeurTrait(cp);
+		ChargeurCercle* cc = new ChargeurCercle(ct);
+		ChargeurGroupe* cg = new ChargeurGroupe(cc);
+		string s = "3;3;312.000000,400.000000;512.000000,145.000000;412.000000,320.000000;255,0,0";
+		Polygone* p = dynamic_cast<Polygone*>(cp->charger(s));
+		cout << *p << endl;
+		/*Enregistreur* e = new Enregistreur("test.txt", "test");
+		t1.accept(e);
+		GroupeForme g1(Couleur::Blue());
+		e->setIdent("Groupe");
+		g1.ajouterForme(&t1);
+		g1.ajouterForme(po86);
+		g1.accept(e);
+		e->setIdent("plan2");
+		e->Enregistrer(plan2);
+		e->setIdent("Plan");
+		plan.ajouterForme(&g1);
+		e->Enregistrer(plan);*/
+	}
+	catch(Erreur e) {
+		cout << e.what() << endl;
+	}
+	/*Dessin d2(plan, 800, 500);
+	d2.Dessiner();*/
 	//Dessin d(plan,300,300);
 	//d.Dessiner();
-	Communication* com = com->getInstance();
-	com->FermerConnexion();
+	/*Communication* com = com->getInstance();
+	com->FermerConnexion();*/
 
 //Vecteur2D p1(0, 3);
 //Vecteur2D p2(2, 5);

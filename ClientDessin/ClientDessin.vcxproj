@@ -140,9 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
+    <ClInclude Include="ChargeurCercle.h" />
+    <ClInclude Include="ChargeurForme.h" />
+    <ClInclude Include="ChargeurFormeCOR.h" />
+    <ClInclude Include="ChargeurGroupe.h" />
+    <ClInclude Include="ChargeurPolygone.h" />
+    <ClInclude Include="ChargeurTrait.h" />
     <ClInclude Include="Communication.h" />
     <ClInclude Include="Couleur.h" />
     <ClInclude Include="Dessin.h" />
+    <ClInclude Include="Enregistreur.h" />
     <ClInclude Include="Erreur.h" />
     <ClInclude Include="Forme2D.h" />
     <ClInclude Include="FormeSimple.h" />
@@ -157,9 +164,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cercle.cpp" />
+    <ClCompile Include="ChargeurCercle.cpp" />
+    <ClCompile Include="ChargeurForme.cpp" />
+    <ClCompile Include="ChargeurFormeCOR.cpp" />
+    <ClCompile Include="ChargeurGroupe.cpp" />
+    <ClCompile Include="ChargeurPolygone.cpp" />
+    <ClCompile Include="ChargeurTrait.cpp" />
     <ClCompile Include="Communication.cpp" />
     <ClCompile Include="Couleur.cpp" />
     <ClCompile Include="Dessin.cpp" />
+    <ClCompile Include="Enregistreur.cpp" />
     <ClCompile Include="Erreur.cpp" />
     <ClCompile Include="Forme2D.cpp" />
     <ClCompile Include="FormeSimple.cpp" />
@@ -172,6 +186,9 @@
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
     <ClCompile Include="VisitorForme2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
