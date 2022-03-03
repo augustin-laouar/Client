@@ -81,6 +81,9 @@
     <ClInclude Include="ChargeurGroupe.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Chargeur.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Communication.cpp">
@@ -150,6 +153,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ChargeurGroupe.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Chargeur.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

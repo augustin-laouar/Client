@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cercle.h" />
+    <ClInclude Include="Chargeur.h" />
     <ClInclude Include="ChargeurCercle.h" />
     <ClInclude Include="ChargeurForme.h" />
     <ClInclude Include="ChargeurFormeCOR.h" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cercle.cpp" />
+    <ClCompile Include="Chargeur.cpp" />
     <ClCompile Include="ChargeurCercle.cpp" />
     <ClCompile Include="ChargeurForme.cpp" />
     <ClCompile Include="ChargeurFormeCOR.cpp" />
