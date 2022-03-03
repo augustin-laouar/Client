@@ -44,7 +44,7 @@ public:
 		Vecteur2D u1 = ListePoint[1] - ListePoint[0];
 		Vecteur2D u2 = ListePoint[2] - ListePoint[0];
 		double res = u1.determinant(u2);
-		return abs(res) * 0.5;
+		return abs(res) * 0.5; 
 	}
 
 };

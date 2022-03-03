@@ -10,37 +10,43 @@ public:
 	ChargeurTrait(ChargeurFormeCOR* suivant) {
 		this->suivant = suivant;
 	}
+	/**
+	* @brief charger un trait si la requete correspond a une requete de dessin de trait
+	*/
 	Forme2D* chargerForme(const string requete)const {
+		//format d un trait:  1;nbpoints;x1,y1;x2,y2;couleur 
+		// la couleur est au format r,g,b
 		if (requete[0] != '1') {
 			return NULL;
 		}
 		else {
-			int pos = 4; // position dans la lecture de la requete
+			int pos = 4; // position dans la lecture de la requete pour lire les coordoonees des points
 			string x;
 			string y;
-			while (requete[pos] != ',') {
+			while (requete[pos] != ',') { //recuperer le x1
 				x += requete[pos];
 				pos++;
 			}
 			pos++;
-			while (requete[pos] != ';') {
+			while (requete[pos] != ';') { //recuperer le y1 
 				y += requete[pos];
 				pos++;
 			}
 			pos++;
-			Vecteur2D p1(stod(x), stod(y));
+			Vecteur2D p1(stod(x), stod(y)); // construction du point1
 			x.clear(); y.clear();
-			while (requete[pos] != ',') {
+			while (requete[pos] != ',') { // recuperer le x2
 				x += requete[pos];
 				pos++;
 			}
 			pos++;
-			while (requete[pos] != ';') {
+			while (requete[pos] != ';') { // recuperer le y2
 				y += requete[pos];
 				pos++;
 			}
 			pos++;
-			Vecteur2D p2(stod(x), stod(y));
+			Vecteur2D p2(stod(x), stod(y)); //construction du 2 eme point
+			//recuperation de la couleur
 			string r, g, b;
 			while (requete[pos] != ',') {
 				r += requete[pos];

@@ -204,11 +204,11 @@ public:
 	
 	string MondeEcran(const FormeSimple *f)const {
 		string res;
-		double xMAX = Monde.xMAX();
-		double xMIN = Monde.xMIN();
-		double yMAX = Monde.yMAX();
-		double yMIN = Monde.yMIN();
-		Vecteur2D p1(xMIN,yMIN);
+		double xMAX = Monde.xMAX(); // abscisse maximum que prend un x 
+		double xMIN = Monde.xMIN(); // ordonnee minimum que prend un x 
+		double yMAX = Monde.yMAX(); // abscisse maximum que prend un y
+		double yMIN = Monde.yMIN(); // ordonnee minimum que prend un y
+		Vecteur2D p1(xMIN,yMIN); 
 		Vecteur2D p2(xMAX,yMAX);
 		Vecteur2D p1bis(0, y);
 		Vecteur2D p2bis(x, 0);
@@ -245,7 +245,7 @@ public:
 		return res;
 	}
 	/**
-	* @brief 
+	* @brief sert a calculer les coordoonnee ecran d'un vecteur sert pour le changement du rayon d'un cercle
 	*/
 	Vecteur2D MondeEcranVecteur(const Vecteur2D v)const {
 		double xMAX = Monde.xMAX();

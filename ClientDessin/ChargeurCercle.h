@@ -10,6 +10,9 @@ public:
 	ChargeurCercle(ChargeurFormeCOR* suivant) {
 		this->suivant = suivant;
 	}
+	/**
+	* @brief charger un cercle si la requete y correspond 
+	*/
 	Forme2D* chargerForme(const string requete)const {
 		//char buffer[BUFSIZ];
 		//string comparateur;
@@ -24,13 +27,16 @@ public:
 		//	comparateur.clear();
 		//}
 		//return NULL;
-		if (requete[0] != '2') {
+		
+
+		// format requete cercle : 2;nbpoint;rayon;point;couleur
+		if (requete[0] != '2') { // le 2 indique que c'est un cercle 
 			return NULL;
 		}
 		else {
-			int pos = 4; // position dans la lecture de la requete
+			int pos = 4; // position dans la lecture de la requete correspond au debut du rayon
 			string rayon;
-			while (requete[pos] != ';') {
+			while (requete[pos] != ';') { //recuperer rayon
 				rayon += requete[pos];
 				pos++;
 			}
@@ -38,17 +44,18 @@ public:
 			pos++;
 			string x;
 			string y;
-			while (requete[pos] != ',') {
+			while (requete[pos] != ',') { //recuperer coordonnee d abscice du centre
 				x += requete[pos];
 				pos++;
 			}
 			pos++;
-			while (requete[pos] != ';') {
+			while (requete[pos] != ';') { //recuperer y du centre du cercle 
 				y += requete[pos];
 				pos++;
 			}
 			pos++;
 			Vecteur2D centre(stod(x), stod(y));
+			//recuperer couleur qui est au format r,g,b
 			string r, g, b;
 			while (requete[pos] != ',') {
 				r += requete[pos];

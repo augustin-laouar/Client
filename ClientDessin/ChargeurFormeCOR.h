@@ -11,6 +11,9 @@ public :
 	ChargeurFormeCOR() {
 		this->suivant = NULL;
 	}
+	/**
+	* @brief methode pour COR 
+	*/
 	Forme2D* charger(const string requete)const {
 		Forme2D* res = this->chargerForme(requete);
 		if (res != NULL) {
@@ -25,6 +28,9 @@ public :
 			}
 		}
 	}
+	/**
+	* @brief charger une forme en fonction d'une requete en format string 
+	*/
 	virtual Forme2D* chargerForme(const string requete)const = 0;
 };
 
