@@ -10,7 +10,7 @@ public :
 	ChargeurPolygone(ChargeurFormeCOR* suivant) {
 		this->suivant = suivant;
 	}
-	Polygone* chargerForme(const string requete)const {
+	Forme2D* chargerForme(const string requete)const {
 		if (requete[0] != '3') {
 			return NULL;
 		}

@@ -356,9 +356,6 @@ int main() {
 		ChargeurTrait* ct = new ChargeurTrait(cp);
 		ChargeurCercle* cc = new ChargeurCercle(ct);
 		ChargeurGroupe* cg = new ChargeurGroupe(cc);
-		string s = "3;3;312.000000,400.000000;512.000000,145.000000;412.000000,320.000000;255,0,0";
-		Polygone* p = dynamic_cast<Polygone*>(cp->charger(s));
-		cout << *p << endl;
 		/*Enregistreur* e = new Enregistreur("test.txt", "test");
 		t1.accept(e);
 		GroupeForme g1(Couleur::Blue());
@@ -371,6 +368,10 @@ int main() {
 		e->setIdent("Plan");
 		plan.ajouterForme(&g1);
 		e->Enregistrer(plan);*/
+		Trait* tt = dynamic_cast<Trait*>(cg->charger("1;2;-1.500000,-1.500000;400.000000,400.000000;0,0,0"));
+		cout << *tt << endl;
+		Cercle* c78 = dynamic_cast<Cercle*>(cg->charger("2;1;120.000000;45.000000,58.000000;255,0,0"));
+		cout << *c78 << endl;
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;

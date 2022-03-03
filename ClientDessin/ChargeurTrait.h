@@ -44,14 +44,17 @@ public:
 			string r, g, b;
 			while (requete[pos] != ',') {
 				r += requete[pos];
+				pos++;
 			}
 			pos++;
 			while (requete[pos] != ',') {
 				g += requete[pos];
+				pos++;
 			}
 			pos++;
-			while (requete[pos] != '\n') {
-				g += requete[pos];
+			while (requete[pos] != '\n' && requete[pos] != '\0') {
+				b += requete[pos];
+				pos++;
 			}
 			Couleur c(stoi(r), stoi(g), stoi(b));
 			return new Trait(p1, p2, c);

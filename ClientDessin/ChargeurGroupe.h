@@ -38,10 +38,13 @@ public:
 
 			for (int i = 0; i < requetes.size(); i++) {
 				Forme2D* f = cg->charger(requetes[i]);
-				if (f == NULL) {
+				if (f == 0) {
 					throw new Erreur("Forme non reconnu");
 				}
-				formes.push_back(f);
+				else {
+					formes.push_back(f);
+
+				}
 			}
 			GroupeForme* g = new GroupeForme(formes[0]->getCouleur());
 			for (int i = 0; i < formes.size(); i++) {
