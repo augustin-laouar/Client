@@ -13,15 +13,18 @@ public:
 	ChargeurGroupe(ChargeurFormeCOR * suivant) {
 		this->suivant = suivant;
 	}
+	/**
+	* @brief permet de charger une forme a partir d'une chaine de caractere 
+	*/
 	Forme2D* chargerForme(const string requete)const {
-		if (requete[0] != '[') {
+		if (requete[0] != '[') {  //on verifie si la requete commence par [ cela indique que c'est un groupe de formes
 			return NULL;
 		}
 		else {
-			vector<string> requetes;
+			vector<string> requetes;  //liste de requetes 
 			int i = 1;
 			string aux;
-			while (requete[i] != ']') {
+			while (requete[i] != ']') { // parcours tant qu'on est pas a la fin du groupe 
 				while (requete[i] != '\n') {
 					aux += requete[i];
 					i++;
@@ -30,13 +33,13 @@ public:
 				aux.clear();
 				i++;
 			}
-			vector<Forme2D*>formes;
+			vector<Forme2D*>formes; //liste de formes qui contiendra les formes se trouvant dans le groupe
 			ChargeurPolygone* cp = new ChargeurPolygone;
 			ChargeurTrait* ct = new ChargeurTrait(cp);
 			ChargeurCercle* cc = new ChargeurCercle(ct);
 			ChargeurGroupe* cg = new ChargeurGroupe(cc);
 
-			for (int i = 0; i < requetes.size(); i++) {
+			for (int i = 0; i < requetes.size(); i++) { // charger les formes 
 				Forme2D* f = cg->charger(requetes[i]);
 				if (f == 0) {
 					throw new Erreur("Forme non reconnu");

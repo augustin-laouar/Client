@@ -15,22 +15,36 @@ public:
 		nomFichier = nom;
 		ident = id;
 	}
+	/**
+	* @brief getter de nom de fichier 
+	*/
 	string getNomFichier()const {
 		return nomFichier;
 	}
+	/**
+	* @brief getter de l'identifiant de la forme 
+	*/
 	string getIdent()const {
 		return ident;
 	}
+	/**
+	* @brief setter de nom de fichier
+	*/
 	void setNomFichier(string nom) {
 		nomFichier = nom;
 	}
+	/**
+	* @brief setter de l'identifiant
+	*/
 	void setIdent(string id) {
-		for (size_t i = 0; i < id.size(); i++) {
+		
+		//verifications
+		for (size_t i = 0; i < id.size(); i++) { 
 			if (id[i] == ':') {
 				throw Erreur("Impossible d'utiliser le caractere ':' dans un identifiant");
 			}
 		}
-		if (id.size() > 20) {
+		if (id.size() > 20) { //limite de taille 
 			throw Erreur("Identifiant de forme trop long");
 		}
 		FILE* outfile;
@@ -42,7 +56,7 @@ public:
 			for (int i = 0; compare[i] != ':' && compare[i] != ']' && compare[i] != '}'; i++) {
 				IdRecupere += compare[i]; //recupere l'id char par char
 			}
-			if( IdRecupere == id ){ 
+			if( IdRecupere == id ){  
 				throw Erreur("Id deja present dans le fichier");
 			}
 			IdRecupere.clear();
@@ -50,67 +64,71 @@ public:
 		fclose(outfile);
 		ident = id;
 	}
+	/**
+	* @brief enregistrement d'un polygone dans un fichier
+	*/
 	virtual void visit(const Polygone* f) const {
 		FILE* outfile;
 
-		outfile = fopen(nomFichier.c_str(), "a");
+		outfile = fopen(nomFichier.c_str(), "a"); //ouverture fichier
 		if (outfile == NULL) {
 			throw Erreur("Ouverture du ficher");
 		}
 
-		string requete = ident + ":3;";
+		string requete = ident + ":3;"; // debut de la construction de la requete
 		requete += to_string(f->getNbPoint()) + ";";
-		for (int i = 0; i < f->getNbPoint(); i++) {
+		for (int i = 0; i < f->getNbPoint(); i++) { //ajout des coordonnes des points 
 			requete += to_string(f->getPoint(i).x) + ",";
 			requete += to_string(f->getPoint(i).y) + ";";
 		}
 		requete += f->getCouleur().toString() + "\n";
-		fputs(requete.c_str(), outfile);
+		fputs(requete.c_str(), outfile); //ecriture de la requete dans le fichier
 		fclose(outfile);
 	}
 	/**
-	* @brief methode pour le design pattern visitor pour le dessin d'un Trait format requete :1;nombreDePoints;coordonneesSepareeParDesVirgules;couleur
+	* @brief enregistrement d'un trait dans un fichier 
 	*/
 
 	virtual void visit(const Trait* f) const {
 		FILE* outfile;
 
-		outfile = fopen(nomFichier.c_str(), "a");
+		outfile = fopen(nomFichier.c_str(), "a"); //ouverture fichier
+		
 		if (outfile == NULL) {
 			throw Erreur("Ouverture du ficher");
 		}
-		string requete = ident + ":1;";
+		string requete = ident + ":1;";  // debut de construction de la requete 
 		requete += to_string(f->getNbPoint()) + ";";
 		requete += to_string(f->getP1().x) + "," + to_string(f->getP1().y) +";";
 		requete += to_string(f->getP2().x) + "," + to_string(f->getP2().y)+";";
 		requete += f->getCouleur().toString() + "\n";
-		fputs(requete.c_str(), outfile);
+		fputs(requete.c_str(), outfile); //ecrityre de la requete dans le fichier
 		fclose(outfile);
 
 	}
 
 	/**
-	* @brief methode pour le design pattern visitor pour le dessin d'un Cercle format requete :2;nombreDePoints;rayon;centre(x,y);couleur
+	* @brief enregistrement d'un cercle dans le fichier 
 	*/
 	virtual void visit(const Cercle* f)const {
 		FILE* outfile;
 
-		outfile = fopen(nomFichier.c_str(), "a");
+		outfile = fopen(nomFichier.c_str(), "a"); //ouverture du fichier
 		if (outfile == NULL) {
 			throw Erreur("Ouverture du ficher");
 		}
-		string requete =  ident + ":2;";
-		requete += to_string(f->getNbPoint()) + ";";
+		string requete =  ident + ":2;";  // debut de la construction de la requete 
+		requete += to_string(f->getNbPoint()) + ";"; 
 		requete += to_string(f->getRayon()) +";";
 		requete += to_string(f->getCentre().x) + "," + to_string(f->getCentre().y) + ";";
 		requete += f->getCouleur().toString() + "\n";
-		fputs(requete.c_str(), outfile);
+		fputs(requete.c_str(), outfile); //
 		fclose(outfile);
 
 	}
 
 	/**
-	* @brief methode pour le dessin d'une forme simple
+	* @brief enregistrement de forme simple 
 	*/
 
 	virtual void visit(const FormeSimple* f)const {
@@ -134,27 +152,28 @@ public:
 
 	}
 	/**
-	* @brief methode pour le dessin d'un groupe de formes
+	* @brief enregistrement d'un groupe de forme 
 	*/
 	virtual void visit(const GroupeForme* f)const {
 		FILE* outfile;
 
-		outfile = fopen(nomFichier.c_str(), "a");
-		string requete = ident + ":[\n";
+		outfile = fopen(nomFichier.c_str(), "a"); //ouverture du fichier
+		string requete = ident + ":[\n"; //ajout de marqueur de debut de groupes
 		fputs(requete.c_str(), outfile);
 		fclose(outfile);
-		for (size_t i = 0; i < f->getNbForme(); i++) { 
+	
+		for (size_t i = 0; i < f->getNbForme(); i++) {  //parcour de toutes les formes pour les enregistrer
 			string newIdent = ident + "_";
 			newIdent += to_string(i);
 			Enregistreur intermediaire(this->nomFichier, newIdent);
 			intermediaire.visit(f->getForme(i));
 		}
 		outfile = fopen(nomFichier.c_str(), "a");
-		fputs("]\n", outfile);
+		fputs("]\n", outfile); //mettre le marqueur de fin de groupe
 		fclose(outfile);
 	}
 	/**
-	* @brief methode pour le dessin d'une forme2D en fonction du type de la forme
+	* @brief enregistrment d'une forme2D
 	*/
 	virtual void visit(const Forme2D* f)const {
 		try {
@@ -171,6 +190,9 @@ public:
 			cout << e.what() << endl;
 		}
 	}
+	/**
+	* @brief elle permet d'enregistrer un repere avec toutes les formes qui y sont dessinées 
+	*/
 	void Enregistrer(const Plan2D& plan) {
 		FILE* outfile;
 		cout << "Enregistrement du plan..." << endl;
