@@ -17,17 +17,33 @@ public:
 	* @brief permet de charger une forme a partir d'une chaine de caractere 
 	*/
 	Forme2D* chargerForme(const string requete)const {
-		if (requete[0] != '[') {  //on verifie si la requete commence par [ cela indique que c'est un groupe de formes
+		int pos = 0;
+		while (requete[pos] != ':') {//positionnement apres l'id
+			pos++;
+		}
+		pos++;
+		if (requete[pos] != '[') {  //on verifie si la requete commence par [ cela indique que c'est un groupe de formes
 			return NULL;
 		}
 		else {
 			vector<string> requetes;  //liste de requetes 
-			int i = 1;
+			int i = pos+1;
 			string aux;
 			while (requete[i] != ']') { // parcours tant qu'on est pas a la fin du groupe 
-				while (requete[i] != '\n') {
-					aux += requete[i];
-					i++;
+				cerr << requete[i] << endl;
+				while (requete[i] != '\n' && requete[i] != '\0') { //une forme par ligne
+					if (requete[i] == '[') { //group dans un groupe
+						while (requete[i] != ']') {
+							aux += requete[i];
+							i++;
+						}
+						aux += requete[i];
+					}
+					else {
+						aux += requete[i];
+						i++;
+					}
+					
 				}
 				requetes.push_back(aux);
 				aux.clear();

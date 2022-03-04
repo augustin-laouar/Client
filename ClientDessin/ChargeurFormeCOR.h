@@ -15,6 +15,8 @@ public :
 	* @brief methode pour COR 
 	*/
 	Forme2D* charger(const string requete)const {
+		if (requete.size() == 0)
+			return NULL;
 		Forme2D* res = this->chargerForme(requete);
 		if (res != NULL) {
 			return res;

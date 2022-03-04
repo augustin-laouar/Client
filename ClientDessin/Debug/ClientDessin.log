@@ -1,14 +1,4 @@
-﻿  ChargeurCercle.cpp
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-  ChargeurGroupe.cpp
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(39,22): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(50,22): warning C4018: '<' : incompatibilité signed/unsigned
-  ChargeurTrait.cpp
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
-  Source.cpp
+﻿  Source.cpp
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\FormeSimple.h(14,9): warning C4018: '>=' : incompatibilité signed/unsigned
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Polygone.h(74,9): warning C4018: '>=' : incompatibilité signed/unsigned
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\GroupeForme.h(29,9): warning C4018: '>=' : incompatibilité signed/unsigned
@@ -16,9 +6,9 @@ C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(129,16): warning 
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(180,24): warning C4018: '<' : incompatibilité signed/unsigned
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(241,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
 C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(242,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Enregistreur.h(146,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Enregistreur.h(181,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(39,22): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(50,22): warning C4018: '<' : incompatibilité signed/unsigned
-  Génération de code en cours...
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Enregistreur.h(125,24): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(58,22): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\ChargeurGroupe.h(69,22): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Chargeur.h(106,12): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Enregistreur.h(118): warning C4715: 'Enregistreur::creerNoeud' : les chemins de contrôle ne retournent pas tous une valeur
   ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe

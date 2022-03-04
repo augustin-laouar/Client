@@ -11,11 +11,16 @@ public :
 		this->suivant = suivant;
 	}
 	Forme2D* chargerForme(const string requete)const {
-		if (requete[0] != '3') {
+		int pos = 0;
+		while (requete[pos] != ':') {//positionnement apres l'id
+			pos++;
+		}
+		pos++;
+		if (requete[pos] != '3') {
 			return NULL;
 		}
 		else {
-			int pos = 2; // position dans la lecture de la requete
+			pos = pos+2; 
 			string nbp;
 			while (requete[pos] != ';') {
 				nbp += requete[pos];

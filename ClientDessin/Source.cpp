@@ -14,6 +14,8 @@
 #include "ChargeurTrait.h"
 #include "ChargeurGroupe.h"
 #include "ChargeurPolygone.h"
+#include "Chargeur.h"
+
 
 /* NOTES
 Methode obligatoires dans une classe :
@@ -352,26 +354,17 @@ int main() {
 		plan.ajouterForme(&t1);
 		Plan2D plan2;
 		plan2.ajouterForme(&c1);
-		ChargeurPolygone* cp = new ChargeurPolygone;
-		ChargeurTrait* ct = new ChargeurTrait(cp);
-		ChargeurCercle* cc = new ChargeurCercle(ct);
-		ChargeurGroupe* cg = new ChargeurGroupe(cc);
-		/*Enregistreur* e = new Enregistreur("test.txt", "test");
-		t1.accept(e);
+		Enregistreur* e = new Enregistreur("test.txt");
 		GroupeForme g1(Couleur::Blue());
-		e->setIdent("Groupe");
 		g1.ajouterForme(&t1);
 		g1.ajouterForme(po86);
-		g1.accept(e);
-		e->setIdent("plan2");
-		e->Enregistrer(plan2);
-		e->setIdent("Plan");
+		GroupeForme* g2 = new GroupeForme(Couleur::Blue());
+		g2->ajouterForme(&g1);
+		g2->ajouterForme(&c2);
 		plan.ajouterForme(&g1);
-		e->Enregistrer(plan);*/
-		Trait* tt = dynamic_cast<Trait*>(cg->charger("1;2;-1.500000,-1.500000;400.000000,400.000000;0,0,0"));
-		cout << *tt << endl;
-		Cercle* c78 = dynamic_cast<Cercle*>(cg->charger("2;1;120.000000;45.000000,58.000000;255,0,0"));
-		cout << *c78 << endl;
+		plan.ajouterForme(g2);
+		e->EnregistrerPlan(plan);
+
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
