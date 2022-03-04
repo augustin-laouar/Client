@@ -364,7 +364,8 @@ int main() {
 		plan.ajouterForme(&g1);
 		plan.ajouterForme(g2);
 		e->EnregistrerPlan(plan);
-
+		Enregistreur* e2 = new Enregistreur("test2.txt");
+		g1.accept(e2);
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
