@@ -14,27 +14,16 @@ public:
 	* @brief charger un cercle si la requete y correspond 
 	*/
 	Forme2D* chargerForme(const string requete)const {
-		//char buffer[BUFSIZ];
-		//string comparateur;
-		//while (fgets(buffer, BUFSIZ, fd)) {
-		//	for (int i = 0; buffer[i] != ':' && buffer[i] != ']' && buffer[i] != '}'; i++) {
-		//		comparateur += buffer[i]; //recupere l'id char par char
-		//	}
-		//	if (id == comparateur) {
-		//		int iterateur = comparateur.size()+1;
-
-		//	}
-		//	comparateur.clear();
-		//}
-		//return NULL;
-		
-
-		// format requete cercle : 2;nbpoint;rayon;point;couleur
-		if (requete[0] != '2') { // le 2 indique que c'est un cercle 
+		int pos = 0;
+		while (requete[pos] != ':') {//positionnement apres l'id
+			pos++;
+		}
+		pos++;
+		if (requete[pos] != '2') {
 			return NULL;
 		}
 		else {
-			int pos = 4; // position dans la lecture de la requete correspond au debut du rayon
+			pos = pos+4; // position dans la lecture de la requete correspond au debut du rayon
 			string rayon;
 			while (requete[pos] != ';') { //recuperer rayon
 				rayon += requete[pos];

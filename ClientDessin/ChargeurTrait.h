@@ -16,11 +16,16 @@ public:
 	Forme2D* chargerForme(const string requete)const {
 		//format d un trait:  1;nbpoints;x1,y1;x2,y2;couleur 
 		// la couleur est au format r,g,b
-		if (requete[0] != '1') {
+		int pos = 0;
+		while (requete[pos] != ':') {//positionnement apres l'id
+			pos++;
+		}
+		pos++;
+		if (requete[pos] != '1') {
 			return NULL;
 		}
 		else {
-			int pos = 4; // position dans la lecture de la requete pour lire les coordoonees des points
+			pos = pos + 4; // position dans la lecture de la requete pour lire les coordoonees des points
 			string x;
 			string y;
 			while (requete[pos] != ',') { //recuperer le x1

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -156,11 +156,13 @@
     <ClInclude Include="FormeSimple.h" />
     <ClInclude Include="GroupeForme.h" />
     <ClInclude Include="Matrice2D.h" />
+    <ClInclude Include="Noeud.h" />
     <ClInclude Include="Plan2D.h" />
     <ClInclude Include="Polygone.h" />
     <ClInclude Include="Trait.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vecteur2D.h" />
+    <ClInclude Include="VisitorEnregistrement.h" />
     <ClInclude Include="VisitorForme2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -181,12 +183,14 @@
     <ClCompile Include="FormeSimple.cpp" />
     <ClCompile Include="GroupeForme.cpp" />
     <ClCompile Include="Matrice2D.cpp" />
+    <ClCompile Include="Noeud.cpp" />
     <ClCompile Include="Plan2D.cpp" />
     <ClCompile Include="Polygone.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trait.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
+    <ClCompile Include="VisitorEnregistrement.cpp" />
     <ClCompile Include="VisitorForme2D.cpp" />
   </ItemGroup>
   <ItemGroup>
