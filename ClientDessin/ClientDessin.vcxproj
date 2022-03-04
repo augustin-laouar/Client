@@ -162,7 +162,6 @@
     <ClInclude Include="Trait.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vecteur2D.h" />
-    <ClInclude Include="VisitorEnregistrement.h" />
     <ClInclude Include="VisitorForme2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -190,7 +189,6 @@
     <ClCompile Include="Trait.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vecteur2D.cpp" />
-    <ClCompile Include="VisitorEnregistrement.cpp" />
     <ClCompile Include="VisitorForme2D.cpp" />
   </ItemGroup>
   <ItemGroup>

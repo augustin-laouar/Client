@@ -8,6 +8,6 @@ class ChargeurForme
 {
 public :
 	
-	virtual Forme2D * charger(const string requete)const = 0;
+	virtual Forme2D * charger(const string fichier)const = 0;
 };
 

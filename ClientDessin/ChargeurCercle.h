@@ -4,65 +4,61 @@
 class ChargeurCercle : public ChargeurFormeCOR
 {
 public:
-	ChargeurCercle() {
-		this->suivant = NULL;
-	}
-	ChargeurCercle(ChargeurFormeCOR* suivant) {
+	ChargeurCercle(ChargeurFormeCOR* suivant = NULL) {
 		this->suivant = suivant;
 	}
 	/**
 	* @brief charger un cercle si la requete y correspond 
 	*/
-	Forme2D* chargerForme(const string requete)const {
-		int pos = 0;
-		while (requete[pos] != ':') {//positionnement apres l'id
-			pos++;
-		}
-		pos++;
-		if (requete[pos] != '2') {
-			return NULL;
-		}
-		else {
-			pos = pos+4; // position dans la lecture de la requete correspond au debut du rayon
+	Forme2D* chargerForme(FILE *f )const {
+		char buffer[BUFSIZ];
+		while (fgets(buffer, BUFSIZ, f)) {
+			int i = 0;
+			//on saute l'id
+			while (buffer[i] != ':' && buffer[i] != '\0') {
+				i++;
+			}
+			i++;
+			if (buffer[i] != 'F' || buffer[i+2] != '2') { // ce n'est pas une forme ou un cercle 
+				return NULL;
+			}
+			i += 2;
 			string rayon;
-			while (requete[pos] != ';') { //recuperer rayon
-				rayon += requete[pos];
-				pos++;
+			while (buffer[i] != ';') {
+				rayon += buffer[i];
+				i++;
 			}
-			double rayonD = stod(rayon);
-			pos++;
-			string x;
-			string y;
-			while (requete[pos] != ',') { //recuperer coordonnee d abscice du centre
-				x += requete[pos];
-				pos++;
+			string x, y;
+			i++;
+			while (buffer[i] != ',') {
+				x += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ';') { //recuperer y du centre du cercle 
-				y += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ';') {
+				y += buffer[i];
+				i++;
 			}
-			pos++;
-			Vecteur2D centre(stod(x), stod(y));
-			//recuperer couleur qui est au format r,g,b
+			i++;
 			string r, g, b;
-			while (requete[pos] != ',') {
-				r += requete[pos];
-				pos++;
+			while (buffer[i] != ',') {
+				r += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ',') {
-				g += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				g += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != '\n' && requete[pos] != '\0') {
-				b += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				b += buffer[i];
+				i++;
 			}
 			Couleur c(stoi(r), stoi(g), stoi(b));
-			return new Cercle(centre,rayonD,c);
+			return new Cercle(Vecteur2D(stod(x), stod(y)), stod(rayon), c);
 		}
 	}
+		
 };
 
