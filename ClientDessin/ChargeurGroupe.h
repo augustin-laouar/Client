@@ -6,72 +6,43 @@
 #include "ChargeurTrait.h"
 class ChargeurGroupe : public ChargeurFormeCOR
 {
+protected :
+	Forme2D* chargerForme(const string fichier,const string id)const {
+ 		ChargeurTrait* t = new ChargeurTrait;
+		ChargeurCercle* c = new ChargeurCercle(t);
+		ChargeurPolygone* p = new ChargeurPolygone(c);
+		ChargeurGroupe* gr = new ChargeurGroupe(p);
+		string buffer = trouverForme(fichier, id);
+		vector<string>ids;
+		int i = 0;
+		while (buffer[i] != ':') // on saute l'id
+			i++;
+		i+= 3;
+		string idCurr;
+		while (buffer[i] != '|') { // on recupere les id des formes du groupe
+			while (buffer[i] != ';') {
+				idCurr += buffer[i];
+				i++;
+			}
+			i++;
+			ids.push_back(idCurr);
+			idCurr.clear();
+		}
+		Forme2D* premiereForme = gr->charger(fichier, ids[0]); // on charge lla premire forme pour savoir quel est la couleur du groupe
+		GroupeForme* g = new GroupeForme(premiereForme->getCouleur());
+		g->ajouterForme(premiereForme);
+		for (size_t j = 1; i < ids.size(); j++) {
+			g->ajouterForme(gr->charger(fichier, ids[i]));
+		}
+		return g;
+		
+	}
 public:
 	ChargeurGroupe() {
 		this->suivant = NULL;
 	}
 	ChargeurGroupe(ChargeurFormeCOR * suivant) {
 		this->suivant = suivant;
-	}
-	/**
-	* @brief permet de charger une forme a partir d'une chaine de caractere 
-	*/
-	Forme2D* chargerForme(const string requete)const {
-		int pos = 0;
-		while (requete[pos] != ':') {//positionnement apres l'id
-			pos++;
-		}
-		pos++;
-		if (requete[pos] != '[') {  //on verifie si la requete commence par [ cela indique que c'est un groupe de formes
-			return NULL;
-		}
-		else {
-			vector<string> requetes;  //liste de requetes 
-			int i = pos+1;
-			string aux;
-			while (requete[i] != ']') { // parcours tant qu'on est pas a la fin du groupe 
-				cerr << requete[i] << endl;
-				while (requete[i] != '\n' && requete[i] != '\0') { //une forme par ligne
-					if (requete[i] == '[') { //group dans un groupe
-						while (requete[i] != ']') {
-							aux += requete[i];
-							i++;
-						}
-						aux += requete[i];
-					}
-					else {
-						aux += requete[i];
-						i++;
-					}
-					
-				}
-				requetes.push_back(aux);
-				aux.clear();
-				i++;
-			}
-			vector<Forme2D*>formes; //liste de formes qui contiendra les formes se trouvant dans le groupe
-			ChargeurPolygone* cp = new ChargeurPolygone;
-			ChargeurTrait* ct = new ChargeurTrait(cp);
-			ChargeurCercle* cc = new ChargeurCercle(ct);
-			ChargeurGroupe* cg = new ChargeurGroupe(cc);
-
-			for (int i = 0; i < requetes.size(); i++) { // charger les formes 
-				Forme2D* f = cg->charger(requetes[i]);
-				if (f == 0) {
-					throw new Erreur("Forme non reconnu");
-				}
-				else {
-					formes.push_back(f);
-
-				}
-			}
-			GroupeForme* g = new GroupeForme(formes[0]->getCouleur());
-			for (int i = 0; i < formes.size(); i++) {
-				g->ajouterForme(formes[i]);
-			}
-			return g;
-		}
-		
 	}
 };
 

@@ -15,9 +15,9 @@ class Enregistreur : public VisitorForme2D
 private:
 	string nomFichier;
 	void enregistrerNoeud(Noeud* n, FILE* file)const {
-		cout << "Enregistrement de la forme ...";
+		cout << "Enregistrement de la forme ..."<<endl;
 		if (n->nbFils() == 0) {
-			string requete = n->id + ":" + "F;" + n->data + '\n';
+			string requete = n->id + ":" + "F;" + n->data + "|\n";
 			fputs(requete.c_str(), file);
 		}
 		else {
@@ -25,13 +25,13 @@ private:
 			for (int i = 0; i < n->nbFils(); i++) {
 				requete += n->getFils(i)->id + ";";
 			}
-			requete += '\n';
+			requete += "|\n";
 			fputs(requete.c_str(), file);
 			for (int i = 0; i < n->nbFils(); i++) {
 				enregistrerNoeud(n->getFils(i), file);
 			}
 		}
-		cout << "Enregistrement de la forme termine.";
+		cout << "Enregistrement de la forme termine."<<endl;
 
 	}
 	/** @brief creation de Noeud contenant un polygone avec un identifiant de cette forme
@@ -93,8 +93,11 @@ private:
 	* @brief creation d'un noeud avec un groupe de forme
 	*/
 	virtual Noeud* creerNoeud(const GroupeForme* f, string id)const {
+		if (f->getNbForme() == 0) {
+			throw Erreur("Impossible d'enregistrer un groupe vide");
+			return NULL;
+		}
 		Noeud* g = new Noeud(id);
-
 		for (size_t i = 0; i < f->getNbForme(); i++) {  //parcour de toutes les formes du groupe
 			string newID = id + "_" + to_string(i);
 			Noeud* fils = creerNoeud(f->getForme(i), newID);  //appel recursif créant le sous arbre

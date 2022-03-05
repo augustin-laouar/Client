@@ -4,6 +4,7 @@
 #include "ChargeurGroupe.h"
 #include "ChargeurPolygone.h"
 #include "Plan2D.h"
+#pragma warning(disable : 4996)
 class Chargeur
 {
 public :

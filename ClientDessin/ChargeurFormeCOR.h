@@ -1,9 +1,10 @@
 #pragma once
 #include "ChargeurForme.h"
-class ChargeurFormeCOR
+class ChargeurFormeCOR : public ChargeurForme
 {
 protected :
 	ChargeurFormeCOR* suivant;
+	virtual Forme2D* chargerForme(const string fichier, const string id)const = 0;
 public :
 	ChargeurFormeCOR(ChargeurFormeCOR* suivant = NULL) {
 		this->suivant = suivant;
@@ -11,27 +12,52 @@ public :
 	/**
 	* @brief methode pour COR 
 	*/
-	Forme2D* charger(const string fichier)const {
+	Forme2D* charger(const string fichier, const string id ="0")const {
 		if (fichier.size() == 0)
 			return NULL;
-		FILE* f = fopen(fichier.c_str(), "r");
-		Forme2D* res = this->chargerForme(f);
-		fclose(f);
+		Forme2D* res = this->chargerForme(fichier,id);
 		if (res != NULL) {
 			return res;
 		}
 		else {
 			if (suivant != NULL) {
-				return this->suivant->charger(fichier);
+				return this->suivant->charger(fichier, id);
 			}
 			else {
 				return NULL;
 			}
 		}
 	}
-	/**
-	* @brief charger une forme en fonction d'une requete en format string 
-	*/
-	virtual Forme2D* chargerForme(const FILE * f)const = 0;
+	virtual string trouverForme(const string fichier,const string id)const {
+		FILE* f = fopen(fichier.c_str(), "r");
+		char buffer[BUFSIZ];
+		bool trouver = false;
+		string res;
+		while (fgets(buffer, BUFSIZ, f) != NULL) { // tant qu'on a pas trouvé la forme ou que l'on est pas en fin de fichier
+			int i = 0;
+			cout << buffer << endl;
+			string idFormeCurr;
+			while (buffer[i] != ':') { // on recupere l'id de la forme a cette ligne
+				idFormeCurr += buffer[i];
+				i++;
+			}
+			cout << idFormeCurr << "?=" << id << endl;
+			if (idFormeCurr == id) { // on a trouve l'id
+				cout << " trouver" << endl;
+				res = buffer;
+				trouver = true;
+				break;
+			}
+			idFormeCurr.clear();
+		}
+		fclose(f);
+		if (res.size() == 0) {
+			throw Erreur("Aucune forme correspondante a cette ID");
+		}
+		else {
+			return res;
+		}
+	}
+
 };
 

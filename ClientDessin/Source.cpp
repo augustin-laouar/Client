@@ -366,6 +366,9 @@ int main() {
 		e->EnregistrerPlan(plan);
 		Enregistreur* e2 = new Enregistreur("test2.txt");
 		g1.accept(e2);
+		Chargeur chargeur;
+		GroupeForme* test = chargeur.chargerGroupe("test2.txt");
+		cout << test << endl;
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
