@@ -14,6 +14,9 @@ class Enregistreur : public VisitorForme2D
 {	
 private:
 	string nomFichier;
+	/**
+	* @brief permet d'enregistrer un noeud dans un fichier file
+	*/
 	void enregistrerNoeud(Noeud* n, FILE* file)const {
 		cout << "Enregistrement de la forme ..."<<endl;
 		if (n->nbFils() == 0) {
@@ -98,7 +101,7 @@ private:
 			return NULL;
 		}
 		Noeud* g = new Noeud(id);
-		for (size_t i = 0; i < f->getNbForme(); i++) {  //parcour de toutes les formes du groupe
+		for (int i = 0; i < f->getNbForme(); i++) {  //parcour de toutes les formes du groupe
 			string newID = id + "_" + to_string(i);
 			Noeud* fils = creerNoeud(f->getForme(i), newID);  //appel recursif créant le sous arbre
 			g->ajouterFils(fils); //lien avec la racine 

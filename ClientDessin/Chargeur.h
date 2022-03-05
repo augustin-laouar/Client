@@ -8,6 +8,9 @@
 class Chargeur
 {
 public :
+	/**
+	* @brief charger des formes a partir d'un fichier en utilisant le design pattern chain of responsability
+	*/
 	Forme2D* charger(string fichier) {
 		ChargeurGroupe* cg = new ChargeurGroupe();
 		ChargeurCercle* cc = new ChargeurCercle(cg);
@@ -15,6 +18,9 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return cp->charger(fichier);
 	}
+	/**
+	* @brief charger un trait a partir d'un fichier en utilisant le design pattern COR
+	*/
 	Trait* chargerTrait(string fichier) {
 		ChargeurGroupe* cg = new ChargeurGroupe();
 		ChargeurCercle* cc = new ChargeurCercle(cg);
@@ -22,6 +28,9 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return dynamic_cast<Trait*>(cp->charger(fichier));
 	}
+	/**
+	* @brief charger un Cercle a partir d'un fichier en utilisant le design pattern COR
+	*/
 	Cercle* chargerCercle(string fichier) {
 		ChargeurGroupe* cg = new ChargeurGroupe();
 		ChargeurCercle* cc = new ChargeurCercle(cg);
@@ -29,6 +38,9 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return dynamic_cast<Cercle*>(cp->charger(fichier));
 	}
+	/**
+	* @brief charger un polygone a partir d'un fichier en utilisant le design pattern COR
+	*/
 	Polygone* chargerPolygone(string fichier) {
 		ChargeurGroupe* cg = new ChargeurGroupe();
 		ChargeurCercle* cc = new ChargeurCercle(cg);
@@ -36,6 +48,9 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return dynamic_cast<Polygone*>(cp->charger(fichier));
 	}
+	/**
+	* @brief charger un groupe de formes a partir d'un fichier en utilisant le design pattern COR
+	*/
 	GroupeForme* chargerGroupe(string fichier) {
 		ChargeurGroupe* cg = new ChargeurGroupe();
 		ChargeurCercle* cc = new ChargeurCercle(cg);
@@ -43,6 +58,9 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return dynamic_cast<GroupeForme*>(cp->charger(fichier));
 	}
+	/**
+	* @brief charger un plan a partir d'un fichier en utilisant le design pattern COR
+	*/
 	Plan2D* chargerPlan(string fichier) {
 		Plan2D* res = new Plan2D;
 		FILE* f = fopen(fichier.c_str(), "r");
@@ -71,7 +89,7 @@ public :
 		ChargeurCercle* cc = new ChargeurCercle(cg);
 		ChargeurTrait* ct = new ChargeurTrait(cc);
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
-		for (int j = 0; j < ids.size(); j++) {
+		for (int j = 0; j < (int)ids.size(); j++) {
 			res->ajouterForme(cp->charger(fichier, ids[j]));
 		}
 		return res;

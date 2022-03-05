@@ -28,6 +28,11 @@ public :
 			}
 		}
 	}
+	/**
+	* @brief trouver une forme dans un fichier a l'aide de son identifiant
+	* @param id : identifiant de la forme
+	* @param fichier : nom du fichier a utiliser
+	*/
 	virtual string trouverForme(const string fichier,const string id)const {
 		FILE* f = fopen(fichier.c_str(), "r");
 		char buffer[BUFSIZ];

@@ -24,15 +24,27 @@ public:
 		this->ajouterPoint(t.ListePoint[0]);
 		this->ajouterPoint(t.ListePoint[1]);
 	}
+	/**
+	* @brief ajouter le premier point qui constitue le trait 
+	*/
 	void setP1(const Vecteur2D& p) {
 		this->ListePoint[0] = p;
 	}
+	/**
+	* @brief recuperer le premier point qui constitue le trait
+	*/
 	Vecteur2D getP1()const {
 		return ListePoint[0];
 	}
+	/**
+	* @brief ajouter le deuxieme point qui constitue le trait
+	*/
 	void setP2(const Vecteur2D&p) {
 		this->ListePoint[1] = p;
 	}
+	/**
+	* @brief recuperer le deuxieme point du trait
+	*/
 	Vecteur2D  getP2()const {
 		return ListePoint[1];
 	}
@@ -67,7 +79,7 @@ public:
 	}
 
 	/**
-	* @brief renvoi 12 pour dire que c'est un trait
+	* @brief renvoi 12 pour indiquer que c'est un trait
 	*/
 	virtual int whoAmI()const {
 		return 12;

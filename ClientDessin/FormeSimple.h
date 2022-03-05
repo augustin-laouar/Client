@@ -3,7 +3,7 @@
 #include "Forme2D.h"
 using namespace std;
 
-class FormeSimple : public Forme2D //la classe ne contient pas de partie dynamique donc destructeur inutile constructeur apr copie inutile et affectation inutile
+class FormeSimple : public Forme2D 
 {
 protected:
 	vector<Vecteur2D> ListePoint; // un point est un vecteur allant de l'origine du repere au point du plan
@@ -11,7 +11,7 @@ protected:
 		ListePoint.push_back(p);
 	}
 	virtual void modifierPoint(int i, const Vecteur2D& p) {
-		if (i >= ListePoint.size()) {
+		if (i >= (int)ListePoint.size()) {
 			throw new Erreur("i sort des bornes de la liste");
 		}
 		ListePoint.at(i) = p;
