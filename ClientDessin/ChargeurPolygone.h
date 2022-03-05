@@ -10,60 +10,62 @@ public :
 	ChargeurPolygone(ChargeurFormeCOR* suivant) {
 		this->suivant = suivant;
 	}
-	Forme2D* chargerForme(const string requete)const {
-		int pos = 0;
-		while (requete[pos] != ':') {//positionnement apres l'id
-			pos++;
-		}
-		pos++;
-		if (requete[pos] != '3') {
-			return NULL;
-		}
-		else {
-			pos = pos+2; 
-			string nbp;
-			while (requete[pos] != ';') {
-				nbp += requete[pos];
-				pos++;
+	Forme2D* chargerForme(FILE * f)const {
+		char buffer[BUFSIZ];
+		while (fgets(buffer, BUFSIZ, f)) {
+			int i = 0;
+			//on saute l'id
+			while (buffer[i] != ':' && buffer[i] != '\0') {
+				i++;
 			}
-			pos++;
-			int nbPoint = stoi(nbp);
-
-			string x;
-			string y;
-			vector<Vecteur2D> listePoint;
-			for (int i = 0; i < nbPoint; i++) {
-				while (requete[pos] != ',') {
-					x += requete[pos];
-					pos++;
-				}
-				pos++;
-				while (requete[pos] != ';') {
-					y += requete[pos];
-					pos++;
-				}
-				pos++;
-				Vecteur2D p(stod(x), stod(y));
-				listePoint.push_back(p);
-				x.clear(); y.clear();
+			i++;
+			if (buffer[i] != 'F' || buffer[i + 2] != '1') { // ce n'est pas une forme ou un cercle 
+				return NULL;
 			}
+			i += 2;
+			string x, y;
+			i++;
+			while (buffer[i] != ',') {
+				x += buffer[i];
+				i++;
+			}
+			i++;
+			while (buffer[i] != ';') {
+				y += buffer[i];
+				i++;
+			}
+			Vecteur2D v1(stoi(x), stoi(y));
+			i++;
+			x.clear();
+			y.clear();
+			while (buffer[i] != ',') {
+				x += buffer[i];
+				i++;
+			}
+			i++;
+			while (buffer[i] != ';') {
+				y += buffer[i];
+				i++;
+			}
+			Vecteur2D v2(stoi(x), stoi(y));
+			i++;
 			string r, g, b;
-			while (requete[pos] != ',') {
-				r += requete[pos];
-				pos++;
+			while (buffer[i] != ',') {
+				r += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ',') {
-				g += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				g += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != '\n' && requete[pos] != '\0') {
-				b += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				b += buffer[i];
+				i++;
 			}
 			Couleur c(stoi(r), stoi(g), stoi(b));
-			return new Polygone(listePoint, c);
+			return new Trait(v1, v2, c);
 		}
 	}
 };

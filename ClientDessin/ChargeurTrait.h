@@ -13,62 +13,62 @@ public:
 	/**
 	* @brief charger un trait si la requete correspond a une requete de dessin de trait
 	*/
-	Forme2D* chargerForme(const string requete)const {
-		//format d un trait:  1;nbpoints;x1,y1;x2,y2;couleur 
-		// la couleur est au format r,g,b
-		int pos = 0;
-		while (requete[pos] != ':') {//positionnement apres l'id
-			pos++;
-		}
-		pos++;
-		if (requete[pos] != '1') {
-			return NULL;
-		}
-		else {
-			pos = pos + 4; // position dans la lecture de la requete pour lire les coordoonees des points
-			string x;
-			string y;
-			while (requete[pos] != ',') { //recuperer le x1
-				x += requete[pos];
-				pos++;
+	Forme2D* chargerForme(FILE * f)const {
+		char buffer[BUFSIZ];
+		while (fgets(buffer, BUFSIZ, f)) {
+			int i = 0;
+			//on saute l'id
+			while (buffer[i] != ':' && buffer[i] != '\0') {
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ';') { //recuperer le y1 
-				y += requete[pos];
-				pos++;
+			i++;
+			if (buffer[i] != 'F' || buffer[i + 2] != '1') { // ce n'est pas une forme ou un cercle 
+				return NULL;
 			}
-			pos++;
-			Vecteur2D p1(stod(x), stod(y)); // construction du point1
-			x.clear(); y.clear();
-			while (requete[pos] != ',') { // recuperer le x2
-				x += requete[pos];
-				pos++;
+			i += 2;
+			string x, y;
+			i++;
+			while (buffer[i] != ',') {
+				x += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ';') { // recuperer le y2
-				y += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ';') {
+				y += buffer[i];
+				i++;
 			}
-			pos++;
-			Vecteur2D p2(stod(x), stod(y)); //construction du 2 eme point
-			//recuperation de la couleur
+			Vecteur2D v1(stoi(x), stoi(y));
+			i++;
+			x.clear();
+			y.clear();
+			while (buffer[i] != ',') {
+				x += buffer[i];
+				i++;
+			}
+			i++;
+			while (buffer[i] != ';') {
+				y += buffer[i];
+				i++;
+			}
+			Vecteur2D v2(stoi(x), stoi(y));
+			i++;
 			string r, g, b;
-			while (requete[pos] != ',') {
-				r += requete[pos];
-				pos++;
+			while (buffer[i] != ',') {
+				r += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != ',') {
-				g += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				g += buffer[i];
+				i++;
 			}
-			pos++;
-			while (requete[pos] != '\n' && requete[pos] != '\0') {
-				b += requete[pos];
-				pos++;
+			i++;
+			while (buffer[i] != ',') {
+				b += buffer[i];
+				i++;
 			}
 			Couleur c(stoi(r), stoi(g), stoi(b));
-			return new Trait(p1, p2, c);
+			return new Trait(v1, v2, c);
 		}
 	}
 };
