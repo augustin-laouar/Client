@@ -40,11 +40,9 @@ public :
 				idFormeCurr += buffer[i];
 				i++;
 			}
-			cout << idFormeCurr << endl;
 			if (idFormeCurr == id) { // on a trouve l'id
 				res = buffer;
 				fclose(f);
-				cout << idFormeCurr << "==" << id << endl;
 				return res;
 				
 			}

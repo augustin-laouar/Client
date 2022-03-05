@@ -54,7 +54,7 @@ public :
 		while (buffer[i] != ':') // on saute l'id
 			i++;
 		if (buffer[i + 1] != 'N') {
-			return NULL;
+			throw Erreur("Impossible de charger un plan a partir d'un fichier de forme simple");
 		}
 		i += 3;
 		string idCurr;
