@@ -17,6 +17,9 @@ protected :
 		int i = 0;
 		while (buffer[i] != ':') // on saute l'id
 			i++;
+		if (buffer[i + 1] != 'N') {
+			return NULL;
+		}
 		i+= 3;
 		string idCurr;
 		while (buffer[i] != '|') { // on recupere les id des formes du groupe
@@ -31,8 +34,9 @@ protected :
 		Forme2D* premiereForme = gr->charger(fichier, ids[0]); // on charge lla premire forme pour savoir quel est la couleur du groupe
 		GroupeForme* g = new GroupeForme(premiereForme->getCouleur());
 		g->ajouterForme(premiereForme);
-		for (size_t j = 1; i < ids.size(); j++) {
-			g->ajouterForme(gr->charger(fichier, ids[i]));
+		cout << ids.size() << endl;
+		for (size_t j = 1; j < ids.size(); j++) {
+			g->ajouterForme(gr->charger(fichier, ids[j]));
 		}
 		return g;
 		

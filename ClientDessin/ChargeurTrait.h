@@ -12,7 +12,7 @@ protected :
 			i++;
 		}
 		i++;
-		if (buffer[i] != 'F' || buffer[i + 2] != '1') { // ce n'est pas une forme ou un cercle 
+		if (buffer[i] != 'F' || buffer[i + 2] != '1') { // ce n'est pas une forme ou un trait 
 			return NULL;
 		}
 		i += 4;
@@ -26,7 +26,7 @@ protected :
 			y += buffer[i];
 			i++;
 		}
-		Vecteur2D v1(stoi(x), stoi(y));
+		Vecteur2D v1(stod(x), stod(y));
 		i++;
 		x.clear();
 		y.clear();
@@ -39,7 +39,7 @@ protected :
 			y += buffer[i];
 			i++;
 		}
-		Vecteur2D v2(stoi(x), stoi(y));
+		Vecteur2D v2(stod(x), stod(y));
 		i++;
 		string r, g, b;
 		while (buffer[i] != ',') {

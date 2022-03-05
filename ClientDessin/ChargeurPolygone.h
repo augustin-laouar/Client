@@ -35,7 +35,7 @@ protected :
 					y += buffer[i];
 					i++;
 				}
-				Vecteur2D v(stoi(x), stoi(y));
+				Vecteur2D v(stod(x), stod(y));
 				listePoint.push_back(v);
 				i++;
 				x.clear();

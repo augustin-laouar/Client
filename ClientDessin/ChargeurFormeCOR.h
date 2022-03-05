@@ -31,31 +31,28 @@ public :
 	virtual string trouverForme(const string fichier,const string id)const {
 		FILE* f = fopen(fichier.c_str(), "r");
 		char buffer[BUFSIZ];
-		bool trouver = false;
 		string res;
-		while (fgets(buffer, BUFSIZ, f) != NULL) { // tant qu'on a pas trouvé la forme ou que l'on est pas en fin de fichier
+		while (fgets(buffer,BUFSIZ,f)) { // tant qu'on a pas trouvé la forme ou que l'on est pas en fin de fichier
 			int i = 0;
-			cout << buffer << endl;
+		//scout << buffer << endl;
 			string idFormeCurr;
 			while (buffer[i] != ':') { // on recupere l'id de la forme a cette ligne
 				idFormeCurr += buffer[i];
 				i++;
 			}
-			cout << idFormeCurr << "?=" << id << endl;
+			cout << idFormeCurr << endl;
 			if (idFormeCurr == id) { // on a trouve l'id
-				cout << " trouver" << endl;
 				res = buffer;
-				trouver = true;
-				break;
+				fclose(f);
+				cout << idFormeCurr << "==" << id << endl;
+				return res;
+				
 			}
 			idFormeCurr.clear();
 		}
 		fclose(f);
 		if (res.size() == 0) {
 			throw Erreur("Aucune forme correspondante a cette ID");
-		}
-		else {
-			return res;
 		}
 	}
 
