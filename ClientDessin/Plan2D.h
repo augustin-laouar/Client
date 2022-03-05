@@ -76,5 +76,14 @@ public:
 	Plan2D* clone()const {
 		return new Plan2D(*this);
 	}
+	string toString()const {
+		string res = "Plan2D { \n";
+		for (int i = 0; i < nbFormes(); i++) {
+			res += FormesDuPlan[i]->toString() + "\n";
+		}
+		return res += "}";
+	}
 };
-
+inline ostream& operator<<(ostream& s, const Plan2D& p) {
+	return s << p.toString() << endl;
+}

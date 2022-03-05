@@ -130,14 +130,14 @@ private:
 			for (int i = 0; i < racine->nbFils(); i++) {
 				requete += racine->getFils(i)->id + ";"; // pour un noeud, on indiquera seulement l'id de ses fils
 			}
-			requete += '\n';
+			requete += "|\n";
 			fputs(requete.c_str(), file); // la requete pour ce noeud sera ecrite avant celle de ses fils
 			for (int i = 0; i < racine->nbFils(); i++) {
 				enregistrerArbre(racine->getFils(i), file); // appel recursif pour enregistrer tout les fils 
 			}
 		}
 		else { // c'est une feuille
-			requete = racine->id + ":F;" + racine->data + '\n'; // F signifie feuille
+			requete = racine->id + ":F;" + racine->data + "|\n"; // F signifie feuille
 			fputs(requete.c_str(), file);
 		}
 		cout << requete << endl;
