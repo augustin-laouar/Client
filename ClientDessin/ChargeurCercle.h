@@ -3,26 +3,19 @@
 #include "Cercle.h"
 class ChargeurCercle : public ChargeurFormeCOR
 {
-public:
-	ChargeurCercle(ChargeurFormeCOR* suivant = NULL) {
-		this->suivant = suivant;
-	}
-	/**
-	* @brief charger un cercle si la requete y correspond 
-	*/
-	Forme2D* chargerForme(FILE *f )const {
-		char buffer[BUFSIZ];
-		while (fgets(buffer, BUFSIZ, f)) {
+protected:
+	Forme2D* chargerForme(const string fichier, const string id)const {
+			string buffer = trouverForme(fichier, id);
 			int i = 0;
 			//on saute l'id
 			while (buffer[i] != ':' && buffer[i] != '\0') {
 				i++;
 			}
 			i++;
-			if (buffer[i] != 'F' || buffer[i+2] != '2') { // ce n'est pas une forme ou un cercle 
+			if (buffer[i] != 'F' || buffer[i + 2] != '2') { // ce n'est pas une forme ou un cercle 
 				return NULL;
 			}
-			i += 2;
+			i += 4;
 			string rayon;
 			while (buffer[i] != ';') {
 				rayon += buffer[i];
@@ -51,14 +44,18 @@ public:
 				i++;
 			}
 			i++;
-			while (buffer[i] != ',') {
+			while (buffer[i] != '|') {
 				b += buffer[i];
 				i++;
 			}
 			Couleur c(stoi(r), stoi(g), stoi(b));
 			return new Cercle(Vecteur2D(stod(x), stod(y)), stod(rayon), c);
 		}
+public:
+	ChargeurCercle(ChargeurFormeCOR* suivant = NULL) {
+		this->suivant = suivant;
 	}
+	
 		
 };
 
