@@ -34,7 +34,9 @@ private:
 		cout << "Enregistrement de la forme termine.";
 
 	}
-
+	/** @brief creation de Noeud contenant un polygone avec un identifiant de cette forme
+	* 
+	*/
 	virtual Noeud* creerNoeud(const Polygone* f, string id) const {
 		Noeud* n = new Noeud(id);
 		n->data = "3;" + to_string(f->getNbPoint()) + ";";
@@ -44,7 +46,9 @@ private:
 		n->data += f->getCouleur().toString() + ";";
 		return n;
 	}
-
+	/** 
+	* @brief creation de Noeud contenant un Trait avec un identifiant de cette forme
+	*/
 	virtual Noeud* creerNoeud(const Trait* f, string id) const {
 		Noeud* n = new Noeud(id);
 		n->data = "1;" + to_string(f->getP1().x) + "," + to_string(f->getP1().y) + ";" + to_string(f->getP2().x) + "," + to_string(f->getP2().y) + ";" + f->getCouleur().toString() + ";";
@@ -53,7 +57,7 @@ private:
 	}
 
 	/**
-	* @brief enregistrement d'un cercle dans le fichier
+	* @brief Creation de noeud contenant un cercle avec un identifiant
 	*/
 	virtual Noeud* creerNoeud(const Cercle* f, string id)const {
 		Noeud* n = new Noeud(id);
@@ -62,7 +66,7 @@ private:
 	}
 
 	/**
-	* @brief enregistrement de forme simple
+	* @brief creation de noeud avec une forme simple et un identifiant 
 	*/
 
 	virtual Noeud* creerNoeud(const FormeSimple* f, string id)const {
@@ -86,7 +90,7 @@ private:
 
 	}
 	/**
-	* @brief enregistrement d'un groupe de forme
+	* @brief creation d'un noeud avec un groupe de forme
 	*/
 	virtual Noeud* creerNoeud(const GroupeForme* f, string id)const {
 		Noeud* g = new Noeud(id);
@@ -99,7 +103,7 @@ private:
 		return g;
 	}
 	/**
-	* @brief enregistrment d'une forme2D
+	* @brief creation d'un noeud avec une forme2d et un identifiant
 	*/
 	virtual Noeud* creerNoeud(const Forme2D* f, string id)const {
 		if (f->whoAmI() > 0) {
@@ -111,6 +115,9 @@ private:
 			return creerNoeud(f2, id);
 		}
 	}
+	/**
+	* @brief enregistrement d'un arbre contenant les formes que l'on veut enregistrer 
+	*/
 
 	void enregistrerArbre(Noeud* racine, FILE* file)const {
 		//enregistrement de l'arborescence
@@ -178,14 +185,6 @@ public:
 		enregistrerNoeud(n, outfile);
 		fclose(outfile);
 	}
-	/**
-	* @brief enregistrement d'un polygone dans un fichier	
-	*/
-
-	/**
-	* @brief enregistrement d'un trait dans un fichier 
-	*/
-
 	
 	/**
 	* @brief elle permet d'enregistrer un repere avec toutes les formes qui y sont dessinées
