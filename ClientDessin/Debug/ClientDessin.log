@@ -1,39 +1,8 @@
-﻿  Cercle.cpp
-  Chargeur.cpp
-  ChargeurCercle.cpp
-  ChargeurForme.cpp
-  ChargeurFormeCOR.cpp
-  ChargeurGroupe.cpp
-  ChargeurPolygone.cpp
-  ChargeurTrait.cpp
-  Communication.cpp
-  Couleur.cpp
-  Dessin.cpp
+﻿  Source.cpp
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(129,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(180,24): warning C4018: '<' : incompatibilité signed/unsigned
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(240,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(241,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-  Enregistreur.cpp
-  Erreur.cpp
-  Forme2D.cpp
-  FormeSimple.cpp
-  GroupeForme.cpp
-  Matrice2D.cpp
-  Noeud.cpp
-  Plan2D.cpp
-  Polygone.cpp
-  Génération de code en cours...
-  Compilation en cours...
-  Source.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(129,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(180,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(240,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(241,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-  Trait.cpp
-  Triangle.cpp
-  Vecteur2D.cpp
-  VisitorForme2D.cpp
-  Génération de code en cours...
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Enregistreur.h(94): warning C4715: 'Enregistreur::creerNoeud' : les chemins de contrôle ne retournent pas tous une valeur
 C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\ChargeurFormeCOR.h(60): warning C4715: 'ChargeurFormeCOR::trouverForme' : les chemins de contrôle ne retournent pas tous une valeur
   ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe

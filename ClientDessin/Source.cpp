@@ -369,16 +369,18 @@ int main() {
 		Chargeur chargeur;
 		Plan2D* test = chargeur.chargerPlan("test.txt");
 		cout << *test << endl;
+		Dessin d(plan, 300, 300);
+		d.Dessiner();
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
 	}
-	/*Dessin d2(plan, 800, 500);
-	d2.Dessiner();*/
-	//Dessin d(plan,300,300);
-	//d.Dessiner();
-	/*Communication* com = com->getInstance();
-	com->FermerConnexion();*/
+	//Dessin d2(plan, 800, 500);
+	//d2.Dessiner();
+//	Dessin d(plan,300,300);
+	
+	Communication* com = com->getInstance();
+	com->FermerConnexion();
 
 //Vecteur2D p1(0, 3);
 //Vecteur2D p2(2, 5);
