@@ -17,7 +17,7 @@ public :
 	*/
 
 	void ajouterForme(const Forme2D* f) {
-		//test si la forme n'entre pas en collision avec une autre forme du groupe, si oui throw error
+		
 		ListeForme.push_back(f->clone());
 		ListeForme[ListeForme.size()-1]->setCouleur(this->couleur); // met la forme ajoutée de la meme couleur que le groupe
 	}
@@ -26,7 +26,7 @@ public :
 	*/
 
 	void retirer(int i) {
-		if (i >= ListeForme.size()) {
+		if (i >= (int)ListeForme.size()) {
 			return;
 		}
 		ListeForme.erase(ListeForme.begin()+i);
@@ -57,10 +57,7 @@ public :
 	void translation(const Vecteur2D& v);
 	void homothetie(const Vecteur2D&, double);
 	void rotation(const Vecteur2D&, double);
-	/*virtual GroupeForme* translation(const Vecteur2D& v)const;
-	virtual GroupeForme* homothetie(const Vecteur2D& centre, const double zoom)const;
-	virtual GroupeForme* rotation(const Vecteur2D& centre, double angle)const;*/
-
+	
 	/**
 	* @brief affecter un groupe de forme a un autre 
 	*/

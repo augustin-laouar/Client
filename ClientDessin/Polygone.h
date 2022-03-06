@@ -30,7 +30,7 @@ public :
 	}
 	
 	/**
-	* @brief renvoi une pointeur sur une copie du polygone
+	* @brief renvoi un pointeur sur une copie du polygone
 	*/
 	Polygone* clone()const {
 		return new Polygone(*this);
@@ -68,10 +68,10 @@ public :
 	}
 	/**
 	* @brief retirer un point du polygone en fonction de son indice
-	* 
+	* @param i indice du point a supprimer
 	*/
 	void retirer (int i) {
-		if (i >= ListePoint.size()) {
+		if (i >= (int) ListePoint.size()) {
 			return;
 		}
 		ListePoint.erase(ListePoint.begin() + i);
@@ -110,7 +110,7 @@ public :
 		return 11;
 	}
 	/**
-	* @brief necessaire au designe pattern visitor 
+	* @brief necessaire au design pattern visitor 
 	*/
 
 	virtual void accept(const VisitorForme2D* v);

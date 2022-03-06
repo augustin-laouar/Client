@@ -83,7 +83,7 @@ bool GroupeForme::operator == (const GroupeForme& g)const {
 
 	if (this->getNbForme() != g.getNbForme())
 		return false;
-	for (int i = 0; i < ListeForme.size(); i++)
+	for (int i = 0; i < (int)ListeForme.size(); i++)
 	{
 		if (!(ListeForme[i] == g.ListeForme[i]))
 		{

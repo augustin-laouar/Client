@@ -7,6 +7,11 @@
 class ChargeurGroupe : public ChargeurFormeCOR
 {
 protected :
+	/**
+	* @brief charger une forme simple a partir d'un fichier grace a son identifiant
+	* @param id : identifiant de la forme dans le fichier
+	* @param fichier : nom du fichier
+	*/
 	Forme2D* chargerForme(const string fichier,const string id)const {
  		ChargeurTrait* t = new ChargeurTrait;
 		ChargeurCercle* c = new ChargeurCercle(t);

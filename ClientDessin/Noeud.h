@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-class Noeud // uniquement le minimum necessaire
+class Noeud // uniquement les methodes neccessaires 
 {
 private:
 	vector<Noeud*>Fils;
@@ -20,22 +20,33 @@ public:
 			delete(Fils[i]);
 		}
 	}
+	/**
+	* @brief ajouter un noeud fils au noeud pere courant
+	*/
 	void ajouterFils(Noeud * f) {
 		if (f != this) {
-			int numFils = Fils.size() + 1;
+			int numFils = Fils.size() + 1; //numero du fils dans l arbre
 			Fils.push_back(f);
 		}
 		else {
 			throw Erreur("Impossible d'ajouter ce fils au noeud");
 		}
 	}
+	/**
+	* @brief retourner le fils se trouvant a l'indice i
+	*/
 	Noeud* getFils(size_t i) {
 		return Fils[i];
 	}
+	/**
+	* @brief retourne le nombre de fils du noeud 
+	*/
 	int nbFils()const {
 		return Fils.size();
 	}
-
+	/**
+	* @brief verifie l egalite entre deux noeuds
+	*/
 	bool operator ==(const Noeud& f)const {
 		if (this->id == f.id)
 			return true;

@@ -5,7 +5,7 @@ class Triangle : public Polygone
 public:
 
 	/**
-	* @brief Construction d'un triangle a partir de trois point<
+	* @brief Construction d'un triangle a partir de trois point
 	*/
 	Triangle(Vecteur2D p1, Vecteur2D p2, Vecteur2D p3, Couleur c) : Polygone(c)
 	{

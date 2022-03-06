@@ -20,13 +20,13 @@ public:
 		}
 	}
 	/**
-	* @brief retourne nombre de formes du plan
+	* @brief retourne le nombre de formes du plan
 	*/
 	int nbFormes()const {
 		return FormesDuPlan.size();
 	}
 	/**
-	* @brief ajout d une forme au plan
+	* @brief ajout d'une forme au plan
 	*/
 	void ajouterForme(const Forme2D* f) {
 		FormesDuPlan.push_back(f->clone());
@@ -37,6 +37,9 @@ public:
 	Forme2D* getForme(int i)const {
 		return FormesDuPlan[i]->clone();
 	}
+	/**
+	* @brief retourne la plus grande abscisse que peut avoir un point dans un plan
+	*/
 	double xMAX()const {
 		double max = DBL_MIN;
 		for (size_t i = 0; i < FormesDuPlan.size(); i++) {
@@ -46,6 +49,9 @@ public:
 		}
 		return max;
 	}
+	/**
+	* @brief retourne la plus grande ordonnee que peut avoir un point dans un plan
+	*/
 	double yMAX()const {
 		double max = DBL_MIN;
 		for (size_t i = 0; i < FormesDuPlan.size(); i++) {
@@ -55,6 +61,9 @@ public:
 		}
 		return max;
 	}
+	/**
+	* @brief retourne la plus petite abscisse que peut avoir un point dans un plan
+	*/
 	double xMIN()const {
 		double min = DBL_MAX;
 		for (size_t i = 0; i < FormesDuPlan.size(); i++) {
@@ -64,6 +73,9 @@ public:
 		}
 		return min;
 	}
+	/**
+	* @brief retourne la plus petite ordonnee que peut avoir un point dans un plan
+	*/
 	double yMIN()const {
 		double min = DBL_MAX;
 		for (size_t i = 0; i < FormesDuPlan.size(); i++) {

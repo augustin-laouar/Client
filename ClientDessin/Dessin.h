@@ -194,8 +194,7 @@ public:
 			visit(f2);
 		}
 	}
-//Plan2D(p5, 600, 300); //p1'(0,300) p2'(600,0) = rectangle ecran ( rect')
-//rect p1(-0.3,-4.7) p2(7,5.2) ( rect )
+
 	
 	/**
 	 * @brief methode pour le passage des coordonnes du monde reel a l ecran d'une forme simple 
