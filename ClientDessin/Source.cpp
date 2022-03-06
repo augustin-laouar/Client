@@ -364,11 +364,15 @@ int main() {
 		plan.ajouterForme(&g1);
 		plan.ajouterForme(g2);
 		e->EnregistrerPlan(plan);
-		Enregistreur* e2 = new Enregistreur("test2.txt");
+		/*Enregistreur* e2 = new Enregistreur("test2.txt");
 		g1.accept(e2);
 		Chargeur chargeur;
 		Plan2D* test = chargeur.chargerPlan("test.txt");
-		cout << *test << endl;
+		cout << *test << endl;*/
+		Dessin d2(plan, 1200, 600);
+		d2.Dessiner();
+		Communication* com = com->getInstance();
+		com->FermerConnexion();
 	}
 	catch(Erreur e) {
 		cout << e.what() << endl;
