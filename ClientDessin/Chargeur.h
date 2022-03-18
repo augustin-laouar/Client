@@ -7,7 +7,7 @@
 #pragma warning(disable : 4996)
 class Chargeur
 {
-public :
+protected :
 	/**
 	* @brief charger des formes a partir d'un fichier en utilisant le design pattern chain of responsability
 	*/
@@ -18,6 +18,8 @@ public :
 		ChargeurPolygone* cp = new ChargeurPolygone(ct);
 		return cp->charger(fichier);
 	}
+public :
+	
 	/**
 	* @brief charger un trait a partir d'un fichier en utilisant le design pattern COR
 	*/

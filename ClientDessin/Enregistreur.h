@@ -196,6 +196,9 @@ public:
 	* @brief elle permet d'enregistrer un repere avec toutes les formes qui y sont dessinées
 	*/
 	void EnregistrerPlan(const Plan2D& plan) {
+		if (plan.nbFormes() == 0) {
+			throw Erreur("Plan vide, enregistrement impossible");
+		}
 		FILE* outfile;
 		cout << "Enregistrement du plan..." << endl;
 		outfile = fopen(nomFichier.c_str(), "w");

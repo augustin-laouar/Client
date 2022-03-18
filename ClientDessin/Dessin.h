@@ -248,13 +248,13 @@ public:
 	*/
 	Vecteur2D MondeEcranVecteur(const Vecteur2D v)const {
 		double xMAX = Monde.xMAX();
-		xMAX += xMAX * 0.1;
+		xMAX += xMAX * 0.2;
 		double xMIN = Monde.xMIN();
-		xMIN -= xMIN * 0.1;
+		xMIN -= xMIN * 0.2;
 		double yMAX = Monde.yMAX();
-		yMAX += yMAX * 0.1;
+		yMAX += yMAX * 0.2;
 		double yMIN = Monde.yMIN();
-		yMIN -= yMIN * 0.1;
+		yMIN -= yMIN * 0.2;
 		Vecteur2D p1(xMIN, yMIN);
 		Vecteur2D p2(xMAX, yMAX);
 		Vecteur2D p1bis(0, y);

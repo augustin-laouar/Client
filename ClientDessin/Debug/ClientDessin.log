@@ -1,8 +1,6 @@
 ﻿  Source.cpp
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(129,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(180,24): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(240,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Dessin.h(241,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Enregistreur.h(94): warning C4715: 'Enregistreur::creerNoeud' : les chemins de contrôle ne retournent pas tous une valeur
-C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\ChargeurFormeCOR.h(60): warning C4715: 'ChargeurFormeCOR::trouverForme' : les chemins de contrôle ne retournent pas tous une valeur
-  ClientDessin.vcxproj -> C:\Users\hp\Desktop\projets\ppil\Client\Client\ClientDessin\Debug\ClientDessin.exe
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(129,16): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(180,24): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(240,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Dessin.h(241,14): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  ClientDessin.vcxproj -> C:\Users\Augustin\Desktop\S6\PPIL\Client\ClientDessin\Debug\ClientDessin.exe
